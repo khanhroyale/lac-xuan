@@ -1,0 +1,3198 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lạc Xuân — Thương Xá Thẻ Bài, Mô Hình &amp; Trà Mứt Á Đông</title>
+  <style>
+    :root {
+      --bg-void: #120305;
+      --bg-lacquer: #1d0508;
+      --bg-card: #24070b;
+      --crimson: #a81522;
+      --crimson-bright: #d42231;
+      --gold: #f5c96b;
+      --gold-deep: #c98c24;
+      --jade: #169888;
+      --text: #fff3e3;
+      --muted: #c9a7aa;
+      --border: rgba(245, 201, 107, 0.22);
+      --border-strong: rgba(245, 201, 107, 0.52);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: var(--bg-void);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .serif {
+      font-family: Georgia, "Times New Roman", serif;
+      letter-spacing: 0.6px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 45;
+      background: rgba(18, 3, 5, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--gold);
+      font-weight: 900;
+      font-size: 21px;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      background: linear-gradient(145deg, #8f111c, #49060c);
+      border: 1px solid var(--border-strong);
+      display: grid;
+      place-items: center;
+      padding: 5px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-search {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-search input {
+      width: 190px;
+      padding: 8px 12px 8px 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      font-size: 13.5px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .nav-search input:focus { border-color: var(--gold); }
+    .nav-search span { position: absolute; left: 10px; font-size: 13px; opacity: 0.7; pointer-events: none; }
+
+    .cart-btn {
+      border: none;
+      background: linear-gradient(135deg, #ffd56b, #d89621);
+      color: #2b0509;
+      padding: 8px 15px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 13px;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 4px 16px rgba(245, 201, 107, 0.25);
+      transition: transform 0.18s;
+    }
+    .cart-btn:hover { transform: translateY(-1px); }
+    .cart-btn.bump { animation: bump 0.32s ease; }
+    @keyframes bump { 50% { transform: scale(1.1); } }
+
+    .cart-badge {
+      background: #45060c;
+      color: var(--gold);
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 11.5px;
+      padding: 0 5px;
+    }
+
+    /* ================= HERO PHONG CÁCH THƯƠNG XÁ Á ĐÔNG ================= */
+    .hero {
+      position: relative;
+      padding: 58px 20px 48px;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 15%, rgba(255, 196, 70, 0.22), transparent 55%),
+        radial-gradient(circle at 50% 45%, rgba(168, 21, 34, 0.45), transparent 68%),
+        linear-gradient(180deg, #2a060b 0%, #160305 70%, var(--bg-void) 100%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-temple-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      opacity: 0.42;
+      z-index: 1;
+    }
+
+    .float-card {
+      position: absolute;
+      width: 112px;
+      height: 158px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(245, 201, 107, 0.55);
+      background: linear-gradient(160deg, rgba(130, 16, 26, 0.78), rgba(35, 5, 9, 0.92));
+      box-shadow: 0 0 28px rgba(245, 201, 107, 0.18), inset 0 0 18px rgba(255, 180, 60, 0.12);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      z-index: 3;
+      pointer-events: none;
+      opacity: 0.72;
+    }
+    .float-card span { font-size: 38px; filter: drop-shadow(0 0 10px rgba(245, 201, 107, 0.5)); }
+    .float-card small { font-size: 10px; font-weight: 800; color: var(--gold); letter-spacing: 1px; text-transform: uppercase; }
+
+    .fc-1 { left: 6%; top: 18%; transform: rotate(-14deg); animation: levitate 5.5s ease-in-out infinite; }
+    .fc-2 { left: 16%; top: 44%; transform: rotate(-6deg) scale(0.92); animation: levitate 6.2s ease-in-out infinite -2s; }
+    .fc-3 { right: 6%; top: 18%; transform: rotate(14deg); animation: levitate 5.8s ease-in-out infinite -1s; }
+    .fc-4 { right: 16%; top: 44%; transform: rotate(6deg) scale(0.92); animation: levitate 6.5s ease-in-out infinite -3s; }
+
+    @keyframes levitate {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -12px; }
+    }
+
+    .hero-center {
+      position: relative;
+      z-index: 5;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      margin: 0;
+      font-size: clamp(34px, 5.2vw, 56px);
+      font-weight: 900;
+      color: var(--gold);
+      text-shadow: 0 4px 24px rgba(0, 0, 0, 0.8), 0 0 36px rgba(245, 201, 107, 0.25);
+      text-transform: uppercase;
+    }
+
+    .hero-subbrand {
+      margin: 8px 0 14px;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 3.5px;
+      color: #f3c46b;
+      text-transform: uppercase;
+      opacity: 0.9;
+    }
+
+    .hero-desc {
+      margin: 0 auto 26px;
+      max-width: 560px;
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: #eed4d6;
+    }
+
+    .hero-search-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      max-width: 540px;
+      margin: 0 auto 30px;
+    }
+
+    .hero-search-bar input {
+      flex: 1;
+      padding: 13px 16px;
+      border-radius: 8px;
+      border: 1px solid var(--border-strong);
+      background: rgba(25, 5, 8, 0.82);
+      color: #fff;
+      font-size: 14.5px;
+      outline: none;
+    }
+    .hero-search-bar input:focus { border-color: var(--gold); box-shadow: 0 0 16px rgba(245, 201, 107, 0.2); }
+
+    .btn-gold {
+      border: none;
+      background: linear-gradient(135deg, #f9d16e, #d38f20);
+      color: #2b0509;
+      padding: 13px 22px;
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      box-shadow: 0 6px 20px rgba(245, 201, 107, 0.28);
+      transition: transform 0.18s;
+    }
+    .btn-gold:hover { transform: translateY(-2px); }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--gold);
+    }
+    .stat-item span {
+      font-size: 12.5px;
+      color: var(--muted);
+    }
+
+    /* ================= KHUNG GAME PIXEL NGANG RỘNG VÔ HẠN ================= */
+    .game-showcase {
+      max-width: 1220px;
+      margin: 30px auto 12px;
+      padding: 0 20px;
+    }
+
+    .game-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 16px 18px 14px;
+      border-radius: 20px;
+      background: linear-gradient(145deg, rgba(46, 8, 13, 0.94), rgba(18, 4, 7, 0.97));
+      border: 1.5px solid var(--border-strong);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.58), inset 0 0 36px rgba(245, 201, 107, 0.06);
+      position: relative;
+    }
+
+    .game-header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .game-title-group {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .game-title-group h3 {
+      margin: 0;
+      font-size: 19px;
+      color: var(--gold);
+    }
+
+    .coords-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: monospace;
+      font-size: 11.5px;
+      color: #a6e3b9;
+      background: rgba(22, 152, 136, 0.16);
+      border: 1px solid rgba(22, 152, 136, 0.42);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .aura-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #ffe399;
+      background: rgba(245, 201, 107, 0.1);
+      border: 1px solid rgba(245, 201, 107, 0.32);
+      padding: 3px 9px;
+      border-radius: 6px;
+    }
+
+    .game-toolbar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .game-stat {
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid var(--border-strong);
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--gold);
+    }
+
+    .g-pill-btn {
+      height: 30px;
+      padding: 0 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: #1d2622;
+      color: #fff3e3;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.18s;
+    }
+    .g-pill-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .g-pill-btn.active {
+      background: linear-gradient(135deg, #169888, #0f6b60);
+      border-color: #7dff9b;
+      color: #fff;
+      box-shadow: 0 0 12px rgba(22, 152, 136, 0.45);
+    }
+
+    .vol-control {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 30px;
+      padding: 0 10px;
+      border-radius: 8px;
+      background: #1a211e;
+      border: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    .vol-control input[type="range"] {
+      width: 72px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .pixel-widget {
+      background: #101614;
+      border: 2px solid var(--border-strong);
+      border-radius: 14px;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      user-select: none;
+    }
+    .pixel-widget:focus { outline: 2px solid var(--gold); }
+
+    .canvas-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 384 / 168;
+      max-height: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1.5px solid #2e3d37;
+      cursor: crosshair;
+      background: #111815;
+    }
+
+    #pixel-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+    }
+
+    .pickup-banner {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%) translateY(14px);
+      background: rgba(18, 4, 6, 0.94);
+      border: 1.5px solid var(--gold);
+      color: var(--gold);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 800;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.22s ease;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
+    }
+    .pickup-banner.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    .game-controls-row {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0 4px;
+    }
+
+    .hint-keys {
+      font-size: 12px;
+      color: #a9bfb6;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .dpad {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .dpad button {
+      width: 30px;
+      height: 26px;
+      border: 1px solid rgba(245, 201, 107, 0.35);
+      background: #212a27;
+      color: var(--gold);
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .dpad button:active { background: var(--gold); color: #121715; }
+
+    /* Khung nhận mã giảm giá thu gọn nằm ở dưới */
+    .collected-box {
+      background: rgba(10, 2, 4, 0.62);
+      border: 1px dashed var(--border);
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+
+    .collected-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #ffe8b3;
+      margin-bottom: 6px;
+    }
+
+    .collected-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      max-height: 62px;
+      overflow-y: auto;
+    }
+
+    .voucher-pill {
+      border: 1px solid rgba(245, 201, 107, 0.5);
+      background: rgba(245, 201, 107, 0.12);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.18s;
+    }
+    .voucher-pill:hover { background: var(--gold); color: #2b0509; }
+    .voucher-pill.used { background: var(--jade); border-color: #7dff9b; color: #fff; }
+
+    /* ================= MARKETPLACE ================= */
+    .marketplace {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 46px 20px 72px;
+    }
+
+    .market-head {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .market-head h2 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3.6vw, 38px);
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .market-head p {
+      margin: 0 auto 22px;
+      max-width: 540px;
+      font-size: 14.5px;
+      color: var(--muted);
+    }
+
+    .cat-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .cat-pill {
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 12.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cat-pill:hover { border-color: var(--gold); color: var(--gold); }
+    .cat-pill.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #2b0509;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .product-card {
+      background: linear-gradient(170deg, #2b080d, #180407);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+      cursor: pointer;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-strong);
+      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.55), 0 0 22px rgba(245, 201, 107, 0.14);
+    }
+
+    .product-thumb {
+      position: relative;
+      height: 196px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 50% 45%, #4a0e16, #1b0407);
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    .product-thumb svg {
+      width: 100%;
+      height: 100%;
+      max-width: 175px;
+      max-height: 172px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+    }
+    .product-card:hover .product-thumb svg { transform: scale(1.06); }
+
+    .p-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(168, 21, 34, 0.92);
+      border: 1px solid rgba(245, 201, 107, 0.55);
+      color: var(--gold);
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .p-voucher-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: var(--jade);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 999px;
+      z-index: 2;
+    }
+
+    .p-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 7px;
+    }
+
+    .p-cat {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .p-title { margin: 0; font-size: 16px; font-weight: 800; line-height: 1.35; color: #fff; }
+    .p-desc { margin: 0; font-size: 12.8px; color: var(--muted); line-height: 1.45; flex: 1; }
+
+    .p-rule-hint {
+      font-size: 11.5px;
+      color: #f5c96b;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+
+    .p-bottom {
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .p-price { font-size: 17.5px; font-weight: 900; color: var(--gold); }
+    .p-old { display: block; font-size: 11.5px; color: #8c6b6e; text-decoration: line-through; font-weight: 500; }
+
+    .add-btn {
+      border: 1px solid var(--border-strong);
+      background: rgba(245, 201, 107, 0.12);
+      color: var(--gold);
+      padding: 8px 13px;
+      border-radius: 8px;
+      font-weight: 800;
+      font-size: 12.5px;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .add-btn:hover { background: var(--gold); color: #2b0509; }
+
+    /* ================= MODALS ================= */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 85;
+      background: rgba(10, 2, 3, 0.78);
+      backdrop-filter: blur(5px);
+      display: none;
+      place-items: center;
+      padding: 18px;
+    }
+    .modal-backdrop.open { display: grid; }
+
+    .modal-box {
+      width: min(760px, 100%);
+      max-height: 90dvh;
+      overflow-y: auto;
+      background: linear-gradient(165deg, #27060a, #150305);
+      border: 1.5px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 24px;
+      color: var(--text);
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.75);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .detail-art {
+      height: 240px;
+      border-radius: 14px;
+      background: radial-gradient(circle, #4f0e17, #1d0407);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      padding: 12px;
+    }
+    .detail-art svg { width: 100%; height: 100%; max-width: 210px; max-height: 210px; border-radius: 10px; }
+
+    .rule-box {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.32);
+      border: 1px solid var(--border);
+    }
+    .rule-box h4 { margin: 0 0 8px; color: var(--gold); font-size: 15px; }
+    .rule-box ul, .rule-box ol { margin: 0; padding-left: 18px; font-size: 13.5px; line-height: 1.65; color: #edd7d9; }
+
+    /* ================= CART DRAWER & CHECKOUT ================= */
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 2, 3, 0.65);
+      z-index: 70;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100dvh;
+      width: min(420px, 100vw);
+      background: #1c0508;
+      border-left: 1px solid var(--border);
+      z-index: 80;
+      transform: translateX(100%);
+      transition: transform 0.28s cubic-bezier(.22,1,.36,1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .drawer-head {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-head h3 { margin: 0; font-size: 18px; color: var(--gold); }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .cart-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .cart-row-ico {
+      width: 48px;
+      height: 48px;
+      border-radius: 10px;
+      background: #38090f;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .cart-row-ico svg { width: 42px; height: 42px; }
+
+    .cart-row-info { flex: 1; min-width: 0; }
+    .cart-row-info strong { display: block; font-size: 13.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cart-row-info span { font-size: 13px; font-weight: 700; color: var(--gold); }
+
+    .qty-ctrl { display: flex; align-items: center; gap: 6px; }
+    .qty-ctrl button {
+      width: 25px;
+      height: 25px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      background: #2b070c;
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .drawer-foot {
+      padding: 16px 20px 20px;
+      border-top: 1px solid var(--border);
+      background: #140305;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .voucher-row { display: flex; gap: 8px; }
+    .voucher-row input {
+      flex: 1;
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.05);
+      color: #fff;
+      font-size: 13px;
+      text-transform: uppercase;
+      outline: none;
+    }
+    .voucher-row button {
+      border: none;
+      background: var(--jade);
+      color: #fff;
+      padding: 0 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .summary-line { display: flex; justify-content: space-between; font-size: 13.5px; color: var(--muted); }
+    .summary-total { display: flex; justify-content: space-between; font-size: 18px; font-weight: 900; color: var(--gold); }
+
+    .checkout-form { display: grid; gap: 12px; margin-top: 12px; }
+    .checkout-form input, .checkout-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      font-size: 14px;
+      outline: none;
+    }
+    .pay-methods { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+    .pay-opt {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .pay-opt.active { border-color: var(--gold); background: rgba(245, 201, 107, 0.14); color: var(--gold); }
+
+    .qr-box {
+      display: none;
+      align-items: center;
+      gap: 14px;
+      background: #fff;
+      color: #1c0508;
+      padding: 12px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+    .qr-box.show { display: flex; }
+
+    /* ================= FOOTER & BỘ CÔNG THƯƠNG ================= */
+    footer {
+      background: #0c0203;
+      border-top: 1px solid var(--border);
+      padding: 46px 20px 28px;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr 1fr 1.1fr;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    footer h4 { margin: 0 0 12px; color: var(--gold); font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; }
+    footer p, footer li { font-size: 13.5px; line-height: 1.7; margin: 0 0 6px; }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+
+    .policy-link {
+      color: var(--muted);
+      cursor: pointer;
+      text-decoration: none;
+      transition: color 0.18s;
+    }
+    .policy-link:hover { color: var(--gold); text-decoration: underline; }
+
+    .bct-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1b4b8a, #0e2e5c);
+      border: 1.5px solid #ffd56b;
+      color: #fff;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: transform 0.2s;
+    }
+    .bct-badge:hover { transform: scale(1.03); }
+
+    .pay-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .pay-chip {
+      font-size: 11px;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .copy {
+      max-width: 1220px;
+      margin: 18px auto 0;
+      font-size: 12.5px;
+      color: #8c6a6d;
+      text-align: center;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(90px);
+      background: #2b060a;
+      color: var(--gold);
+      border: 1.5px solid var(--gold);
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      z-index: 98;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.45);
+      transition: transform 0.28s cubic-bezier(.22,1.25,.36,1);
+      pointer-events: none;
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    @media (max-width: 1000px) {
+      .float-card { display: none; }
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-inner { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .detail-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .nav-search { display: none; }
+      .hero-search-bar { flex-direction: column; }
+      .hero-search-bar input, .hero-search-bar .btn-gold { width: 100%; }
+      .product-grid, .footer-inner, .pay-methods { grid-template-columns: 1fr; }
+      .canvas-frame { aspect-ratio: 16 / 10; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="brand serif">
+        <span class="brand-mark">
+          <svg viewBox="0 0 64 64" width="26" height="26" fill="#f5efe9">
+            <path d="M21 8 L26 14 L26 24 L29 24 L29 15 L35 15 L35 24 L38 24 L38 14 L43 8 L45 10 L41 16 L41 26 L49 20 L51 23 L43 30 L52 29 L52 33 L42 35 L49 41 L47 44 L39 39 L39 48 L35 45 L32 48 L29 45 L25 48 L25 39 L17 44 L15 41 L22 35 L12 33 L12 29 L21 30 L13 23 L15 20 L23 26 L23 16 L19 10 Z" />
+            <circle cx="27" cy="29" r="2.2" fill="#49090f"/><circle cx="37" cy="29" r="2.2" fill="#49090f"/>
+            <path d="M26 49 L24 56 L29 52 L32 57 L35 52 L40 56 L38 49 Z" />
+          </svg>
+        </span>
+        <span>LẠC XUÂN</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Trang chủ</a>
+        <a href="#san-pham">Thương xá</a>
+        <a href="#mini-game">Rừng săn mã</a>
+        <a href="#lien-he">Chính sách</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="nav-search">
+          <span>🔍</span>
+          <input type="text" id="nav-search" placeholder="Tìm thẻ bài, trà, mứt..." />
+        </div>
+        <button class="cart-btn" id="open-cart-btn">
+          <span>🛒 Giỏ hàng</span>
+          <span class="cart-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO PHONG CÁCH ĐỀN ĐÀI Á ĐÔNG ĐỎ VÀNG -->
+  <section class="hero">
+    <div class="hero-temple-bg" aria-hidden="true">
+      <svg viewBox="0 0 900 420" width="960" height="440">
+        <defs>
+          <linearGradient id="rayGrad" x1="0.5" y1="0" x2="0.5" y2="1">
+            <stop offset="0%" stop-color="#ffd56b" stop-opacity="0.55" />
+            <stop offset="100%" stop-color="#ffd56b" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+        <polygon points="450,10 180,420 720,420" fill="url(#rayGrad)" />
+        <path d="M210 175 Q450 105 690 175 L655 190 Q450 135 245 190 Z" fill="#6b1019" stroke="#f5c96b" stroke-width="2" />
+        <path d="M260 130 Q450 75 640 130 L615 145 Q450 98 285 145 Z" fill="#8f111c" stroke="#f5c96b" stroke-width="2" />
+        <rect x="305" y="185" width="22" height="235" fill="#3a080e" stroke="#d99b26" stroke-width="1.2" />
+        <rect x="573" y="185" width="22" height="235" fill="#3a080e" stroke="#d99b26" stroke-width="1.2" />
+        <rect x="355" y="195" width="190" height="44" rx="4" fill="#2a0509" stroke="#f5c96b" stroke-width="1.5" />
+      </svg>
+    </div>
+
+    <div class="float-card fc-1"><span>👺</span><small>Yêu Quái</small></div>
+    <div class="float-card fc-2"><span>⚔️</span><small>Sử Thi</small></div>
+    <div class="float-card fc-3"><span>🎴</span><small>Tết Chạm</small></div>
+    <div class="float-card fc-4"><span>🐉</span><small>Mô Hình</small></div>
+
+    <div class="hero-center">
+      <h1 class="hero-title serif">LẠC XUÂN THƯƠNG XÁ</h1>
+      <div class="hero-subbrand">Di Sản Dân Gian &amp; Tinh Hoa Ngày Tết</div>
+      <p class="hero-desc">
+        Khám phá thế giới Card Game Yêu Quái, Sử Thi Hùng Ca, Board Game Tết Chạm đa thế hệ, mô hình sưu tầm, nghệ thuật giấy bồi và trà mứt thượng hạng.
+      </p>
+
+      <div class="hero-search-bar">
+        <input type="text" id="hero-search" placeholder="Tìm Yêu Quái, Sơn Tinh, Tết Chạm, Trà Shan..." />
+        <a href="#san-pham" class="btn-gold">Khám phá ngay</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-item"><strong>16+</strong><span>Tuyệt phẩm chọn lọc</span></div>
+        <div class="stat-item"><strong>3,200+</strong><span>Gia đình sum vầy</span></div>
+        <div class="stat-item"><strong>20 Mã + 6 Bảo Vật</strong><span>Săn trên bản đồ vô hạn</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KHU RỪNG PIXEL NGANG RỘNG VÔ HẠN: SĂN 20 MÃ + 6 VẬT PHẨM THẦN THOẠI -->
+  <section class="game-showcase" id="mini-game">
+    <div class="game-panel">
+      <!-- Thanh tiêu đề & điều khiển nhạc / tự chơi -->
+      <div class="game-header-bar">
+        <div class="game-title-group">
+          <h3 class="serif">Rừng Đêm Vô Hạn — Săn Mã &amp; Bảo Vật Thần Thoại</h3>
+          <div class="coords-pill" id="coords-pill">Tọa độ: (1, 1) • Map vô hạn</div>
+          <div class="aura-pill" id="aura-pill" title="Vật phẩm thần thoại chỉ tạo hiệu ứng đẹp cho nhân vật, không nhận mã giảm giá">✨ Hào quang: Chưa có</div>
+        </div>
+
+        <div class="game-toolbar">
+          <div class="game-stat">🎫 <span id="game-score">0</span> / 20 mã</div>
+          <button class="g-pill-btn" id="autoplay-btn" title="Để Rồng Lạc Xuân tự động dạo rừng săn mã & bảo vật">🤖 Tự chơi: Tắt</button>
+          <button class="g-pill-btn" id="sound-btn" title="Bật / Tắt nhạc nền & hiệu ứng">🎵 Nhạc: Bật</button>
+          <label class="vol-control" title="Chỉnh âm lượng nhạc & hiệu ứng">
+            <span>🔊</span>
+            <input type="range" id="vol-slider" min="0" max="100" value="45" />
+          </label>
+          <button class="g-pill-btn" id="center-btn" title="Về lửa trại (0,0)">🏕️ Về trại</button>
+        </div>
+      </div>
+
+      <!-- Khung Canvas ngang rộng -->
+      <div class="pixel-widget" id="pixel-widget" tabindex="0">
+        <div class="canvas-frame">
+          <canvas id="pixel-canvas" width="384" height="168"></canvas>
+          <div class="pickup-banner" id="pickup-banner"></div>
+        </div>
+
+        <div class="game-controls-row">
+          <div class="hint-keys">
+            <span>⌨️ <b>WASD / Mũi tên</b> di chuyển</span>
+            <span>🖱️ <b>Bấm lên bản đồ</b> để đi tới</span>
+            <span>🏹 <b>Bảo vật thần thoại</b> (Ngựa Sắt, Nỏ Thần, Voi Trưng Trắc...) chỉ tạo hiệu ứng đẹp, không tăng mã</span>
+          </div>
+          <div class="dpad">
+            <button data-dir="left" title="Trái">◀</button>
+            <button data-dir="up" title="Lên">▲</button>
+            <button data-dir="down" title="Xuống">▼</button>
+            <button data-dir="right" title="Phải">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phần nhận mã giảm giá thu gọn ở dưới -->
+      <div class="collected-box">
+        <div class="collected-head">
+          <span>🎒 Túi mã giảm giá đã săn (bấm vào mã để áp dụng vào giỏ hàng):</span>
+          <span id="collected-counter">0 / 20</span>
+        </div>
+        <div class="collected-list" id="collected-list">
+          <span style="font-size:12px; color:var(--muted);">Di chuyển hoặc bật "Tự chơi" để săn mã giảm giá phát sáng theo hướng mũi tên vàng...</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARKETPLACE SẢN PHẨM -->
+  <main class="marketplace" id="san-pham">
+    <div class="market-head">
+      <h2 class="serif">Thương Xá Lạc Xuân</h2>
+      <p>Hình ảnh minh họa chuẩn theo bộ sưu tập Lạc Xuân. Nhấn vào từng sản phẩm để xem thông số và hướng dẫn chi tiết.</p>
+      <div class="cat-pills" id="cat-pills">
+        <button class="cat-pill active" data-cat="Tất cả">Tất cả</button>
+        <button class="cat-pill" data-cat="Card & Board Game">Card &amp; Board Game</button>
+        <button class="cat-pill" data-cat="Mô Hình">Mô Hình</button>
+        <button class="cat-pill" data-cat="Trang Trí & Giấy Bồi">Trang Trí &amp; Giấy Bồi</button>
+        <button class="cat-pill" data-cat="Trà & Mứt Tết">Trà &amp; Mứt Tết</button>
+      </div>
+    </div>
+
+    <div class="product-grid" id="product-grid"></div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="lien-he">
+    <div class="footer-inner">
+      <div>
+        <h4 class="serif">🏮 Lạc Xuân Thương Xá</h4>
+        <p>Công ty TNHH Văn Hóa &amp; Quà Tặng Lạc Xuân. Chuyên sản xuất Board Game bản sắc Việt, mô hình sưu tầm, đồ thủ công giấy bồi và trà mứt ngày Tết.</p>
+        <p>📍 128 Đường Hoa Mai, Q.1, TP.HCM<br />📞 Hotline: 1900 6868 • ✉️ chao@lacxuan.vn</p>
+      </div>
+
+      <div>
+        <h4>Chính Sách &amp; Quy Định</h4>
+        <ul>
+          <li><a class="policy-link" onclick="openPolicy('return')">Chính sách đổi trả &amp; hoàn tiền</a></li>
+          <li><a class="policy-link" onclick="openPolicy('shipping')">Chính sách vận chuyển &amp; kiểm hàng</a></li>
+          <li><a class="policy-link" onclick="openPolicy('privacy')">Chính sách bảo mật thông tin</a></li>
+          <li><a class="policy-link" onclick="openPolicy('terms')">Điều khoản sử dụng &amp; bảo hành</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Hình Thức Thanh Toán</h4>
+        <p>Hỗ trợ đa dạng phương thức an toàn, tiện lợi:</p>
+        <div class="pay-badges">
+          <span class="pay-chip">💵 Tiền mặt COD</span>
+          <span class="pay-chip">🏦 VietQR 24/7</span>
+          <span class="pay-chip">📱 Ví MoMo</span>
+          <span class="pay-chip">💳 Visa / ATM</span>
+        </div>
+      </div>
+
+      <div>
+        <h4>Chứng Nhận Pháp Lý</h4>
+        <p>GPKD số: 0318268999 do Sở KH&amp;ĐT TP.HCM cấp ngày 10/01/2025.</p>
+        <div class="bct-badge" onclick="openPolicy('bct')" title="Xem thông tin xác thực mô phỏng">
+          <svg viewBox="0 0 36 36" width="32" height="32">
+            <circle cx="18" cy="18" r="16" fill="#d42231" stroke="#ffd56b" stroke-width="2" />
+            <path d="M11 18 L16 23 L26 13" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <div style="text-align:left; line-height:1.2;">
+            <div style="font-size:10px; opacity:0.9;">ĐÃ THÔNG BÁO</div>
+            <div style="font-size:12px; font-weight:900; color:#ffd56b;">BỘ CÔNG THƯƠNG</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copy">© 2026 Lạc Xuân Thương Xá. Mô phỏng giao diện thương mại điện tử bản sắc Á Đông.</div>
+  </footer>
+
+  <!-- MODAL CHI TIẾT SẢN PHẨM & LUẬT CHƠI -->
+  <div class="modal-backdrop" id="product-modal">
+    <div class="modal-box" id="product-modal-body"></div>
+  </div>
+
+  <!-- MODAL CHÍNH SÁCH & THANH TOÁN -->
+  <div class="modal-backdrop" id="info-modal">
+    <div class="modal-box" id="info-modal-body"></div>
+  </div>
+
+  <!-- GIỎ HÀNG DRAWER -->
+  <div class="drawer-backdrop" id="drawer-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-head">
+      <h3 class="serif">🛒 Giỏ hàng Lạc Xuân</h3>
+      <button class="modal-close" style="position:static;" id="close-cart-btn">✕</button>
+    </div>
+
+    <div class="cart-items" id="cart-items"></div>
+
+    <div class="drawer-foot">
+      <div class="voucher-row">
+        <input type="text" id="voucher-input" placeholder="Nhập mã săn được..." />
+        <button id="apply-voucher-btn">Áp dụng</button>
+      </div>
+      <div class="summary-line"><span>Tạm tính</span><span id="cart-subtotal">0₫</span></div>
+      <div class="summary-line" id="discount-row" style="display:none; color:#69ff9c; font-weight:700;">
+        <span id="discount-label">Giảm giá</span>
+        <span id="cart-discount">-0₫</span>
+      </div>
+      <div class="summary-total"><span>Tổng cộng</span><span id="cart-total">0₫</span></div>
+      <button class="btn-gold" style="width:100%; text-align:center;" id="open-checkout-btn">Tiến hành thanh toán ✨</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // =====================================================
+    // 1. HÌNH ẢNH MINH HỌA SVG CHUẨN THEO BỘ SƯU TẬP TÀI LIỆU PDF
+    // =====================================================
+    function getProductSVG(p) {
+      switch (p.artType) {
+        // Trang 1 PDF: Bảng thẻ bài 3x3 nền đỏ sẫm (Ma Rơi, Ma Vú Dài, Quỷ Nhập Tràng, Cổ Trùng, Linh Miêu...)
+        case "yeuquai":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#2c0708"/>
+            <g stroke="#d89b28" stroke-width="1.4">
+              <rect x="14" y="12" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="61" y="12" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="108" y="12" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="14" y="59" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="61" y="59" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="108" y="59" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="14" y="106" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="61" y="106" width="38" height="42" rx="4" fill="#170607"/>
+              <rect x="108" y="106" width="38" height="42" rx="4" fill="#170607"/>
+            </g>
+            <!-- Ma Rơi xanh lam -->
+            <ellipse cx="33" cy="27" rx="9" ry="7" fill="#1aa38b"/><circle cx="30" cy="26" r="1.5" fill="#fff"/><circle cx="36" cy="26" r="1.5" fill="#fff"/>
+            <!-- Ma Vú Dài vàng -->
+            <circle cx="80" cy="25" r="7" fill="#d8a258"/><path d="M73 25 Q80 14 87 25" fill="#1a1210"/>
+            <!-- Quỷ Nhập Tràng -->
+            <circle cx="127" cy="26" r="6" fill="#c98574"/><path d="M120 35 L134 35 L131 44 L123 44 Z" fill="#8b261d"/>
+            <!-- Cổ Trùng -->
+            <path d="M23 76 Q33 65 43 76" stroke="#ff5252" stroke-width="3" fill="none"/><circle cx="33" cy="80" r="6" fill="#9c2323"/>
+            <!-- Thần Trùng quạ đỏ -->
+            <circle cx="80" cy="77" r="9" fill="#121212"/><circle cx="77" cy="75" r="2" fill="#ff3b30"/>
+            <!-- Linh Miêu -->
+            <ellipse cx="127" cy="80" rx="10" ry="6" fill="#2c2c34"/><circle cx="131" cy="74" r="4" fill="#2c2c34"/><circle cx="132" cy="73" r="1" fill="#ffd56b"/>
+            <!-- Ma Đói -->
+            <circle cx="33" cy="121" r="6" fill="#d9c6b0"/><rect x="30" y="127" width="6" height="11" fill="#a89078"/>
+            <!-- Ma Lon -->
+            <rect x="73" cy="120" y="119" width="14" height="16" rx="2" fill="#8c5830"/>
+            <!-- Ma Mặt Mâm -->
+            <circle cx="127" cy="126" r="9" fill="#f0c896"/><circle cx="124" cy="124" r="1.8" fill="#a81522"/><circle cx="130" cy="124" r="1.8" fill="#a81522"/>
+            <!-- Ngọc số xanh lá ở các lá -->
+            <g fill="#2eb872">
+              <circle cx="48" cy="49" r="3"/><circle cx="95" cy="49" r="3"/><circle cx="142" cy="49" r="3"/>
+              <circle cx="48" cy="96" r="3"/><circle cx="95" cy="96" r="3"/><circle cx="142" cy="96" r="3"/>
+              <circle cx="48" cy="143" r="3"/><circle cx="95" cy="143" r="3"/><circle cx="142" cy="143" r="3"/>
+            </g>
+          </svg>`;
+
+        // Trang 2 PDF: Bộ 3 lá bài Sử Thi (Huyền Trân Công Chúa, Súng Thần Công [4], Mỵ Châu)
+        case "suthi":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#e8c87a"/>
+            <!-- Lá giữa Súng Thần Công -->
+            <g transform="rotate(-11 84 82)">
+              <rect x="52" y="28" width="64" height="94" rx="6" fill="#2d171c" stroke="#f5c96b" stroke-width="2"/>
+              <rect x="57" y="33" width="54" height="44" fill="#d94e28"/>
+              <path d="M68 62 L98 46" stroke="#ffd56b" stroke-width="6" stroke-linecap="round"/>
+              <rect x="57" y="81" width="54" height="34" fill="#f2e6d0"/>
+              <text x="64" y="105" font-size="18" font-weight="900" fill="#2d171c">[4]</text>
+            </g>
+            <!-- Lá phải Mỵ Châu -->
+            <g transform="rotate(14 110 92)">
+              <rect x="78" y="42" width="62" height="92" rx="6" fill="#3a1619" stroke="#f5c96b" stroke-width="2"/>
+              <rect x="83" y="47" width="52" height="52" fill="#5e2a3b"/>
+              <circle cx="109" cy="65" r="8" fill="#ffe0bd"/>
+              <path d="M97 96 Q109 72 121 96" fill="#f7f2ea"/>
+              <rect x="83" y="102" width="52" height="26" fill="#efe2cc"/>
+              <text x="109" y="113" text-anchor="middle" font-size="7" font-weight="800" fill="#5a151b">MỴ CHÂU</text>
+            </g>
+            <!-- Lá trái Huyền Trân Công Chúa -->
+            <g transform="rotate(-13 54 66)">
+              <rect x="22" y="18" width="64" height="94" rx="6" fill="#491318" stroke="#f5c96b" stroke-width="2"/>
+              <rect x="27" y="23" width="54" height="54" fill="#b34d2d"/>
+              <path d="M62 32 Q74 28 72 44" stroke="#ffd56b" stroke-width="4" fill="none"/>
+              <circle cx="48" cy="40" r="8" fill="#ffe0bd"/>
+              <path d="M36 74 Q48 48 60 74" fill="#d42231"/>
+              <rect x="27" y="80" width="54" height="27" fill="#efe2cc"/>
+              <text x="54" y="89" text-anchor="middle" font-size="5.5" font-weight="800" fill="#5a151b">HUYỀN TRÂN</text>
+            </g>
+          </svg>`;
+
+        // Trang 3 PDF: Hộp Board Game Tết Chạm đỏ trên bàn gỗ + 2 lá bài Bộ Mứt Tết & Tết Chạm
+        case "tetcham":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#9e6d43"/>
+            <rect x="0" y="96" width="160" height="64" fill="#845731"/>
+            <!-- Hộp Tết Chạm đỏ -->
+            <rect x="24" y="18" width="112" height="72" rx="6" fill="#a81522" stroke="#f5c96b" stroke-width="2"/>
+            <rect x="24" y="18" width="22" height="72" rx="3" fill="#7d0f19"/>
+            <text x="72" y="42" text-anchor="middle" font-size="14" font-weight="900" fill="#ffd56b">Tết</text>
+            <text x="74" y="57" text-anchor="middle" font-size="13" font-weight="900" fill="#fff2dc">CHẠM</text>
+            <rect x="53" y="72" width="44" height="10" rx="3" fill="#f2dec0"/>
+            <!-- Gia đình minh họa trên hộp -->
+            <circle cx="107" cy="46" r="6" fill="#ffe0bd"/><circle cx="121" cy="48" r="6" fill="#ffe0bd"/>
+            <circle cx="114" cy="60" r="5" fill="#ffe0bd"/><circle cx="126" cy="62" r="5" fill="#ffe0bd"/>
+            <!-- Hai thẻ bài đặt trước hộp -->
+            <g transform="rotate(-10 56 122)">
+              <rect x="36" y="98" width="38" height="50" rx="4" fill="#f7ebd2" stroke="#d42231" stroke-width="1.5"/>
+              <rect x="41" y="103" width="28" height="18" rx="2" fill="#e6b85c"/>
+              <text x="55" y="131" text-anchor="middle" font-size="6" font-weight="900" fill="#7d0f19">BỘ MỨT TẾT</text>
+            </g>
+            <g transform="rotate(8 106 122)">
+              <rect x="86" y="98" width="38" height="50" rx="4" fill="#c9222f" stroke="#ffd56b" stroke-width="1.5"/>
+              <text x="105" y="122" text-anchor="middle" font-size="8" font-weight="900" fill="#ffd56b">Tết</text>
+              <text x="105" y="132" text-anchor="middle" font-size="8" font-weight="900" fill="#fff">CHẠM</text>
+            </g>
+          </svg>`;
+
+        // Combo 3 hộp game
+        case "combo":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#2e070c"/>
+            <rect x="18" y="34" width="52" height="72" rx="6" transform="rotate(-8 44 70)" fill="#5c0d14" stroke="#f5c96b" stroke-width="2"/>
+            <rect x="90" y="34" width="52" height="72" rx="6" transform="rotate(8 116 70)" fill="#7d111b" stroke="#f5c96b" stroke-width="2"/>
+            <rect x="44" y="48" width="72" height="78" rx="8" fill="#b81d29" stroke="#ffd56b" stroke-width="2.5"/>
+            <rect x="74" y="48" width="12" height="78" fill="#ffd56b"/>
+            <path d="M80 48 C60 28, 52 44, 76 48 C100 28, 108 44, 84 48" fill="none" stroke="#ffd56b" stroke-width="4"/>
+            <text x="80" y="96" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">COMBO 3</text>
+          </svg>`;
+
+        // Trang 4 PDF: Mô hình Sơn Tinh & Thủy Tinh (Thủy Tinh da xanh cầm đinh ba + Sơn Tinh áo choàng đỏ cầm rìu đen + cua biển & núi)
+        case "mohinh":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#cbe5ef"/>
+            <!-- Nền biển & sấm sét -->
+            <rect x="16" y="14" width="128" height="106" rx="4" fill="#2c6f8a"/>
+            <path d="M16 90 Q52 40 88 92 L88 120 L16 120 Z" fill="#52b89a"/>
+            <path d="M88 120 L118 32 L144 120 Z" fill="#174454"/>
+            <!-- Thủy Tinh (trái) -->
+            <line x1="36" y1="22" x2="36" y2="115" stroke="#8de0ff" stroke-width="3.5"/>
+            <path d="M29 22 L29 33 L43 33 L43 22" fill="none" stroke="#8de0ff" stroke-width="2.5"/>
+            <rect x="46" y="54" width="22" height="36" rx="6" fill="#74c8e8"/>
+            <circle cx="57" cy="42" r="9" fill="#74c8e8"/>
+            <path d="M48 68 L66 68 L64 96 L50 96 Z" fill="#175a94"/>
+            <rect x="47" y="65" width="20" height="4" fill="#ff7043"/>
+            <!-- Sơn Tinh (phải) -->
+            <path d="M90 54 L122 54 L126 105 L88 105 Z" fill="#c92222"/>
+            <rect x="94" y="54" width="22" height="36" rx="6" fill="#f3b692"/>
+            <circle cx="105" cy="41" r="9" fill="#f3b692"/>
+            <path d="M97 35 L112 31 L108 39 Z" fill="#e53935"/>
+            <path d="M95 72 L115 72 L111 94 L99 94 Z" fill="#169888"/>
+            <line x1="78" y1="30" x2="90" y2="70" stroke="#222" stroke-width="3"/>
+            <path d="M72 30 Q82 22 86 38 Z" fill="#1b1b1b"/>
+            <!-- Đế cua & núi phía trước -->
+            <path d="M18 134 Q36 96 62 134 Z" fill="#7b3fa0" stroke="#f06292" stroke-width="2"/>
+            <circle cx="40" cy="123" r="6" fill="#ff7043"/>
+            <path d="M62 134 Q78 104 94 134 Z" fill="#794524" stroke="#ffb74d" stroke-width="2"/>
+            <polygon points="104,136 122,90 142,136" fill="#4b3f72"/>
+            <rect x="12" y="132" width="136" height="12" rx="3" fill="#68b0c4"/>
+          </svg>`;
+
+        // Trang 5 PDF: Bộ mô hình chibi dân gian nhiều nhân vật + lá cờ đỏ
+        case "botuyeuquai":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#f7f2ea"/>
+            <!-- Cờ đỏ phía sau -->
+            <line x1="94" y1="18" x2="94" y2="110" stroke="#7d4a2d" stroke-width="3.5"/>
+            <polygon points="94,20 120,42 114,82 82,78" fill="#c92b24" stroke="#ffd56b" stroke-width="1.5"/>
+            <line x1="95" y1="38" x2="108" y2="40" stroke="#2b0509" stroke-width="2.5"/>
+            <line x1="93" y1="50" x2="106" y2="52" stroke="#2b0509" stroke-width="2.5"/>
+            <!-- Nhân vật 1 (gà/áo nâu) -->
+            <circle cx="30" cy="88" r="10" fill="#ffd54f"/>
+            <path d="M24 79 Q30 70 36 79" fill="#e53935"/>
+            <path d="M19 96 Q30 92 41 96 L43 120 L17 120 Z" fill="#7b4a33"/>
+            <!-- Nhân vật 2 (heo cầm đinh ba) -->
+            <line x1="46" y1="68" x2="54" y2="118" stroke="#5d4037" stroke-width="2.5"/>
+            <path d="M39 68 L53 68 M41 68 L41 74 M46 68 L46 74 M51 68 L51 74" stroke="#5d4037" stroke-width="2"/>
+            <circle cx="65" cy="86" r="10" fill="#8d5a46"/>
+            <rect x="54" y="95" width="22" height="22" rx="6" fill="#26a69a"/>
+            <!-- Nhân vật 3 (ếch xanh đội vương miện) -->
+            <circle cx="96" cy="92" r="9" fill="#4db6ac"/>
+            <polygon points="89,84 96,74 103,84" fill="#ff5252"/>
+            <rect x="88" y="100" width="16" height="18" rx="5" fill="#fdd835"/>
+            <!-- Nhân vật 4 (khỉ áo nâu râu dài) -->
+            <path d="M126 52 Q120 34 114 48 M132 52 Q138 34 144 48" stroke="#ffd54f" stroke-width="3" fill="none"/>
+            <ellipse cx="129" cy="94" rx="18" ry="22" fill="#4e342e"/>
+            <circle cx="129" cy="68" r="11" fill="#c62828"/>
+            <circle cx="129" cy="68" r="7" fill="#ffe0bd"/>
+          </svg>`;
+
+        // Trang 6 PDF: Linh Vật Rồng Vàng Lạc Xuân uốn lượn trên mây
+        case "mohinh_rong":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#2d070c"/>
+            <!-- Mây vàng bên dưới -->
+            <path d="M24 128 Q45 112 72 122 Q100 110 136 124 Q142 138 118 142 L38 142 Q18 138 24 128 Z" fill="#d99b1e" stroke="#ffe082" stroke-width="1.5"/>
+            <!-- Thân rồng vàng uốn lượn -->
+            <path d="M40 58 Q56 96 80 78 Q104 60 118 88 Q128 104 134 54" fill="none" stroke="#e5a922" stroke-width="18" stroke-linecap="round"/>
+            <path d="M40 58 Q56 96 80 78 Q104 60 118 88 Q128 104 134 54" fill="none" stroke="#ffd54f" stroke-width="11" stroke-linecap="round" stroke-dasharray="6 5"/>
+            <!-- Đầu rồng & chân ngọc -->
+            <circle cx="42" cy="48" r="14" fill="#e5a922" stroke="#ffe082" stroke-width="1.5"/>
+            <path d="M28 45 L18 42 L26 52 Z" fill="#ffd54f"/>
+            <circle cx="38" cy="44" r="2.5" fill="#49090f"/>
+            <circle cx="26" cy="72" r="7" fill="#ffe082"/>
+            <!-- Đuôi quạt -->
+            <path d="M132 52 L148 34 L144 58 Z" fill="#ffd54f"/>
+          </svg>`;
+
+        // Trang 7 PDF: Đầu Lân giấy bồi rực rỡ lông vàng
+        case "giayboi":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#3a1c15"/>
+            <!-- Lông viền vàng rực -->
+            <circle cx="80" cy="82" r="56" fill="#ffeb3b" stroke="#ff9800" stroke-width="3" stroke-dasharray="7 4"/>
+            <!-- Đầu lân họa tiết đỏ đen xanh -->
+            <ellipse cx="80" cy="80" rx="44" ry="46" fill="#f7f2ea" stroke="#d42231" stroke-width="4"/>
+            <path d="M42 62 Q80 34 118 62" fill="#d42231"/>
+            <path d="M52 54 Q80 42 108 54" fill="#169888"/>
+            <!-- Sừng lân cam vàng -->
+            <path d="M74 44 L80 22 L86 44 Z" fill="#ff6d00" stroke="#ffd54f" stroke-width="2"/>
+            <!-- Mắt to đen trắng -->
+            <ellipse cx="60" cy="82" rx="13" ry="11" fill="#fff" stroke="#111" stroke-width="3"/>
+            <circle cx="62" cy="82" r="6" fill="#111"/>
+            <ellipse cx="100" cy="82" rx="13" ry="11" fill="#fff" stroke="#111" stroke-width="3"/>
+            <circle cx="98" cy="82" r="6" fill="#111"/>
+            <!-- Mũi & miệng -->
+            <circle cx="80" cy="96" r="10" fill="#ff6d00" stroke="#ffd54f" stroke-width="2"/>
+            <path d="M52 108 Q80 126 108 108" fill="none" stroke="#ffeb3b" stroke-width="8" stroke-linecap="round"/>
+          </svg>`;
+
+        // Trang 8 PDF: Tượng Chú Tễu bụng tròn cười tươi cầm 2 quạt nan
+        case "chuteu":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#4f291c"/>
+            <!-- Quạt nan 2 bên -->
+            <circle cx="34" cy="112" r="18" fill="#f3c58e" stroke="#c67c43" stroke-width="2"/>
+            <circle cx="126" cy="112" r="18" fill="#f3c58e" stroke="#c67c43" stroke-width="2"/>
+            <!-- Thân áo cam & bụng tròn -->
+            <path d="M54 66 L106 66 L114 134 L46 134 Z" fill="#e67e22" stroke="#f5c96b" stroke-width="1.5"/>
+            <ellipse cx="80" cy="96" rx="17" ry="20" fill="#f7cbb2"/>
+            <!-- Dải lụa xanh buộc bụng -->
+            <path d="M62 114 Q80 108 98 114 M74 114 L68 130 M86 114 L92 130" stroke="#169888" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- Đầu Chú Tễu cười -->
+            <circle cx="80" cy="46" r="20" fill="#f7cbb2"/>
+            <path d="M60 40 Q80 18 102 42" fill="#d42231"/>
+            <path d="M98 38 L112 58 L98 62 Z" fill="#66bb6a"/>
+            <path d="M70 43 Q74 39 78 43 M83 43 Q87 39 91 43" stroke="#2b0509" stroke-width="2" fill="none"/>
+            <path d="M71 53 Q80 61 89 53 Z" fill="#fff" stroke="#a81522" stroke-width="1.5"/>
+          </svg>`;
+
+        // Trang 9 PDF: Dàn Lồng Đèn đỏ họa tiết vàng có tua rua đỏ
+        case "denlong":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#2d090e"/>
+            <!-- Đèn trái nhỏ -->
+            <line x1="36" y1="10" x2="36" y2="28" stroke="#ccc" stroke-width="1.5"/>
+            <polygon points="36,28 52,44 45,68 27,68 20,44" fill="#e53935" stroke="#ffd54f" stroke-width="1.2"/>
+            <line x1="36" y1="68" x2="36" y2="92" stroke="#ff5252" stroke-width="3"/>
+            <!-- Đèn giữa lớn -->
+            <line x1="80" y1="12" x2="80" y2="34" stroke="#ccc" stroke-width="1.5"/>
+            <polygon points="80,34 104,58 93,96 67,96 56,58" fill="#d32f2f" stroke="#ffd54f" stroke-width="1.8"/>
+            <circle cx="80" cy="64" r="9" fill="none" stroke="#ffd54f" stroke-width="1.5"/>
+            <line x1="80" y1="96" x2="80" y2="128" stroke="#ff5252" stroke-width="4"/>
+            <!-- Đèn phải -->
+            <line x1="124" y1="8" x2="124" y2="38" stroke="#ccc" stroke-width="1.5"/>
+            <polygon points="124,38 144,58 134,88 114,88 104,58" fill="#c62828" stroke="#ffd54f" stroke-width="1.5"/>
+            <line x1="124" y1="88" x2="124" y2="118" stroke="#ff5252" stroke-width="3.5"/>
+            <!-- Đèn dưới nhỏ -->
+            <polygon points="56,82 72,98 66,120 46,120 40,98" fill="#ef5350" stroke="#ffd54f" stroke-width="1.5"/>
+            <line x1="56" y1="120" x2="56" y2="144" stroke="#ff5252" stroke-width="3"/>
+          </svg>`;
+
+        // Trang 10 PDF: Hộp gỗ + lon thiếc trắng khóa đồng Trà Shan Tuyết & đĩa lá trà vàng
+        case "tra_shan":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#121010"/>
+            <!-- Hộp gỗ sau -->
+            <rect x="24" y="22" width="90" height="84" fill="#8b5a2b" stroke="#c48f5a" stroke-width="4"/>
+            <rect x="33" y="34" width="34" height="62" rx="4" fill="#eceae4" stroke="#d4af37" stroke-width="1"/>
+            <rect x="71" y="34" width="34" height="62" rx="4" fill="#eceae4" stroke="#d4af37" stroke-width="1"/>
+            <!-- Lon thiếc trước mặt -->
+            <rect x="86" y="48" width="52" height="84" rx="6" fill="#f2efe9" stroke="#c98c24" stroke-width="1.8"/>
+            <rect x="106" y="52" width="12" height="9" rx="2" fill="#d4af37"/>
+            <rect x="94" y="70" width="36" height="36" fill="none" stroke="#c98c24" stroke-width="1.2"/>
+            <path d="M98 98 Q112 78 126 98" fill="none" stroke="#9e7b2f" stroke-width="1.5"/>
+            <!-- Đĩa đồng đựng lá trà khô -->
+            <ellipse cx="52" cy="116" rx="34" ry="14" fill="#d4af37" stroke="#ffe082" stroke-width="1.5"/>
+            <path d="M30 115 Q52 96 74 115 Q52 124 30 115 Z" fill="#3a332a"/>
+          </svg>`;
+
+        // Trang 11 PDF: Hũ trà trắng Hatvala nhãn hoa sen hồng "Trà Sen Tây Hồ"
+        case "tra_sen":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#2d4c22"/>
+            <!-- Lon cao trái -->
+            <rect x="24" y="24" width="50" height="114" rx="8" fill="#eef0ea" stroke="#cfd4ca" stroke-width="1.5"/>
+            <rect x="24" y="24" width="50" height="14" rx="5" fill="#dfe2db"/>
+            <rect x="28" y="48" width="42" height="58" rx="6" fill="#7cb342" stroke="#ec407a" stroke-width="2"/>
+            <rect x="31" y="64" width="36" height="26" rx="4" fill="#c62828"/>
+            <ellipse cx="49" cy="76" rx="14" ry="8" fill="#f48fb1"/>
+            <text x="49" y="100" text-anchor="middle" font-size="6" font-weight="800" fill="#fff">Trà Sen Tây Hồ</text>
+            <!-- Hũ thấp phải -->
+            <rect x="86" y="54" width="56" height="78" rx="8" fill="#eef0ea" stroke="#cfd4ca" stroke-width="1.5"/>
+            <rect x="84" y="50" width="60" height="14" rx="5" fill="#d8dcd3"/>
+            <rect x="91" y="72" width="46" height="44" rx="6" fill="#7cb342" stroke="#ec407a" stroke-width="2"/>
+            <ellipse cx="114" cy="90" rx="16" ry="9" fill="#f48fb1"/>
+            <text x="114" y="110" text-anchor="middle" font-size="6" font-weight="800" fill="#fff">Lotus Tea</text>
+          </svg>`;
+
+        // Trang 12 PDF: Ly thủy tinh trà hoa cúc vàng, hũ mật ong, hoa cúc trắng
+        case "tra_cuc":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#f5a623"/>
+            <!-- Hũ mật ong -->
+            <rect x="22" y="68" width="32" height="40" rx="6" fill="#d86812" stroke="#ffe0b2" stroke-width="1.5"/>
+            <rect x="25" y="62" width="26" height="7" rx="2" fill="#f5e6cc"/>
+            <!-- Đá trắng & ly trà -->
+            <rect x="82" y="102" width="56" height="14" rx="2" fill="#f0ece4"/>
+            <rect x="92" y="42" width="38" height="60" rx="4" fill="#e67e00" stroke="#fff3e0" stroke-width="2"/>
+            <path d="M130 52 C142 52, 142 88, 130 88" fill="none" stroke="#fff3e0" stroke-width="3"/>
+            <rect x="94" y="42" width="34" height="10" fill="#ffca28" opacity="0.7"/>
+            <!-- Đế đá dưới + bông cúc trắng -->
+            <rect x="44" y="114" width="98" height="16" rx="2" fill="#d7ccc8"/>
+            <circle cx="62" cy="112" r="7" fill="#fff"/><circle cx="62" cy="112" r="3" fill="#fbc02d"/>
+            <circle cx="76" cy="110" r="6" fill="#fff"/><circle cx="76" cy="110" r="2.5" fill="#fbc02d"/>
+          </svg>`;
+
+        // Trang 13 PDF: Khay mứt đỏ tròn nhiều ngăn + ấm trà men rạn & hoa mai vàng
+        case "mut_ngusac":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#7c3e18"/>
+            <!-- Ấm trà góc trên trái -->
+            <circle cx="44" cy="40" r="20" fill="#e0ddd5" stroke="#5d4037" stroke-width="1.5"/>
+            <circle cx="44" cy="24" r="6" fill="#d7d2c8"/>
+            <!-- Hoa mai vàng -->
+            <circle cx="132" cy="30" r="8" fill="#ffd54f"/><circle cx="118" cy="38" r="7" fill="#ffd54f"/>
+            <!-- Khay mứt đỏ lớn -->
+            <ellipse cx="94" cy="94" rx="56" ry="44" fill="#9c161f" stroke="#d4af37" stroke-width="2.5"/>
+            <ellipse cx="94" cy="86" rx="52" ry="38" fill="#f2e6d0"/>
+            <!-- Các ngăn mứt đủ màu -->
+            <ellipse cx="94" cy="60" rx="18" ry="9" fill="#ffe082"/>
+            <ellipse cx="62" cy="76" rx="14" ry="11" fill="#e6b89c"/>
+            <ellipse cx="126" cy="76" rx="14" ry="11" fill="#8d3b24"/>
+            <ellipse cx="68" cy="106" rx="16" ry="11" fill="#f5f5dc"/>
+            <ellipse cx="118" cy="108" rx="16" ry="10" fill="#7cb342"/>
+            <ellipse cx="94" cy="86" rx="16" ry="12" fill="#5d4037" stroke="#d4af37" stroke-width="1.5"/>
+            <circle cx="94" cy="84" r="4" fill="#ffd54f"/>
+          </svg>`;
+
+        // Trang 14 PDF: Hũ mứt gừng Huế nắp vàng nhãn đỏ + lát gừng tươi & viên mứt cam
+        case "mut_gung":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#5a3b2e"/>
+            <!-- Hũ thủy tinh mứt gừng -->
+            <rect x="34" y="34" width="66" height="78" rx="10" fill="#e0a96d" stroke="#fff3e0" stroke-width="2"/>
+            <rect x="36" y="24" width="62" height="14" rx="4" fill="#d4af37"/>
+            <rect x="52" y="24" width="30" height="72" fill="#c62828"/>
+            <text x="67" y="76" text-anchor="middle" font-size="8" font-weight="900" fill="#ffd54f">HUẾ</text>
+            <!-- Đĩa gỗ & viên mứt gừng cam -->
+            <polygon points="56,112 146,104 138,142 46,142" fill="#8d5524" stroke="#c68642" stroke-width="2"/>
+            <rect x="78" y="114" width="14" height="12" rx="3" fill="#ff8f00"/>
+            <rect x="96" y="118" width="15" height="12" rx="3" fill="#ffa000"/>
+            <rect x="114" y="112" width="14" height="12" rx="3" fill="#ff6f00"/>
+            <!-- 2 lát gừng tươi -->
+            <ellipse cx="38" cy="122" rx="14" ry="18" fill="#f9e08c" stroke="#c59b48" stroke-width="2"/>
+            <ellipse cx="52" cy="126" rx="12" ry="16" fill="#f9e08c" stroke="#c59b48" stroke-width="2"/>
+          </svg>`;
+
+        // Trang 15 PDF: Hũ thủy tinh VIMUT Mứt Hạt Sen xanh lá dứa + chén gỗ đầy hạt sen xanh
+        case "mut_dua":
+        default:
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#a81522"/>
+            <!-- Hũ lớn trái -->
+            <rect x="18" y="20" width="56" height="94" rx="8" fill="#8da85a" stroke="#fff3e0" stroke-width="1.5"/>
+            <rect x="20" y="14" width="52" height="10" rx="3" fill="#dcdcdc"/>
+            <rect x="24" y="42" width="44" height="54" rx="4" fill="#e8ebdf" stroke="#2e4d23" stroke-width="1.5"/>
+            <text x="46" y="55" text-anchor="middle" font-size="7" font-weight="900" fill="#2e4d23">MỨT HẠT SEN</text>
+            <ellipse cx="46" cy="70" rx="12" ry="7" fill="#689f38"/>
+            <!-- Hũ vừa phải -->
+            <rect x="86" y="46" width="48" height="68" rx="7" fill="#8da85a" stroke="#fff3e0" stroke-width="1.5"/>
+            <rect x="88" y="40" width="44" height="9" rx="3" fill="#d4af37"/>
+            <rect x="92" y="64" width="36" height="40" rx="4" fill="#e8ebdf"/>
+            <!-- Đĩa gỗ & đống hạt sen xanh lá dứa -->
+            <ellipse cx="86" cy="134" rx="42" ry="12" fill="#b57c44" stroke="#805024" stroke-width="2"/>
+            <g fill="#9ccc65" stroke="#558b2f" stroke-width="1">
+              <circle cx="68" cy="124" r="7"/><circle cx="82" cy="122" r="8"/>
+              <circle cx="96" cy="124" r="7"/><circle cx="75" cy="113" r="7"/>
+              <circle cx="89" cy="112" r="8"/><circle cx="104" cy="118" r="7"/>
+              <circle cx="83" cy="103" r="7"/>
+            </g>
+          </svg>`;
+      }
+    }
+
+    // =====================================================
+    // 2. DỮ LIỆU 16 SẢN PHẨM ĐÃ ĐỐI CHIẾU TÀI LIỆU
+    // =====================================================
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Card Game: Yêu Quái Dân Gian",
+        cat: "Card & Board Game",
+        price: 269000,
+        oldPrice: 320000,
+        badge: "Mới",
+        artType: "yeuquai",
+        desc: "Chiến thuật thẻ bài Ma Rơi, Ma Vú Dài, Quỷ Nhập Tràng, Cổ Trùng, Linh Miêu đậm chất huyền bí.",
+        specs: ["60 lá bài cán mờ chống nước", "2 – 5 người chơi • 25 phút/ván", "Kèm sách giải mã truyền thuyết dân gian"],
+        rulesTitle: "📜 Luật chơi chi tiết: Yêu Quái Dân Gian",
+        rules: [
+          "<b>Bước 1 — Chia bài & Trấn yểm:</b> Mỗi người nhận 5 lá bài và 3 Lá Bùa Hộ Mệnh úp trước mặt.",
+          "<b>Bước 2 — Triệu hồi Yêu Quái:</b> Đến lượt, bạn đánh ra 1 lá Yêu Quái (Ma Rơi, Quỷ Nhập Tràng, Linh Miêu...) vào bàn.",
+          "<b>Bước 3 — Khắc chế Ngũ Hành:</b> Dùng lá Pháp Bảo / Bùa Trấn để phá hủy Yêu Quái đối thủ hoặc cướp điểm Linh Hồn.",
+          "<b>Bước 4 — Điều kiện thắng:</b> Người đầu tiên thu phục đủ <b>15 điểm Yêu Khí</b> hoặc làm cạn Bùa Hộ Mệnh của tất cả đối thủ sẽ chiến thắng."
+        ]
+      },
+      {
+        id: 2,
+        name: "Card Game: Sử Thi Hùng Ca",
+        cat: "Card & Board Game",
+        price: 289000,
+        oldPrice: 340000,
+        badge: "Bán chạy",
+        artType: "suthi",
+        desc: "Quy tụ các nhân vật lịch sử & thần thoại: Huyền Trân Công Chúa, Mỵ Châu, Súng Thần Công.",
+        specs: ["64 lá bài ép kim ánh vàng", "2 – 4 người chơi • 30 phút/ván", "Thẻ Thánh Tướng & Cổ Vật cỡ lớn"],
+        rulesTitle: "📜 Luật chơi chi tiết: Sử Thi Hùng Ca",
+        rules: [
+          "<b>Bước 1 — Chọn Thần Chủ:</b> Mỗi người chọn 1 danh tướng / công chúa sử thi làm chỉ huy.",
+          "<b>Bước 2 — Tích tụ Linh Khí:</b> Đầu mỗi lượt rút 2 lá, tích điểm để triệu hồi quân lính và cổ vật (Súng Thần Công, Nỏ Thần...).",
+          "<b>Bước 3 — Giao tranh Linh Sơn:</b> Kích hoạt tuyệt chiêu riêng của từng thẻ để đảo ngược cục diện.",
+          "<b>Bước 4 — Giành chiến thắng:</b> Chiếm giữ đủ <b>3 Đỉnh Linh Sơn</b> trên bàn đấu để xưng vương."
+        ]
+      },
+      {
+        id: 3,
+        name: "Board Game: Tết Chạm (Bản Gia Đình)",
+        cat: "Card & Board Game",
+        price: 295000,
+        oldPrice: 350000,
+        badge: "Hot",
+        artType: "tetcham",
+        desc: "Board game kết nối đa thế hệ cho ông bà, cha mẹ và con cháu cùng chơi ngày Tết.",
+        specs: ["80 thẻ Tết Chạm chữ to dễ đọc", "2 – 8 người chơi (mọi lứa tuổi)", "Kèm hộp đỏ & tờ hướng dẫn chơi chi tiết"],
+        rulesTitle: "📜 Luật chơi chi tiết: Tết Chạm (Đa Thế Hệ)",
+        rules: [
+          "<b>Bước 1 — Vào mâm Tết:</b> Đặt bộ bài ở giữa, cả gia đình từ ông bà đến các cháu cùng ngồi quây quần.",
+          "<b>Bước 2 — Rút thẻ Chạm Ký Ức:</b> Lần lượt rút thẻ (VD: Bộ Mứt Tết, Chuyện Ngày Xưa...) và đọc to câu hỏi.",
+          "<b>Bước 3 — Thực hiện thử thách:</b> Chia sẻ câu chuyện, bắt chước điệu bộ vui hoặc hát 1 câu chúc Tết.",
+          "<b>Bước 4 — Nhận Lộc Đầu Năm:</b> Cả nhà bình chọn người kể hay nhất để trao bao lì xì may mắn."
+        ]
+      },
+      {
+        id: 4,
+        name: "Combo Trọn Bộ 3 Game Lạc Xuân",
+        cat: "Card & Board Game",
+        price: 760000,
+        oldPrice: 990000,
+        badge: "Tiết kiệm",
+        artType: "combo",
+        desc: "Gồm đủ Yêu Quái Dân Gian, Sử Thi Hùng Ca và Board Game Tết Chạm bản gia đình.",
+        specs: ["Đủ 3 hộp game nguyên seal", "Tặng kèm 10 bao lì xì gấm Lạc Xuân", "Hộp quà đỏ quai xách sang trọng"],
+        rulesTitle: "📜 Hướng dẫn trọn bộ Combo",
+        rules: [
+          "<b>Phòng khách gia đình:</b> Chơi <i>Tết Chạm</i> cùng ông bà, bố mẹ và trẻ nhỏ vào sáng Mùng 1.",
+          "<b>Nhóm bạn thân:</b> Đấu trí kịch tính với <i>Yêu Quái Dân Gian</i> và <i>Sử Thi Hùng Ca</i>.",
+          "<b>Tặng kèm:</b> 01 túi vải đựng bài và bộ lì xì giới hạn Lạc Xuân."
+        ]
+      },
+      {
+        id: 5,
+        name: "Mô Hình Sơn Tinh & Thủy Tinh (Cặp)",
+        cat: "Mô Hình",
+        price: 490000,
+        oldPrice: 560000,
+        badge: "Giới hạn",
+        artType: "mohinh",
+        desc: "Mô hình cặp Sơn Tinh cầm rìu – Thủy Tinh cầm đinh ba kèm phông nền biển núi sống động.",
+        specs: ["Cao 14cm • Kèm tiểu cảnh cua biển & núi đá", "Chất liệu Resin cao cấp bền màu", "Hộp cứng chống sốc sưu tầm"],
+        rulesTitle: "📜 Thông tin & Cách trưng bày Mô Hình",
+        rules: [
+          "<b>Chế tác:</b> Sơn phủ thủ công sắc nét, phông nền sóng biển & sấm chớp lắp ghép tiện lợi.",
+          "<b>Trưng bày:</b> Đặt tại bàn làm việc, tủ kính hoặc kết hợp làm quân tướng khi chơi Card Game Sử Thi.",
+          "<b>Bảo quản:</b> Lau bụi bằng cọ mềm, tránh phơi nắng trực tiếp trên 50°C."
+        ]
+      },
+      {
+        id: 6,
+        name: "Mô Hình Bộ Tứ Yêu Quái Dân Gian",
+        cat: "Mô Hình",
+        price: 420000,
+        oldPrice: 480000,
+        badge: "Chibi",
+        artType: "botuyeuquai",
+        desc: "Set mô hình chibi dân gian nhiều nhân vật kèm cờ hiệu đỏ truyền thống để bàn cực xinh.",
+        specs: ["Set nhân vật chibi cao 7–9cm kèm cờ lệnh", "Chất liệu PVC an toàn cho trẻ nhỏ", "Có thẻ nhân vật sưu tầm đi kèm"],
+        rulesTitle: "📜 Quy cách & Cách dùng Bộ Tứ Mô Hình",
+        rules: [
+          "<b>Trang trí:</b> Đặt trên bàn học, góc PC hoặc kệ sách tạo điểm nhấn văn hóa dân gian.",
+          "<b>Mở rộng Game:</b> Dùng làm quân đại diện (token) cho người chơi trong bộ <i>Card Game Yêu Quái</i>."
+        ]
+      },
+      {
+        id: 7,
+        name: "Mô Hình Linh Vật Rồng Lạc Xuân",
+        cat: "Mô Hình",
+        price: 360000,
+        oldPrice: 420000,
+        badge: "Độc quyền",
+        artType: "mohinh_rong",
+        desc: "Tượng Rồng Vàng vờn ngọc trên mây uốn lượn uy nghi, bày kệ sách & bàn tiếp khách ngày Tết.",
+        specs: ["Cao 15cm • Nhũ vàng kim tinh xảo", "Đế mây nguyên khối vững chắc", "Phiên bản giới hạn Lạc Xuân"],
+        rulesTitle: "📜 Ý nghĩa Mô Hình Rồng Lạc Xuân",
+        rules: [
+          "<b>Thiết kế:</b> Dựa theo hình tượng Rồng Á Đông vờn châu, tượng trưng cho cát tường, tài lộc và trí tuệ.",
+          "<b>Quà tặng:</b> Thích hợp làm quà biếu khai xuân cho đối tác hoặc người sưu tầm mô hình Việt."
+        ]
+      },
+      {
+        id: 8,
+        name: "Mặt Nạ & Đầu Lân Giấy Bồi Thủ Công",
+        cat: "Trang Trí & Giấy Bồi",
+        price: 230000,
+        oldPrice: 280000,
+        badge: "Thủ công",
+        artType: "giayboi",
+        desc: "Đầu lân giấy bồi truyền thống nhiều lớp, lông vàng rực rỡ và họa tiết vẽ tay tinh tế.",
+        specs: ["Đường kính 26cm • Trọng lượng siêu nhẹ", "Giấy dó bồi hồ nếp truyền thống", "Vẽ tay & gắn lông thủ công"],
+        rulesTitle: "📜 Đặc điểm Nghệ thuật Giấy Bồi",
+        rules: [
+          "<b>Thủ công 100%:</b> Bồi nhiều lớp giấy trên khuôn, phơi nắng tự nhiên rồi vẽ tay từng đường nét mắt lân.",
+          "<b>Treo trang trí:</b> Có móc dây đỏ để treo phòng khách hoặc đặt trên kệ trưng bày Tết."
+        ]
+      },
+      {
+        id: 9,
+        name: "Bộ Tượng Chú Tễu & Rối Giấy Bồi",
+        cat: "Trang Trí & Giấy Bồi",
+        price: 195000,
+        oldPrice: 240000,
+        badge: "Truyền thống",
+        artType: "chuteu",
+        desc: "Tượng Chú Tễu giấy bồi cười rạng rỡ tay cầm đôi quạt nan, mang nét vui tươi dân gian.",
+        specs: ["Cao 18cm • Tạo hình Chú Tễu cổ truyền", "Màu khoáng thiên nhiên tươi tắn", "Bọc hộp giấy kraft thân thiện"],
+        rulesTitle: "📜 Hướng dẫn trưng bày sản phẩm bồi",
+        rules: [
+          "<b>Vị trí đẹp:</b> Bày cạnh bình hoa đào/mai hoặc bàn trà đón khách đầu xuân.",
+          "<b>Lưu ý:</b> Tránh ngâm nước trực tiếp, chỉ lau bằng khăn khô mềm."
+        ]
+      },
+      {
+        id: 10,
+        name: "Lồng Đèn Giấy Bồi & Set Treo Cây Mai",
+        cat: "Trang Trí & Giấy Bồi",
+        price: 155000,
+        oldPrice: 190000,
+        badge: "",
+        artType: "denlong",
+        desc: "Lồng đèn lụa giấy đỏ họa tiết hoa vàng kèm tua rua đỏ rực rỡ treo hiên nhà & cây Tết.",
+        specs: ["Set đèn lồng đỏ nhiều dáng + dây treo", "Tặng kèm bóng LED ánh vàng ấm", "Gấp gọn tái sử dụng nhiều năm"],
+        rulesTitle: "📜 Hướng dẫn lắp đặt đèn lồng",
+        rules: [
+          "<b>Lắp khung:</b> Mở khung tre nhẹ nhàng, cài móc treo bóng LED ở đỉnh đèn.",
+          "<b>Phối cảnh:</b> Treo theo cụm cao thấp trước hiên hoặc cạnh cành mai/đào."
+        ]
+      },
+      {
+        id: 11,
+        name: "Trà Shan Tuyết Cổ Thụ Hà Giang",
+        cat: "Trà & Mứt Tết",
+        price: 380000,
+        oldPrice: 430000,
+        badge: "Đặc sản",
+        artType: "tra_shan",
+        desc: "Hộp quà gỗ đựng cặp thiếc trà trắng khóa đồng sang trọng cùng cánh trà cổ thụ tuyết phủ.",
+        specs: ["Hộp gỗ + Lon thiếc khóa đồng 150g", "Thu hái tại độ cao 1.400m Tây Côn Lĩnh", "Hạn sử dụng: 24 tháng"],
+        rulesTitle: "🍵 Bí quyết pha Trà Shan Tuyết ngon chuẩn vị",
+        rules: [
+          "<b>Tráng ấm:</b> Dùng nước sôi làm nóng ấm chén gốm.",
+          "<b>Lượng trà & Nhiệt độ:</b> Cho 5g trà với 200ml nước ở 85°C – 90°C.",
+          "<b>Thời gian hãm:</b> Ủ 35–45 giây cho tuần trà đầu, có thể pha tới 6–7 nước vẫn đượm vị."
+        ]
+      },
+      {
+        id: 12,
+        name: "Trà Sen Tây Hồ Ướp Bông Tự Nhiên",
+        cat: "Trà & Mứt Tết",
+        price: 450000,
+        oldPrice: 520000,
+        badge: "Thượng hạng",
+        artType: "tra_sen",
+        desc: "Hũ thiếc trắng nhãn hoa sen Bách Diệp tinh tế, trà ướp gạo sen tự nhiên thơm thanh khiết.",
+        specs: ["Hũ 100g & 150g kín khí giữ hương", "Ướp 5 lần gạo sen Bách Diệp Tây Hồ", "Không hương liệu hóa học"],
+        rulesTitle: "🍵 Cách thưởng thức Trà Sen Tây Hồ",
+        rules: [
+          "<b>Nhiệt độ nước:</b> Dùng nước 80°C – 85°C để giữ trọn hương sen thanh tao không bị nồng.",
+          "<b>Thưởng trà:</b> Dùng kèm mứt hạt sen hoặc kẹo lạc để tôn vị ngọt hậu."
+        ]
+      },
+      {
+        id: 13,
+        name: "Trà Hoa Cúc Vàng Mật Ong (Hộp Thiếc)",
+        cat: "Trà & Mứt Tết",
+        price: 185000,
+        oldPrice: 220000,
+        badge: "",
+        artType: "tra_cuc",
+        desc: "Cúc vàng nguyên bông sấy lạnh ủ cùng mật ong rừng, nước trà vàng óng thanh nhiệt.",
+        specs: ["Hộp thiếc 120g + tặng kèm hũ mật ong mini", "Không chứa caffeine, uống được buổi tối", "Hạn sử dụng: 18 tháng"],
+        rulesTitle: "🍵 Hướng dẫn pha Trà Hoa Cúc",
+        rules: [
+          "<b>Pha nhanh:</b> Cho 3–4 bông cúc vào 250ml nước sôi 90°C, ủ 3 phút rồi thêm 1 thìa mật ong khuấy đều."
+        ]
+      },
+      {
+        id: 14,
+        name: "Khay Mứt Tết Ngũ Sắc Lạc Xuân",
+        cat: "Trà & Mứt Tết",
+        price: 320000,
+        oldPrice: 360000,
+        badge: "Bán chạy",
+        artType: "mut_ngusac",
+        desc: "Khay sơn mài đỏ tròn nhiều ngăn gồm hạt dẻ cười, kiwi sấy, hạt dưa, mứt dừa & hồng khô.",
+        specs: ["Khay tròn sơn đỏ hoa văn vàng 500g", "Ít đường tự nhiên, không phẩm màu", "Đóng gói hút chân không từng ngăn"],
+        rulesTitle: "🍬 Chi tiết các vị trong Khay Ngũ Sắc",
+        rules: [
+          "<b>Hương vị:</b> Hạt dẻ cười rang mộc, Kiwi dẻo thanh chua, Hồng sấy dẻo, Mứt gừng non và Hạt hướng dương tẩm vị.",
+          "<b>Bảo quản:</b> Đậy kín nắp khay sau khi dùng, để nơi thoáng mát."
+        ]
+      },
+      {
+        id: 15,
+        name: "Mứt Gừng Huế & Quất Hồng Bì Mật Ong",
+        cat: "Trà & Mứt Tết",
+        price: 145000,
+        oldPrice: 175000,
+        badge: "",
+        artType: "mut_gung",
+        desc: "Hũ thủy tinh nắp vàng nhãn đỏ đất Cố Đô, từng viên mứt gừng dẻo thơm cay ấm cổ họng.",
+        specs: ["Hũ thủy tinh nắp thiếc 350g", "Gừng sẻ Tuần (Huế) thái miếng vừa ăn", "Không chất bảo quản"],
+        rulesTitle: "🍬 Cách dùng & Bảo quản",
+        rules: [
+          "<b>Thưởng thức:</b> Ăn trực tiếp cùng trà nóng vào sáng sớm se lạnh đầu xuân để làm ấm bụng và thông cổ."
+        ]
+      },
+      {
+        id: 16,
+        name: "Mứt Hạt Sen Trần & Dừa Non Lá Dứa",
+        cat: "Trà & Mứt Tết",
+        price: 190000,
+        oldPrice: 230000,
+        badge: "Mới",
+        artType: "mut_dua",
+        desc: "Hạt sen bở tơi áo đường vị lá dứa xanh mát đóng hũ trong suốt sang trọng.",
+        specs: ["Hũ 400g giữ trọn độ giòn bở", "Hạt sen Đồng Tháp & Tinh chất lá dứa tươi", "Vị ngọt thanh hợp khẩu vị mọi lứa tuổi"],
+        rulesTitle: "🍬 Lưu ý thưởng thức",
+        rules: [
+          "<b>Phù hợp:</b> Rất được ông bà và trẻ nhỏ yêu thích vì hạt sen mềm bở, thoảng hương lá dứa tự nhiên."
+        ]
+      }
+    ];
+
+    // 20 mã giảm giá săn trên bản đồ vô hạn
+    const VOUCHER_TEMPLATES = [
+      { code: "YEUQUAI15", productId: 1, percent: 15, label: "Card Yêu Quái -15%", color: "#ff5c5c" },
+      { code: "SUTHI15", productId: 2, percent: 15, label: "Card Sử Thi -15%", color: "#7ce8ff" },
+      { code: "TETCHAM20", productId: 3, percent: 20, label: "Tết Chạm -20%", color: "#ffd56b" },
+      { code: "COMBO12", productId: 4, percent: 12, label: "Combo 3 Game -12%", color: "#ff9f68" },
+      { code: "MOHINH15", cat: "Mô Hình", percent: 15, label: "Nhóm Mô Hình -15%", color: "#c4b5fd" },
+      { code: "GIAYBOI15", cat: "Trang Trí & Giấy Bồi", percent: 15, label: "Giấy Bồi -15%", color: "#ff85a2" },
+      { code: "TRASHAN18", productId: 11, percent: 18, label: "Trà Shan Tuyết -18%", color: "#7dff9b" },
+      { code: "TRASEN15", productId: 12, percent: 15, label: "Trà Sen Tây Hồ -15%", color: "#69ff9c" },
+      { code: "NGUSAC20", productId: 14, percent: 20, label: "Mứt Ngũ Sắc -20%", color: "#ffd56b" },
+      { code: "TRAMUT15", cat: "Trà & Mứt Tết", percent: 15, label: "Nhóm Trà & Mứt -15%", color: "#a6e3b9" },
+      { code: "SONTINH12", productId: 5, percent: 12, label: "Mô Hình Sơn Tinh -12%", color: "#7ce8ff" },
+      { code: "RONGLX15", productId: 7, percent: 15, label: "Mô Hình Rồng -15%", color: "#f5c96b" },
+      { code: "DAULAN18", productId: 8, percent: 18, label: "Đầu Lân Bồi -18%", color: "#ff5c5c" },
+      { code: "DENBOI15", productId: 10, percent: 15, label: "Lồng Đèn Bồi -15%", color: "#ff9f68" },
+      { code: "TRACUC20", productId: 13, percent: 20, label: "Trà Hoa Cúc -20%", color: "#ffe27a" },
+      { code: "MUTGUNG20", productId: 15, percent: 20, label: "Mứt Gừng Huế -20%", color: "#ffb833" },
+      { code: "HATSEN15", productId: 16, percent: 15, label: "Mứt Hạt Sen -15%", color: "#c4b5fd" },
+      { code: "CHUTEU18", productId: 9, percent: 18, label: "Tượng Chú Tễu -18%", color: "#ff77c8" },
+      { code: "BOTUYQ15", productId: 6, percent: 15, label: "Bộ Tứ Mô Hình -15%", color: "#7ce8ff" },
+      { code: "LACXUAN25", all: true, percent: 25, label: "Siêu Mã Toàn Đơn -25%", color: "#ffd56b" }
+    ];
+    const MAX_VOUCHERS = 20;
+
+    // 6 VẬT PHẨM THẦN THOẠI CHỈ TẠO HIỆU ỨNG ĐẸP (KHÔNG CỘNG MÃ GIẢM GIÁ)
+    const MYTHIC_RELICS = [
+      { id: "nguasat", name: "Ngựa Sắt Thánh Gióng", icon: "🐎", color: "#ff5722", aura: "fire", desc: "Lửa Phù Đổng rực cháy" },
+      { id: "nothan", name: "Nỏ Thần An Dương Vương", icon: "🏹", color: "#ffd56b", aura: "arrows", desc: "Mưa tên vàng Cổ Loa" },
+      { id: "voitrung", name: "Voi Chiến Trưng Trắc", icon: "🐘", color: "#ff4081", aura: "petals", desc: "Cánh hoa Mê Linh tung bay" },
+      { id: "banhchung", name: "Bánh Chưng Lang Liêu", icon: "🟩", color: "#4caf50", aura: "jade", desc: "Vầng ngọc bích sum vầy" },
+      { id: "caytre", name: "Cây Tre Trăm Đốt", icon: "🎋", color: "#9ccc65", aura: "leaves", desc: "Lá tre xanh ngọc lấp lánh" },
+      { id: "guomthan", name: "Gươm Thần Thuận Thiên", icon: "⚔️", color: "#7ce8ff", aura: "light", desc: "Hào quang Hoàn Kiếm rực sáng" }
+    ];
+
+    let activeCategory = "Tất cả";
+    let searchQuery = "";
+    let cart = [];
+    let unlockedVouchers = [];
+    let appliedVoucher = null;
+
+    const productGrid = document.getElementById("product-grid");
+    const cartCountEl = document.getElementById("cart-count");
+    const cartBtn = document.getElementById("open-cart-btn");
+    const cartDrawer = document.getElementById("cart-drawer");
+    const drawerBackdrop = document.getElementById("drawer-backdrop");
+    const cartItemsEl = document.getElementById("cart-items");
+    const cartSubtotalEl = document.getElementById("cart-subtotal");
+    const cartDiscountEl = document.getElementById("cart-discount");
+    const discountRow = document.getElementById("discount-row");
+    const discountLabel = document.getElementById("discount-label");
+    const cartTotalEl = document.getElementById("cart-total");
+    const voucherInput = document.getElementById("voucher-input");
+    const collectedListEl = document.getElementById("collected-list");
+    const collectedCounterEl = document.getElementById("collected-counter");
+    const productModal = document.getElementById("product-modal");
+    const productModalBody = document.getElementById("product-modal-body");
+    const infoModal = document.getElementById("info-modal");
+    const infoModalBody = document.getElementById("info-modal-body");
+    const toastEl = document.getElementById("toast");
+
+    let toastTimer = null;
+    function showToast(msg) {
+      toastEl.textContent = msg;
+      toastEl.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2700);
+    }
+
+    function formatVND(n) { return n.toLocaleString("vi-VN") + "₫"; }
+
+    function renderProducts() {
+      const filtered = PRODUCTS.filter(p => {
+        const matchCat = activeCategory === "Tất cả" || p.cat === activeCategory;
+        const matchSearch =
+          p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          p.cat.toLowerCase().includes(searchQuery.toLowerCase());
+        return matchCat && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        productGrid.innerHTML = `<p style="grid-column:1/-1; text-align:center; color:var(--muted); padding:32px 0;">Không tìm thấy sản phẩm phù hợp.</p>`;
+        return;
+      }
+
+      productGrid.innerHTML = filtered.map(p => {
+        const matchedVoucher = unlockedVouchers.find(v => v.all || v.productId === p.id || v.cat === p.cat);
+        return `
+          <article class="product-card" onclick="openProductDetail(${p.id})">
+            <div class="product-thumb">
+              ${p.badge ? `<span class="p-badge">${p.badge}</span>` : ""}
+              ${matchedVoucher ? `<span class="p-voucher-tag">🎫 -${matchedVoucher.percent}%</span>` : ""}
+              ${getProductSVG(p)}
+            </div>
+            <div class="p-body">
+              <div class="p-cat">${p.cat}</div>
+              <h3 class="p-title">${p.name}</h3>
+              <p class="p-desc">${p.desc}</p>
+              <div class="p-rule-hint">👆 Nhấn xem chi tiết &amp; luật chơi</div>
+              <div class="p-bottom">
+                <div class="p-price">
+                  ${formatVND(p.price)}
+                  ${p.oldPrice ? `<span class="p-old">${formatVND(p.oldPrice)}</span>` : ""}
+                </div>
+                <button class="add-btn" onclick="event.stopPropagation(); addToCart(${p.id})">+ Giỏ hàng</button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+    }
+
+    function openProductDetail(id) {
+      const p = PRODUCTS.find(x => x.id === id);
+      if (!p) return;
+      productModalBody.innerHTML = `
+        <button class="modal-close" onclick="closeModals()">✕</button>
+        <div class="detail-grid">
+          <div class="detail-art">${getProductSVG(p)}</div>
+          <div>
+            <div class="p-cat" style="margin-bottom:4px;">${p.cat}</div>
+            <h2 class="serif" style="margin:0 0 8px; font-size:24px; color:var(--gold);">${p.name}</h2>
+            <p style="margin:0 0 12px; color:var(--muted); font-size:14px; line-height:1.55;">${p.desc}</p>
+            <div style="display:flex; align-items:baseline; gap:12px; margin-bottom:14px;">
+              <span style="font-size:24px; font-weight:900; color:var(--gold);">${formatVND(p.price)}</span>
+              ${p.oldPrice ? `<span style="text-decoration:line-through; color:#9a777a; font-size:14px;">${formatVND(p.oldPrice)}</span>` : ""}
+            </div>
+            <ul style="margin:0 0 16px; padding-left:18px; font-size:13.5px; color:#edd4d6; line-height:1.6;">
+              ${p.specs.map(s => `<li>${s}</li>`).join("")}
+            </ul>
+            <button class="btn-gold" onclick="addToCart(${p.id}); closeModals();">🛒 Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+        <div class="rule-box">
+          <h4>${p.rulesTitle}</h4>
+          <ol>${p.rules.map(r => `<li>${r}</li>`).join("")}</ol>
+        </div>
+      `;
+      productModal.classList.add("open");
+    }
+
+    function closeModals() {
+      productModal.classList.remove("open");
+      infoModal.classList.remove("open");
+    }
+
+    productModal.addEventListener("click", (e) => { if (e.target === productModal) closeModals(); });
+    infoModal.addEventListener("click", (e) => { if (e.target === infoModal) closeModals(); });
+
+    function filterCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll(".cat-pill").forEach(b => b.classList.toggle("active", b.dataset.cat === cat));
+      renderProducts();
+    }
+
+    document.getElementById("cat-pills").addEventListener("click", (e) => {
+      const btn = e.target.closest(".cat-pill");
+      if (btn) filterCategory(btn.dataset.cat);
+    });
+
+    function syncSearch(val) {
+      searchQuery = val.trim();
+      document.getElementById("nav-search").value = val;
+      document.getElementById("hero-search").value = val;
+      renderProducts();
+    }
+    document.getElementById("nav-search").addEventListener("input", (e) => syncSearch(e.target.value));
+    document.getElementById("hero-search").addEventListener("input", (e) => syncSearch(e.target.value));
+
+    function addToCart(id) {
+      const prod = PRODUCTS.find(p => p.id === id);
+      if (!prod) return;
+      const existing = cart.find(i => i.id === id);
+      if (existing) existing.qty++;
+      else cart.push({ ...prod, qty: 1 });
+      renderCart();
+      cartBtn.classList.remove("bump");
+      void cartBtn.offsetWidth;
+      cartBtn.classList.add("bump");
+      showToast(`Đã thêm "${prod.name}" vào giỏ`);
+    }
+
+    function changeQty(id, delta) {
+      const idx = cart.findIndex(i => i.id === id);
+      if (idx === -1) return;
+      cart[idx].qty += delta;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      renderCart();
+    }
+
+    function renderCollectedVouchers() {
+      collectedCounterEl.textContent = `${unlockedVouchers.length} / ${MAX_VOUCHERS}`;
+      if (unlockedVouchers.length === 0) {
+        collectedListEl.innerHTML = `<span style="font-size:12px; color:var(--muted);">Di chuyển hoặc bật "Tự chơi" để săn mã giảm giá phát sáng theo hướng mũi tên vàng...</span>`;
+        return;
+      }
+      collectedListEl.innerHTML = unlockedVouchers.map(v => `
+        <button class="voucher-pill ${appliedVoucher?.code === v.code ? "used" : ""}" onclick="selectVoucher('${v.code}')">
+          🎫 ${v.code} (${v.label})
+        </button>
+      `).join("");
+    }
+
+    function selectVoucher(code) {
+      const found = unlockedVouchers.find(v => v.code === code) || VOUCHER_TEMPLATES.find(v => v.code === code);
+      if (!found) return;
+      appliedVoucher = found;
+      voucherInput.value = found.code;
+      renderCollectedVouchers();
+      renderCart();
+      openCart();
+      showToast(`Đã chọn mã ${found.code} (${found.label})`);
+    }
+
+    function calcCartTotals() {
+      const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+      let discount = 0;
+      if (appliedVoucher) {
+        cart.forEach(item => {
+          const matchAll = appliedVoucher.all;
+          const matchProd = appliedVoucher.productId && item.id === appliedVoucher.productId;
+          const matchCat = appliedVoucher.cat && item.cat === appliedVoucher.cat;
+          if (matchAll || matchProd || matchCat) {
+            discount += Math.round(item.price * item.qty * (appliedVoucher.percent / 100));
+          }
+        });
+      }
+      return { subtotal, discount, total: Math.max(0, subtotal - discount) };
+    }
+
+    function renderCart() {
+      cartCountEl.textContent = cart.reduce((s, i) => s + i.qty, 0);
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = `<div style="margin:auto; text-align:center; color:var(--muted);"><div style="font-size:44px; margin-bottom:8px;">🧺</div>Giỏ hàng Lạc Xuân đang trống.</div>`;
+      } else {
+        cartItemsEl.innerHTML = cart.map(item => `
+          <div class="cart-row">
+            <div class="cart-row-ico">${getProductSVG(item)}</div>
+            <div class="cart-row-info">
+              <strong>${item.name}</strong>
+              <span>${formatVND(item.price)}</span>
+            </div>
+            <div class="qty-ctrl">
+              <button onclick="changeQty(${item.id}, -1)">-</button>
+              <span style="min-width:18px; text-align:center; font-weight:700;">${item.qty}</span>
+              <button onclick="changeQty(${item.id}, 1)">+</button>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      const { subtotal, discount, total } = calcCartTotals();
+      cartSubtotalEl.textContent = formatVND(subtotal);
+      if (appliedVoucher && discount > 0) {
+        discountRow.style.display = "flex";
+        discountLabel.textContent = `Mã ${appliedVoucher.code} (-${appliedVoucher.percent}%)`;
+        cartDiscountEl.textContent = "-" + formatVND(discount);
+      } else {
+        discountRow.style.display = "none";
+      }
+      cartTotalEl.textContent = formatVND(total);
+    }
+
+    function openCart() { cartDrawer.classList.add("open"); drawerBackdrop.classList.add("open"); }
+    function closeCart() { cartDrawer.classList.remove("open"); drawerBackdrop.classList.remove("open"); }
+
+    cartBtn.addEventListener("click", openCart);
+    document.getElementById("close-cart-btn").addEventListener("click", closeCart);
+    drawerBackdrop.addEventListener("click", closeCart);
+
+    document.getElementById("apply-voucher-btn").addEventListener("click", () => {
+      const code = voucherInput.value.trim().toUpperCase();
+      const found = VOUCHER_TEMPLATES.find(v => v.code === code);
+      if (found) {
+        if (!unlockedVouchers.some(v => v.code === found.code) && unlockedVouchers.length < MAX_VOUCHERS) {
+          unlockedVouchers.push(found);
+        }
+        selectVoucher(found.code);
+      } else {
+        showToast("Mã chưa hợp lệ — hãy săn vật phẩm trong rừng vô hạn!");
+      }
+    });
+
+    // =====================================================
+    // 3. MÔ PHỎNG THANH TOÁN & CHÍNH SÁCH
+    // =====================================================
+    let selectedPayMethod = "COD";
+
+    document.getElementById("open-checkout-btn").addEventListener("click", () => {
+      if (cart.length === 0) { showToast("Giỏ hàng đang trống!"); return; }
+      closeCart();
+      const { total } = calcCartTotals();
+      selectedPayMethod = "COD";
+
+      infoModalBody.innerHTML = `
+        <button class="modal-close" onclick="closeModals()">✕</button>
+        <h3 class="serif" style="margin:0 0 6px; font-size:22px; color:var(--gold);">Thanh Toán Đơn Hàng Lạc Xuân</h3>
+        <p style="margin:0 0 14px; font-size:13.5px; color:var(--muted);">Tổng thanh toán: <strong style="color:var(--gold); font-size:16px;">${formatVND(total)}</strong></p>
+
+        <form class="checkout-form" id="checkout-form">
+          <input type="text" id="ck-name" required placeholder="Họ và tên người nhận *" />
+          <input type="tel" id="ck-phone" required placeholder="Số điện thoại liên hệ *" />
+          <textarea id="ck-addr" rows="2" required placeholder="Địa chỉ giao hàng chi tiết *"></textarea>
+
+          <div style="font-size:13px; font-weight:700; color:var(--gold); margin-top:4px;">Chọn hình thức thanh toán:</div>
+          <div class="pay-methods" id="pay-methods">
+            <div class="pay-opt active" data-method="COD">💵 Tiền mặt khi nhận (COD)</div>
+            <div class="pay-opt" data-method="VIETQR">🏦 Chuyển khoản VietQR</div>
+            <div class="pay-opt" data-method="MOMO">📱 Ví MoMo / ZaloPay</div>
+            <div class="pay-opt" data-method="CARD">💳 Thẻ Visa / ATM nội địa</div>
+          </div>
+
+          <div class="qr-box" id="qr-box">
+            <svg viewBox="0 0 60 60" width="68" height="68" style="flex-shrink:0;">
+              <rect width="60" height="60" fill="#fff"/>
+              <rect x="4" y="4" width="16" height="16" fill="#000"/><rect x="8" y="8" width="8" height="8" fill="#fff"/><rect x="10" y="10" width="4" height="4" fill="#000"/>
+              <rect x="40" y="4" width="16" height="16" fill="#000"/><rect x="44" y="8" width="8" height="8" fill="#fff"/><rect x="46" y="10" width="4" height="4" fill="#000"/>
+              <rect x="4" y="40" width="16" height="16" fill="#000"/><rect x="8" y="44" width="8" height="8" fill="#fff"/><rect x="10" y="46" width="4" height="4" fill="#000"/>
+              <path d="M24 8 h6 v6 h-6z M24 20 h12 v6 h-12z M26 30 h8 v8 h-8z M40 28 h14 v6 h-14z M26 44 h10 v10 h-10z M42 42 h12 v12 h-12z" fill="#000"/>
+            </svg>
+            <div>
+              <strong>Ngân hàng Quân Đội (MB Bank)</strong><br/>
+              STK: <b>8888 6868 2026</b> — LẠC XUÂN STORE<br/>
+              Số tiền: <b>${formatVND(total)}</b> • Nội dung: <b>LACXUAN TET</b>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-gold" style="margin-top:6px;">Xác nhận đặt hàng 🏮</button>
+        </form>
+      `;
+
+      infoModal.querySelectorAll(".pay-opt").forEach(opt => {
+        opt.addEventListener("click", () => {
+          infoModal.querySelectorAll(".pay-opt").forEach(o => o.classList.remove("active"));
+          opt.classList.add("active");
+          selectedPayMethod = opt.dataset.method;
+          document.getElementById("qr-box").classList.toggle("show", selectedPayMethod === "VIETQR" || selectedPayMethod === "MOMO");
+        });
+      });
+
+      document.getElementById("checkout-form").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("ck-name").value.trim();
+        const orderId = "LX" + Math.floor(100000 + Math.random() * 900000);
+        cart = [];
+        appliedVoucher = null;
+        voucherInput.value = "";
+        renderCart();
+        renderCollectedVouchers();
+
+        infoModalBody.innerHTML = `
+          <button class="modal-close" onclick="closeModals()">✕</button>
+          <div style="text-align:center; padding:12px 0;">
+            <div style="font-size:52px;">🧧✨</div>
+            <h3 class="serif" style="color:var(--gold); font-size:24px; margin:8px 0;">Đặt Hàng Thành Công!</h3>
+            <p style="color:var(--muted); font-size:14px;">Cảm ơn <b>${name}</b>. Mã đơn hàng của bạn là <b style="color:var(--gold);">#${orderId}</b>.</p>
+            <p style="color:#edd4d6; font-size:13.5px;">Hình thức thanh toán: <b>${selectedPayMethod}</b> • Tổng tiền: <b>${formatVND(total)}</b></p>
+            <button class="btn-gold" style="margin-top:14px;" onclick="closeModals()">Tiếp tục dạo thương xá</button>
+          </div>
+        `;
+      });
+
+      infoModal.classList.add("open");
+    });
+
+    const POLICIES = {
+      return: {
+        title: "📜 Chính Sách Đổi Trả & Hoàn Tiền",
+        items: [
+          "<b>Thời gian đổi trả:</b> Hỗ trợ đổi mới hoặc hoàn tiền trong <b>07 ngày</b> kể từ ngày nhận hàng.",
+          "<b>Điều kiện áp dụng:</b> Sản phẩm lỗi in ấn lá bài, thiếu linh kiện mô hình, hư hỏng giấy bồi hoặc đổ vỡ trà mứt do vận chuyển.",
+          "<b>Quy trình:</b> Quay video mở hộp, nhắn mã đơn hàng về Hotline 1900 6868 — Lạc Xuân đổi hàng tận nơi miễn phí 100%."
+        ]
+      },
+      shipping: {
+        title: "🚚 Chính Sách Vận Chuyển & Đồng Kiểm",
+        items: [
+          "<b>Giao hỏa tốc 2H:</b> Áp dụng nội thành TP.HCM & Hà Nội (miễn phí cho đơn từ 600.000₫).",
+          "<b>Giao tiêu chuẩn toàn quốc:</b> Từ 2 – 4 ngày làm việc kể cả cận Tết.",
+          "<b>Đồng kiểm:</b> Khách hàng được mở thùng kiểm tra ngoại quan hộp game, mô hình và hạn sử dụng trà mứt trước khi thanh toán COD."
+        ]
+      },
+      privacy: {
+        title: "🔒 Chính Sách Bảo Mật Thông Tin",
+        items: [
+          "Thông tin họ tên, số điện thoại và địa chỉ chỉ dùng cho mục đích giao hàng và chăm sóc sau bán.",
+          "Lạc Xuân cam kết không chia sẻ, mua bán dữ liệu khách hàng cho bên thứ ba dưới mọi hình thức."
+        ]
+      },
+      terms: {
+        title: "🛡️ Điều Khoản Sử Dụng & Bảo Hành",
+        items: [
+          "Các bộ Card Game / Board Game được hỗ trợ gửi bù lá bài nếu bị thiếu khi bóc seal.",
+          "Mã giảm giá săn trong mini-game có giá trị áp dụng trực tiếp trên đơn hàng mô phỏng tại website."
+        ]
+      },
+      bct: {
+        title: "🏛️ Thông Tin Đăng Ký Bộ Công Thương (Mô Phỏng)",
+        items: [
+          "<b>Tên đơn vị:</b> Công ty TNHH Văn Hóa & Quà Tặng Lạc Xuân",
+          "<b>Mã số thuế / ĐKKD:</b> 0318268999 — Cấp bởi Sở KH&ĐT TP.HCM",
+          "<b>Trụ sở:</b> 128 Đường Hoa Mai, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh",
+          "<b>Trạng thái:</b> Website thương mại điện tử bán hàng đã hoàn tất thông báo quy chuẩn."
+        ]
+      }
+    };
+
+    function openPolicy(key) {
+      const p = POLICIES[key];
+      if (!p) return;
+      infoModalBody.innerHTML = `
+        <button class="modal-close" onclick="closeModals()">✕</button>
+        <h3 class="serif" style="margin:0 0 14px; font-size:21px; color:var(--gold);">${p.title}</h3>
+        <div class="rule-box" style="margin-top:0;">
+          <ul>${p.items.map(i => `<li>${i}</li>`).join("")}</ul>
+        </div>
+      `;
+      infoModal.classList.add("open");
+    }
+
+    renderProducts();
+    renderCart();
+
+    // =====================================================
+    // 4. GAME PIXEL MAP NGANG VÔ HẠN + NHẠC NGŨ CUNG + TỰ CHƠI + 6 BẢO VẬT THẦN THOẠI
+    // =====================================================
+    const canvas = document.getElementById("pixel-canvas");
+    const ctx = canvas.getContext("2d");
+    ctx.imageSmoothingEnabled = false;
+    const VIEW_W = canvas.width;   // 384
+    const VIEW_H = canvas.height;  // 168
+    const HALF_W = VIEW_W / 2;     // 192
+    const HALF_H = VIEW_H / 2;     // 84
+
+    const pixelWidget = document.getElementById("pixel-widget");
+    const gameScoreEl = document.getElementById("game-score");
+    const coordsPillEl = document.getElementById("coords-pill");
+    const auraPillEl = document.getElementById("aura-pill");
+    const pickupBannerEl = document.getElementById("pickup-banner");
+    const volSlider = document.getElementById("vol-slider");
+    const soundBtn = document.getElementById("sound-btn");
+    const autoPlayBtn = document.getElementById("autoplay-btn");
+
+    // --- BỘ TỔNG HỢP NHẠC NỀN NGŨ CUNG Á ĐÔNG & ÂM LƯỢNG ---
+    let audioCtx = null;
+    let masterGain = null;
+    let soundOn = true;
+    let volumeLevel = 0.45; // 0..1
+    let musicStarted = false;
+    let musicStep = 0;
+    let musicTimer = null;
+
+    // Giai điệu ngũ cung xuân rộn ràng (Hz): C, D, E, G, A
+    const MELODY_SEQ = [
+      523.25, 659.25, 783.99, 659.25, 880.00, 783.99, 659.25, 587.33,
+      523.25, 587.33, 659.25, 783.99, 659.25, 0,      587.33, 523.25,
+      440.00, 523.25, 587.33, 659.25, 783.99, 880.00, 783.99, 659.25,
+      587.33, 523.25, 440.00, 392.00, 523.25, 587.33, 523.25, 0
+    ];
+    const BASS_SEQ = [
+      130.81, 0, 196.00, 0, 164.81, 0, 196.00, 0,
+      146.83, 0, 220.00, 0, 130.81, 0, 196.00, 0,
+      110.00, 0, 164.81, 0, 196.00, 0, 164.81, 0,
+      146.83, 0, 196.00, 0, 130.81, 0, 130.81, 0
+    ];
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        masterGain = audioCtx.createGain();
+        masterGain.gain.value = soundOn ? volumeLevel * 0.24 : 0;
+        masterGain.connect(audioCtx.destination);
+      }
+      if (audioCtx.state === "suspended") audioCtx.resume();
+      if (!musicStarted) {
+        musicStarted = true;
+        musicTimer = setInterval(tickMusic, 190);
+      }
+    }
+
+    function updateMasterVolume() {
+      if (masterGain && audioCtx) {
+        masterGain.gain.setTargetAtTime(soundOn ? volumeLevel * 0.24 : 0, audioCtx.currentTime, 0.03);
+      }
+    }
+
+    function playTone(freq, dur = 0.16, type = "triangle", gainAmt = 0.28, delay = 0) {
+      if (!soundOn || !audioCtx || !masterGain || freq <= 0) return;
+      const now = audioCtx.currentTime + delay;
+      const osc = audioCtx.createOscillator();
+      const g = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, now);
+      g.gain.setValueAtTime(0.001, now);
+      g.gain.linearRampToValueAtTime(gainAmt, now + 0.015);
+      g.gain.exponentialRampToValueAtTime(0.001, now + dur);
+      osc.connect(g);
+      g.connect(masterGain);
+      osc.start(now);
+      osc.stop(now + dur + 0.02);
+    }
+
+    function tickMusic() {
+      if (!soundOn || !audioCtx || audioCtx.state !== "running") return;
+      const m = MELODY_SEQ[musicStep % MELODY_SEQ.length];
+      const b = BASS_SEQ[musicStep % BASS_SEQ.length];
+      if (m > 0) playTone(m, 0.22, "triangle", 0.22, 0);
+      if (b > 0) playTone(b, 0.30, "sine", 0.18, 0);
+      musicStep++;
+    }
+
+    function playVoucherChime() {
+      initAudio();
+      playTone(587.33, 0.09, "square", 0.22, 0);
+      playTone(783.99, 0.10, "square", 0.24, 0.06);
+      playTone(1046.5, 0.16, "triangle", 0.30, 0.12);
+    }
+
+    function playMythicFanfare() {
+      initAudio();
+      playTone(523.25, 0.12, "triangle", 0.26, 0);
+      playTone(659.25, 0.12, "triangle", 0.26, 0.07);
+      playTone(783.99, 0.14, "triangle", 0.28, 0.14);
+      playTone(1046.5, 0.26, "sine", 0.30, 0.22);
+    }
+
+    volSlider.addEventListener("input", (e) => {
+      volumeLevel = Number(e.target.value) / 100;
+      initAudio();
+      if (volumeLevel > 0 && !soundOn) {
+        soundOn = true;
+        soundBtn.textContent = "🎵 Nhạc: Bật";
+      }
+      updateMasterVolume();
+    });
+
+    soundBtn.addEventListener("click", () => {
+      initAudio();
+      soundOn = !soundOn;
+      soundBtn.textContent = soundOn ? "🎵 Nhạc: Bật" : "🔇 Nhạc: Tắt";
+      updateMasterVolume();
+    });
+
+    // --- NHÂN VẬT RỒNG LẠC XUÂN & HÀO QUANG THẦN THOẠI ---
+    const DRAGON_HALF = [
+      "0010000", "0011000", "0001010", "0101010",
+      "1101110", "0111111", "1112111", "0111111",
+      "1101111", "0011211", "0011111", "0010101",
+      "0011111", "0001110", "0010101", "0010000"
+    ];
+
+    const collectedMythics = new Set(); // lưu id vật phẩm thần thoại đã ăn để bật hiệu ứng đẹp
+
+    function updateAuraUI() {
+      if (collectedMythics.size === 0) {
+        auraPillEl.textContent = "✨ Hào quang: Chưa có";
+        return;
+      }
+      const icons = MYTHIC_RELICS.filter(r => collectedMythics.has(r.id)).map(r => r.icon).join(" ");
+      auraPillEl.textContent = `✨ Hào quang (${collectedMythics.size}/6): ${icons}`;
+    }
+
+    function drawDragonPixel(sx, sy, bobY, time) {
+      // Hào quang xoay quanh nhân vật khi đã ăn vật phẩm thần thoại
+      if (collectedMythics.size > 0) {
+        const count = collectedMythics.size;
+        const radius = 12 + Math.sin(time / 250) * 1.5;
+        let idx = 0;
+        MYTHIC_RELICS.forEach(r => {
+          if (!collectedMythics.has(r.id)) return;
+          const ang = time / 450 + (Math.PI * 2 * idx) / count;
+          const ox = Math.round(sx + Math.cos(ang) * radius);
+          const oy = Math.round(sy + Math.sin(ang) * (radius * 0.65));
+          ctx.fillStyle = r.color;
+          ctx.fillRect(ox - 1, oy - 1, 2, 2);
+          ctx.fillStyle = "#ffffff";
+          ctx.fillRect(ox, oy, 1, 1);
+          idx++;
+        });
+        // Vòng sáng chân nếu có Gươm Thần hoặc Bánh Chưng
+        if (collectedMythics.has("guomthan") || collectedMythics.has("banhchung")) {
+          ctx.fillStyle = collectedMythics.has("guomthan") ? "rgba(124,232,255,0.22)" : "rgba(105,255,156,0.22)";
+          ctx.fillRect(Math.round(sx - 8), Math.round(sy + 6), 16, 4);
+        }
+      }
+
+      const startX = Math.round(sx - 7);
+      const startY = Math.round(sy - 8 + bobY);
+      ctx.fillStyle = "rgba(0,0,0,0.48)";
+      ctx.fillRect(Math.round(sx - 4), Math.round(sy + 8), 8, 2);
+
+      if (Math.floor(time / 220) % 2 === 0) {
+        ctx.fillStyle = "rgba(255, 240, 190, 0.15)";
+        ctx.fillRect(startX - 1, startY - 1, 16, 18);
+      }
+      for (let r = 0; r < DRAGON_HALF.length; r++) {
+        const row = DRAGON_HALF[r];
+        for (let c = 0; c < row.length; c++) {
+          const ch = row[c];
+          if (ch === "0") continue;
+          ctx.fillStyle = ch === "2" ? "#4a0a10" : "#f7f3eb";
+          ctx.fillRect(startX + c, startY + r, 1, 1);
+          ctx.fillRect(startX + (13 - c), startY + r, 1, 1);
+        }
+      }
+    }
+
+    // --- BẢN ĐỒ RỪNG ĐÊM VÔ HẠN ---
+    function hash2D(ix, iy) {
+      let h = Math.imul(ix, 374761393) + Math.imul(iy, 668265263);
+      h = Math.imul(h ^ (h >>> 13), 1274126177);
+      return ((h ^ (h >>> 16)) >>> 0) / 4294967295;
+    }
+
+    function drawPineTree(sx, sy, size, lit) {
+      const dark = lit ? "#3b612e" : "#15363d";
+      const mid = lit ? "#638a2d" : "#1f4d43";
+      ctx.fillStyle = "#112224";
+      ctx.fillRect(sx - 1, sy + size, 2, 3);
+      for (let row = 0; row < size; row++) {
+        const w = Math.floor(row * 0.72) + 1;
+        ctx.fillStyle = row % 2 === 0 ? mid : dark;
+        ctx.fillRect(sx - w, sy + row, w * 2 + 1, 1);
+      }
+    }
+
+    function drawBambooClump(sx, sy, time) {
+      const sway = Math.floor(Math.sin(time / 500 + sx) * 0.8);
+      ctx.fillStyle = "#2d7a47";
+      ctx.fillRect(sx - 2, sy - 10, 1, 13);
+      ctx.fillRect(sx + 1 + sway, sy - 12, 1, 15);
+      ctx.fillStyle = "#52b86d";
+      ctx.fillRect(sx - 3, sy - 11, 2, 2);
+      ctx.fillRect(sx + 2 + sway, sy - 13, 3, 2);
+      ctx.fillRect(sx, sy - 7, 2, 1);
+    }
+
+    function drawCampSite(camX, camY, time) {
+      const fireSX = Math.round(0 - camX);
+      const fireSY = Math.round(-6 - camY);
+      if (fireSX > -60 && fireSX < VIEW_W + 60 && fireSY > -60 && fireSY < VIEW_H + 60) {
+        for (let dy = -26; dy <= 26; dy += 2) {
+          for (let dx = -26; dx <= 26; dx += 2) {
+            const d = Math.hypot(dx, dy);
+            if (d < 14) {
+              ctx.fillStyle = "#4d3812";
+              ctx.fillRect(fireSX + dx, fireSY + dy, 2, 2);
+            } else if (d < 24 && ((dx + dy) % 4 === 0)) {
+              ctx.fillStyle = "#2f2c16";
+              ctx.fillRect(fireSX + dx, fireSY + dy, 1, 1);
+            }
+          }
+        }
+        const tx = Math.round(-22 - camX), ty = Math.round(-34 - camY);
+        for (let r = 0; r < 11; r++) {
+          ctx.fillStyle = r % 2 === 0 ? "#b84220" : "#9c3416";
+          ctx.fillRect(tx - Math.floor(r * 0.6), ty + r, 8 + r, 1);
+        }
+        ctx.fillStyle = "#191210";
+        ctx.fillRect(tx + 4, ty + 4, 5, 7);
+
+        ctx.fillStyle = "#4d2612";
+        ctx.fillRect(fireSX - 4, fireSY + 2, 8, 2);
+        const flick = Math.floor(time / 140) % 3;
+        ctx.fillStyle = "#ff5a1f"; ctx.fillRect(fireSX - 2, fireSY - 3 - flick, 4, 5 + flick);
+        ctx.fillStyle = "#ffb833"; ctx.fillRect(fireSX - 1, fireSY - 2 - (flick % 2), 2, 4);
+        ctx.fillStyle = "#fff59e"; ctx.fillRect(fireSX - 1, fireSY, 2, 2);
+      }
+    }
+
+    const CHUNK = 28;
+    function drawInfiniteWorld(camX, camY, time) {
+      ctx.fillStyle = "#141c19";
+      ctx.fillRect(0, 0, VIEW_W, VIEW_H);
+
+      // Lưới cỏ mờ tạo chiều sâu di chuyển
+      const gStartX = Math.floor(camX / 16) * 16;
+      const gStartY = Math.floor(camY / 16) * 16;
+      for (let wy = gStartY; wy < camY + VIEW_H + 16; wy += 16) {
+        for (let wx = gStartX; wx < camX + VIEW_W + 16; wx += 16) {
+          const h = hash2D(wx / 16, wy / 16);
+          if (h > 0.66) {
+            ctx.fillStyle = "#243625";
+            ctx.fillRect(Math.round(wx - camX), Math.round(wy - camY), 1, 2);
+          } else if (h < 0.04) {
+            // Đom đóm rừng đêm nhấp nháy
+            if (Math.floor(time / 350 + h * 100) % 2 === 0) {
+              ctx.fillStyle = "#d9ff7a";
+              ctx.fillRect(Math.round(wx - camX + Math.sin(time / 400) * 3), Math.round(wy - camY), 1, 1);
+            }
+          }
+        }
+      }
+
+      drawCampSite(camX, camY, time);
+
+      const minCX = Math.floor(camX / CHUNK) - 1;
+      const maxCX = Math.ceil((camX + VIEW_W) / CHUNK) + 1;
+      const minCY = Math.floor(camY / CHUNK) - 1;
+      const maxCY = Math.ceil((camY + VIEW_H) / CHUNK) + 1;
+
+      for (let cy = minCY; cy <= maxCY; cy++) {
+        for (let cx = minCX; cx <= maxCX; cx++) {
+          if (Math.abs(cx) <= 1 && Math.abs(cy) <= 1) continue;
+
+          const r1 = hash2D(cx, cy);
+          const r2 = hash2D(cx + 97, cy - 53);
+          const wx = cx * CHUNK + Math.floor(r2 * 16);
+          const wy = cy * CHUNK + Math.floor(hash2D(cx - 31, cy + 71) * 16);
+          const sx = Math.round(wx - camX);
+          const sy = Math.round(wy - camY);
+
+          if (r1 < 0.30) {
+            drawPineTree(sx, sy, 9 + Math.floor(r2 * 6), r2 > 0.65);
+          } else if (r1 < 0.39) {
+            drawBambooClump(sx, sy, time);
+          } else if (r1 < 0.46) {
+            // Nấm đỏ
+            ctx.fillStyle = "#e6dcd0"; ctx.fillRect(sx + 1, sy + 2, 2, 2);
+            ctx.fillStyle = "#d94326"; ctx.fillRect(sx, sy, 4, 2);
+            ctx.fillStyle = "#fff"; ctx.fillRect(sx + 1, sy, 1, 1);
+          } else if (r1 < 0.53) {
+            // Đá rêu
+            ctx.fillStyle = "#45535c"; ctx.fillRect(sx, sy, 5, 3);
+            ctx.fillStyle = "#5c6d78"; ctx.fillRect(sx + 1, sy - 1, 3, 2);
+          } else if (r1 < 0.58) {
+            // Đèn đá Á Đông phát sáng
+            ctx.fillStyle = "#5d686e"; ctx.fillRect(sx, sy, 4, 6);
+            ctx.fillStyle = Math.floor(time / 280) % 2 === 0 ? "#ffd56b" : "#ff9d00";
+            ctx.fillRect(sx + 1, sy + 1, 2, 2);
+          } else if (r1 < 0.62) {
+            // Hồ sen nhỏ phát sáng nhẹ
+            ctx.fillStyle = "#164d57";
+            ctx.fillRect(sx - 4, sy - 2, 10, 5);
+            ctx.fillStyle = "#2d8a68";
+            ctx.fillRect(sx - 2, sy - 1, 3, 2);
+            ctx.fillStyle = "#ff85a2";
+            ctx.fillRect(sx + 2, sy - 1, 2, 2);
+          } else if (r1 < 0.65) {
+            // Tinh linh rừng đêm
+            ctx.fillStyle = Math.floor(time / 360) % 2 === 0 ? "#9ea7ff" : "#5e68b8";
+            ctx.fillRect(sx, sy, 3, 1); ctx.fillRect(sx + 1, sy - 1, 1, 3);
+          }
+        }
+      }
+    }
+
+    // --- VẬT PHẨM MÃ GIẢM GIÁ (TỐI ĐA 20) & VẬT PHẨM THẦN THOẠI (CHỈ LÀM ĐẸP) ---
+    const player = { x: 12, y: 12, speed: 68, walkTime: 0, moving: false };
+    let moveTarget = null;
+    const keys = {};
+    let autoPlay = false;
+
+    let worldVouchers = [];
+    let nextVoucherIdx = 0;
+
+    let worldRelics = [];
+    let nextRelicIdx = 0;
+
+    let sparkles = [];
+    let shockwaves = [];
+    let floatingTexts = [];
+    let bannerTimer = null;
+    let screenFlash = 0;
+
+    function showPickupBanner(text) {
+      pickupBannerEl.textContent = text;
+      pickupBannerEl.classList.add("show");
+      clearTimeout(bannerTimer);
+      bannerTimer = setTimeout(() => pickupBannerEl.classList.remove("show"), 2600);
+    }
+
+    function spawnVoucherAtDistance() {
+      if (unlockedVouchers.length + worldVouchers.length >= MAX_VOUCHERS) return;
+      if (nextVoucherIdx >= VOUCHER_TEMPLATES.length) return;
+
+      const tpl = VOUCHER_TEMPLATES[nextVoucherIdx++];
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 85 + Math.random() * 75;
+      worldVouchers.push({
+        ...tpl,
+        wx: player.x + Math.cos(angle) * dist,
+        wy: player.y + Math.sin(angle) * dist
+      });
+    }
+
+    function ensureWorldVouchers() {
+      while (worldVouchers.length < 3 && unlockedVouchers.length + worldVouchers.length < MAX_VOUCHERS && nextVoucherIdx < VOUCHER_TEMPLATES.length) {
+        spawnVoucherAtDistance();
+      }
+    }
+
+    function spawnMythicRelic() {
+      const tpl = MYTHIC_RELICS[nextRelicIdx % MYTHIC_RELICS.length];
+      nextRelicIdx++;
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 95 + Math.random() * 85;
+      worldRelics.push({
+        ...tpl,
+        wx: player.x + Math.cos(angle) * dist,
+        wy: player.y + Math.sin(angle) * dist
+      });
+    }
+
+    function ensureWorldRelics() {
+      while (worldRelics.length < 3) {
+        spawnMythicRelic();
+      }
+    }
+
+    ensureWorldVouchers();
+    ensureWorldRelics();
+
+    // Vẽ từng vật phẩm thần thoại bằng pixel art đặc trưng
+    function drawRelicSprite(sx, sy, relic, time) {
+      const bob = Math.sin(time / 200 + sx) * 1.6;
+      const ry = Math.round(sy + bob);
+
+      // Hào quang nền xoay
+      const pulse = 6 + Math.sin(time / 180) * 1.5;
+      ctx.fillStyle = "rgba(255, 255, 255, 0.14)";
+      ctx.fillRect(Math.round(sx - pulse), Math.round(ry - 1), Math.round(pulse * 2), 2);
+      ctx.fillRect(Math.round(sx - 1), Math.round(ry - pulse), 2, Math.round(pulse * 2));
+
+      switch (relic.id) {
+        case "nguasat": // Ngựa Sắt Thánh Gióng
+          ctx.fillStyle = "#9aa5b1";
+          ctx.fillRect(sx - 4, ry - 1, 8, 4);
+          ctx.fillRect(sx + 2, ry - 5, 3, 5);
+          ctx.fillStyle = "#ff5722";
+          ctx.fillRect(sx - 5, ry - 2, 2, 2);
+          ctx.fillRect(sx - 3, ry + 3, 2, 3);
+          ctx.fillRect(sx + 2, ry + 3, 2, 3);
+          break;
+        case "nothan": // Nỏ Thần An Dương Vương
+          ctx.fillStyle = "#ffd56b";
+          ctx.fillRect(sx - 5, ry - 2, 10, 2);
+          ctx.fillRect(sx - 1, ry - 5, 2, 10);
+          ctx.fillStyle = "#7ce8ff";
+          ctx.fillRect(sx - 1, ry - 6, 2, 2);
+          break;
+        case "voitrung": // Voi Chiến Trưng Trắc
+          ctx.fillStyle = "#cfd8dc";
+          ctx.fillRect(sx - 5, ry - 2, 9, 5);
+          ctx.fillRect(sx + 4, ry, 2, 4);
+          ctx.fillStyle = "#ff4081";
+          ctx.fillRect(sx - 3, ry - 4, 5, 3);
+          break;
+        case "banhchung": // Bánh Chưng Lang Liêu
+          ctx.fillStyle = "#43a047";
+          ctx.fillRect(sx - 4, ry - 4, 8, 8);
+          ctx.fillStyle = "#fff59d";
+          ctx.fillRect(sx - 1, ry - 4, 2, 8);
+          ctx.fillRect(sx - 4, ry - 1, 8, 2);
+          break;
+        case "caytre": // Cây Tre Trăm Đốt
+          ctx.fillStyle = "#8bc34a";
+          ctx.fillRect(sx - 1, ry - 6, 2, 12);
+          ctx.fillStyle = "#dce775";
+          ctx.fillRect(sx - 2, ry - 2, 4, 1);
+          ctx.fillRect(sx - 2, ry + 2, 4, 1);
+          ctx.fillStyle = "#4caf50";
+          ctx.fillRect(sx + 1, ry - 5, 3, 2);
+          break;
+        case "guomthan": // Gươm Thần Thuận Thiên
+        default:
+          ctx.fillStyle = "#7ce8ff";
+          ctx.fillRect(sx - 1, ry - 6, 2, 9);
+          ctx.fillStyle = "#ffd56b";
+          ctx.fillRect(sx - 4, ry + 2, 8, 2);
+          ctx.fillRect(sx - 1, ry + 4, 2, 3);
+          break;
+      }
+    }
+
+    function drawVouchersAndRelics(camX, camY, time) {
+      const bob = Math.sin(time / 210) * 1.6;
+
+      // 1. Vẽ 6 loại Vật phẩm thần thoại (chỉ làm đẹp)
+      worldRelics.forEach(relic => {
+        if (Math.hypot(relic.wx - player.x, relic.wy - player.y) > 360) {
+          const ang = Math.random() * Math.PI * 2;
+          const d = 100 + Math.random() * 80;
+          relic.wx = player.x + Math.cos(ang) * d;
+          relic.wy = player.y + Math.sin(ang) * d;
+        }
+        const sx = Math.round(relic.wx - camX);
+        const sy = Math.round(relic.wy - camY);
+        if (sx >= 6 && sx <= VIEW_W - 6 && sy >= 6 && sy <= VIEW_H - 6) {
+          drawRelicSprite(sx, sy, relic, time);
+        } else {
+          // Chấm bạc/xanh nhỏ chỉ hướng bảo vật thần thoại
+          const ax = Math.max(5, Math.min(VIEW_W - 5, sx));
+          const ay = Math.max(5, Math.min(VIEW_H - 5, sy));
+          if (Math.floor(time / 320) % 2 === 0) {
+            ctx.fillStyle = relic.color;
+            ctx.fillRect(ax - 1, ay - 1, 2, 2);
+          }
+        }
+      });
+
+      // 2. Vẽ các Vật phẩm Mã Giảm Giá với nhiều hiệu ứng hào quang rực rỡ
+      worldVouchers.forEach(item => {
+        if (Math.hypot(item.wx - player.x, item.wy - player.y) > 340) {
+          const ang = Math.random() * Math.PI * 2;
+          const d = 90 + Math.random() * 70;
+          item.wx = player.x + Math.cos(ang) * d;
+          item.wy = player.y + Math.sin(ang) * d;
+        }
+
+        const sx = Math.round(item.wx - camX);
+        const sy = Math.round(item.wy - camY);
+
+        if (sx >= 8 && sx <= VIEW_W - 8 && sy >= 8 && sy <= VIEW_H - 8) {
+          // Tia sáng quay quanh hộp mã giảm giá
+          for (let k = 0; k < 4; k++) {
+            const a = time / 320 + (Math.PI / 2) * k;
+            const ox = Math.round(sx + Math.cos(a) * 8);
+            const oy = Math.round(sy + bob + Math.sin(a) * 8);
+            ctx.fillStyle = k % 2 === 0 ? "#ffd56b" : "#ffffff";
+            ctx.fillRect(ox, oy, 1, 1);
+          }
+          // Vòng sáng nền nhấp nháy
+          if (Math.floor(time / 180) % 2 === 0) {
+            ctx.fillStyle = "rgba(255, 213, 107, 0.24)";
+            ctx.fillRect(sx - 6, Math.round(sy - 6 + bob), 12, 12);
+          }
+          // Hộp mã giảm giá chính
+          ctx.fillStyle = item.color;
+          ctx.fillRect(sx - 4, Math.round(sy - 4 + bob), 8, 8);
+          ctx.fillStyle = "#fff";
+          ctx.fillRect(sx - 1, Math.round(sy - 4 + bob), 2, 8);
+          ctx.fillRect(sx - 4, Math.round(sy - 1 + bob), 8, 2);
+          // Nhãn % nhỏ bay phía trên
+          ctx.font = "bold 6px monospace";
+          ctx.fillStyle = "#ffd56b";
+          ctx.fillText(`-${item.percent}%`, sx - 8, Math.round(sy - 7 + bob));
+        } else {
+          // Mũi tên radar vàng chỉ hướng mã giảm giá ở viền khung
+          const ax = Math.max(6, Math.min(VIEW_W - 6, sx));
+          const ay = Math.max(6, Math.min(VIEW_H - 6, sy));
+          if (Math.floor(time / 220) % 2 === 0) {
+            ctx.fillStyle = "#ffd56b";
+            ctx.fillRect(ax - 2, ay - 2, 5, 5);
+            ctx.fillStyle = item.color;
+            ctx.fillRect(ax - 1, ay - 1, 3, 3);
+          }
+        }
+      });
+    }
+
+    function spawnBurst(wx, wy, color, count = 28, speedMax = 48) {
+      for (let i = 0; i < count; i++) {
+        const ang = (Math.PI * 2 * i) / count + Math.random() * 0.25;
+        const sp = 14 + Math.random() * speedMax;
+        sparkles.push({
+          wx, wy,
+          vx: Math.cos(ang) * sp,
+          vy: Math.sin(ang) * sp,
+          life: 0.45 + Math.random() * 0.45,
+          maxLife: 0.9,
+          color: i % 3 === 0 ? "#ffffff" : (i % 3 === 1 ? "#ffd56b" : color),
+          size: i % 4 === 0 ? 3 : 2
+        });
+      }
+      shockwaves.push({ wx, wy, r: 2, maxR: 28, color });
+    }
+
+    function spawnMythicEffect(relic) {
+      screenFlash = 0.28;
+      // Nổ hiệu ứng đặc biệt tùy theo từng bảo vật thần thoại
+      if (relic.id === "nothan") {
+        // Bắn 8 mũi tên ánh sáng vàng tỏa ra
+        for (let i = 0; i < 16; i++) {
+          const ang = (Math.PI * 2 * i) / 16;
+          sparkles.push({ wx: relic.wx, wy: relic.wy, vx: Math.cos(ang) * 78, vy: Math.sin(ang) * 78, life: 0.75, maxLife: 0.75, color: "#ffd56b", size: 2 });
+        }
+        shockwaves.push({ wx: relic.wx, wy: relic.wy, r: 3, maxR: 38, color: "#ffd56b" });
+      } else if (relic.id === "guomthan") {
+        // Cột sáng gươm thần rực rỡ
+        for (let i = 0; i < 24; i++) {
+          sparkles.push({ wx: relic.wx + (Math.random() - 0.5) * 10, wy: relic.wy, vx: (Math.random() - 0.5) * 12, vy: -30 - Math.random() * 55, life: 0.8, maxLife: 0.8, color: i % 2 === 0 ? "#7ce8ff" : "#ffffff", size: 2 });
+        }
+        shockwaves.push({ wx: relic.wx, wy: relic.wy, r: 2, maxR: 40, color: "#7ce8ff" });
+      } else {
+        spawnBurst(relic.wx, relic.wy, relic.color, 36, 56);
+      }
+      floatingTexts.push({
+        wx: relic.wx,
+        wy: relic.wy - 8,
+        text: `${relic.icon} ${relic.name}`,
+        color: relic.color,
+        life: 1.5
+      });
+    }
+
+    // --- VÒNG LẶP GAME CHÍNH ---
+    let lastTime = performance.now();
+    let trailTimer = 0;
+
+    function gameLoop(now) {
+      const dt = Math.min(0.05, (now - lastTime) / 1000);
+      lastTime = now;
+
+      let dx = 0, dy = 0;
+      if (keys["KeyW"] || keys["ArrowUp"]) dy -= 1;
+      if (keys["KeyS"] || keys["ArrowDown"]) dy += 1;
+      if (keys["KeyA"] || keys["ArrowLeft"]) dx -= 1;
+      if (keys["KeyD"] || keys["ArrowRight"]) dx += 1;
+
+      if (dx !== 0 || dy !== 0) {
+        moveTarget = null;
+        if (autoPlay) setAutoPlay(false);
+        const len = Math.hypot(dx, dy);
+        dx /= len; dy /= len;
+      } else if (autoPlay) {
+        // AI Tự chơi: Ưu tiên vật phẩm thần thoại rất gần, hoặc tìm mã giảm giá gần nhất
+        let bestTarget = null;
+        let bestDist = Infinity;
+
+        worldRelics.forEach(r => {
+          const d = Math.hypot(r.wx - player.x, r.wy - player.y);
+          if (d < 52 && d < bestDist) { bestDist = d; bestTarget = r; }
+        });
+
+        if (!bestTarget && worldVouchers.length > 0) {
+          worldVouchers.forEach(v => {
+            const d = Math.hypot(v.wx - player.x, v.wy - player.y);
+            if (d < bestDist) { bestDist = d; bestTarget = v; }
+          });
+        }
+
+        if (!bestTarget && worldRelics.length > 0) {
+          worldRelics.forEach(r => {
+            const d = Math.hypot(r.wx - player.x, r.wy - player.y);
+            if (d < bestDist) { bestDist = d; bestTarget = r; }
+          });
+        }
+
+        if (bestTarget) {
+          const tdx = bestTarget.wx - player.x;
+          const tdy = bestTarget.wy - player.y;
+          const dist = Math.hypot(tdx, tdy);
+          if (dist > 1) { dx = tdx / dist; dy = tdy / dist; }
+        } else {
+          dx = Math.cos(now / 1500);
+          dy = Math.sin(now / 1500);
+        }
+      } else if (moveTarget) {
+        const tdx = moveTarget.wx - player.x;
+        const tdy = moveTarget.wy - player.y;
+        const dist = Math.hypot(tdx, tdy);
+        if (dist < 2.2) moveTarget = null;
+        else { dx = tdx / dist; dy = tdy / dist; }
+      }
+
+      player.moving = dx !== 0 || dy !== 0;
+      if (player.moving) {
+        player.walkTime += dt;
+        player.x += dx * player.speed * dt;
+        player.y += dy * player.speed * dt;
+        coordsPillEl.textContent = `Tọa độ: (${Math.round(player.x / 10)}, ${Math.round(player.y / 10)}) • Map vô hạn`;
+
+        // Rải hạt hiệu ứng bước chân nếu đã ăn vật phẩm thần thoại
+        trailTimer += dt;
+        if (collectedMythics.size > 0 && trailTimer > 0.08) {
+          trailTimer = 0;
+          const activeList = MYTHIC_RELICS.filter(r => collectedMythics.has(r.id));
+          const chosen = activeList[Math.floor(Math.random() * activeList.length)];
+          sparkles.push({
+            wx: player.x + (Math.random() - 0.5) * 6,
+            wy: player.y + 6,
+            vx: (Math.random() - 0.5) * 10,
+            vy: -6 - Math.random() * 8,
+            life: 0.45,
+            maxLife: 0.45,
+            color: chosen.color,
+            size: 2
+          });
+        }
+      }
+
+      // Kiểm tra nhặt Mã Giảm Giá
+      for (let i = worldVouchers.length - 1; i >= 0; i--) {
+        const item = worldVouchers[i];
+        if (Math.hypot(player.x - item.wx, player.y - item.wy) < 12) {
+          worldVouchers.splice(i, 1);
+          playVoucherChime();
+          screenFlash = 0.22;
+          spawnBurst(item.wx, item.wy, item.color, 34, 52);
+          floatingTexts.push({
+            wx: item.wx,
+            wy: item.wy - 8,
+            text: `+MÃ ${item.code} (-${item.percent}%)`,
+            color: "#ffd56b",
+            life: 1.6
+          });
+
+          if (unlockedVouchers.length < MAX_VOUCHERS) {
+            unlockedVouchers.push(item);
+            renderCollectedVouchers();
+            renderProducts();
+          }
+
+          gameScoreEl.textContent = unlockedVouchers.length;
+          if (unlockedVouchers.length >= MAX_VOUCHERS) {
+            showPickupBanner("🎉 Đã săn đủ tối đa 20/20 mã giảm giá!");
+            showToast("🏆 Tuyệt vời! Bạn đã sưu tầm đủ 20/20 mã giảm giá Lạc Xuân!");
+          } else {
+            showPickupBanner(`🎫 Nhận mã ${item.code} (${item.label})`);
+            showToast(`🎁 Nhặt được mã ${item.code} — ${item.label}!`);
+            ensureWorldVouchers();
+          }
+        }
+      }
+
+      // Kiểm tra nhặt Vật Phẩm Thần Thoại (chỉ tạo hiệu ứng đẹp, KHÔNG nhận mã)
+      for (let i = worldRelics.length - 1; i >= 0; i--) {
+        const relic = worldRelics[i];
+        if (Math.hypot(player.x - relic.wx, player.y - relic.wy) < 12) {
+          worldRelics.splice(i, 1);
+          playMythicFanfare();
+          collectedMythics.add(relic.id);
+          updateAuraUI();
+          spawnMythicEffect(relic);
+          showPickupBanner(`${relic.icon} ${relic.name} — Hiệu ứng làm đẹp (không nhận mã)`);
+          ensureWorldRelics();
+        }
+      }
+
+      // Camera bám nhân vật ở tâm (HALF_W, HALF_H)
+      const camX = player.x - HALF_W;
+      const camY = player.y - HALF_H;
+
+      drawInfiniteWorld(camX, camY, now);
+      drawVouchersAndRelics(camX, camY, now);
+
+      const bobY = player.moving ? Math.sin(player.walkTime * 16) * 1.4 : Math.sin(now / 450) * 0.5;
+      drawDragonPixel(HALF_W, HALF_H, bobY, now);
+
+      // Vẽ sóng xung kích mở rộng
+      for (let i = shockwaves.length - 1; i >= 0; i--) {
+        const sw = shockwaves[i];
+        sw.r += 48 * dt;
+        if (sw.r >= sw.maxR) { shockwaves.splice(i, 1); continue; }
+        ctx.strokeStyle = sw.color;
+        ctx.lineWidth = 1;
+        ctx.strokeRect(Math.round(sw.wx - camX - sw.r), Math.round(sw.wy - camY - sw.r * 0.7), Math.round(sw.r * 2), Math.round(sw.r * 1.4));
+      }
+
+      // Vẽ pháo hoa pixel
+      for (let i = sparkles.length - 1; i >= 0; i--) {
+        const s = sparkles[i];
+        s.wx += s.vx * dt;
+        s.wy += s.vy * dt;
+        s.life -= dt;
+        if (s.life <= 0) { sparkles.splice(i, 1); continue; }
+        ctx.fillStyle = s.color;
+        ctx.fillRect(Math.round(s.wx - camX), Math.round(s.wy - camY), s.size, s.size);
+      }
+
+      // Vẽ chữ bay trực tiếp trên bản đồ
+      ctx.font = "bold 7px monospace";
+      for (let i = floatingTexts.length - 1; i >= 0; i--) {
+        const ft = floatingTexts[i];
+        ft.wy -= 16 * dt;
+        ft.life -= dt;
+        if (ft.life <= 0) { floatingTexts.splice(i, 1); continue; }
+        const tx = Math.round(ft.wx - camX - ft.text.length * 2);
+        const ty = Math.round(ft.wy - camY);
+        ctx.fillStyle = "#120305";
+        ctx.fillText(ft.text, tx + 1, ty + 1);
+        ctx.fillStyle = ft.color;
+        ctx.fillText(ft.text, tx, ty);
+      }
+
+      // Hiệu ứng chớp sáng nhẹ khi nhặt vật phẩm
+      if (screenFlash > 0) {
+        ctx.fillStyle = `rgba(255, 224, 130, ${screenFlash})`;
+        ctx.fillRect(0, 0, VIEW_W, VIEW_H);
+        screenFlash = Math.max(0, screenFlash - dt * 1.1);
+      }
+
+      requestAnimationFrame(gameLoop);
+    }
+    requestAnimationFrame(gameLoop);
+
+    function setAutoPlay(state) {
+      autoPlay = state;
+      autoPlayBtn.classList.toggle("active", autoPlay);
+      autoPlayBtn.textContent = autoPlay ? "🤖 Tự chơi: Bật" : "🤖 Tự chơi: Tắt";
+      if (autoPlay) initAudio();
+    }
+
+    autoPlayBtn.addEventListener("click", () => {
+      setAutoPlay(!autoPlay);
+      showToast(autoPlay ? "🤖 Rồng Lạc Xuân đang tự động khám phá rừng đêm!" : "Đã tắt chế độ tự chơi.");
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+        if (document.activeElement === pixelWidget || pixelWidget.matches(":hover")) e.preventDefault();
+      }
+      if (["KeyW", "KeyA", "KeyS", "KeyD", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
+        if (document.activeElement.tagName === "INPUT" || document.activeElement.tagName === "TEXTAREA") return;
+        initAudio();
+        keys[e.code] = true;
+      }
+    });
+    window.addEventListener("keyup", (e) => { keys[e.code] = false; });
+
+    canvas.addEventListener("pointerdown", (e) => {
+      initAudio();
+      pixelWidget.focus();
+      if (autoPlay) setAutoPlay(false);
+      const rect = canvas.getBoundingClientRect();
+      const sx = ((e.clientX - rect.left) / rect.width) * VIEW_W;
+      const sy = ((e.clientY - rect.top) / rect.height) * VIEW_H;
+      moveTarget = {
+        wx: (player.x - HALF_W) + sx,
+        wy: (player.y - HALF_H) + sy
+      };
+    });
+
+    const dirToKey = { up: "ArrowUp", down: "ArrowDown", left: "ArrowLeft", right: "ArrowRight" };
+    document.querySelectorAll(".dpad button").forEach(btn => {
+      const k = dirToKey[btn.dataset.dir];
+      const press = (e) => { e.preventDefault(); initAudio(); keys[k] = true; };
+      const release = () => { keys[k] = false; };
+      btn.addEventListener("pointerdown", press);
+      btn.addEventListener("pointerup", release);
+      btn.addEventListener("pointerleave", release);
+      btn.addEventListener("pointercancel", release);
+    });
+
+    document.getElementById("center-btn").addEventListener("click", () => {
+      initAudio();
+      player.x = 12;
+      player.y = 12;
+      moveTarget = null;
+      coordsPillEl.textContent = "Tọa độ: (1, 1) • Lửa trại khởi đầu";
+      playTone(520, 0.09, "triangle", 0.25);
+    });
+  </script>
+</body>
+</html>

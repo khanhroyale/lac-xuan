@@ -224,21 +224,13 @@
     }
 
     .hero-subbrand {
-      margin: 8px 0 14px;
+      margin: 10px 0 26px;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: 3.5px;
       color: #f3c46b;
       text-transform: uppercase;
       opacity: 0.9;
-    }
-
-    .hero-desc {
-      margin: 0 auto 26px;
-      max-width: 560px;
-      font-size: 15.5px;
-      line-height: 1.6;
-      color: #eed4d6;
     }
 
     .hero-search-bar {
@@ -309,7 +301,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
-      padding: 16px 18px 14px;
+      padding: 16px 18px 16px;
       border-radius: 20px;
       background: linear-gradient(145deg, rgba(46, 8, 13, 0.94), rgba(18, 4, 7, 0.97));
       border: 1.5px solid var(--border-strong);
@@ -336,91 +328,6 @@
       margin: 0;
       font-size: 19px;
       color: var(--gold);
-    }
-
-    .coords-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-family: monospace;
-      font-size: 11.5px;
-      color: #a6e3b9;
-      background: rgba(22, 152, 136, 0.16);
-      border: 1px solid rgba(22, 152, 136, 0.42);
-      padding: 3px 9px;
-      border-radius: 6px;
-    }
-
-    .aura-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 11.5px;
-      font-weight: 700;
-      color: #ffe399;
-      background: rgba(245, 201, 107, 0.1);
-      border: 1px solid rgba(245, 201, 107, 0.32);
-      padding: 3px 9px;
-      border-radius: 6px;
-    }
-
-    .game-toolbar {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .game-stat {
-      background: rgba(255, 255, 255, 0.07);
-      border: 1px solid var(--border-strong);
-      padding: 5px 11px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      font-weight: 800;
-      color: var(--gold);
-    }
-
-    .g-pill-btn {
-      height: 30px;
-      padding: 0 11px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: #1d2622;
-      color: #fff3e3;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.18s;
-    }
-    .g-pill-btn:hover { border-color: var(--gold); color: var(--gold); }
-    .g-pill-btn.active {
-      background: linear-gradient(135deg, #169888, #0f6b60);
-      border-color: #7dff9b;
-      color: #fff;
-      box-shadow: 0 0 12px rgba(22, 152, 136, 0.45);
-    }
-
-    .vol-control {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      height: 30px;
-      padding: 0 10px;
-      border-radius: 8px;
-      background: #1a211e;
-      border: 1px solid var(--border);
-      font-size: 12px;
-      color: var(--gold);
-    }
-
-    .vol-control input[type="range"] {
-      width: 72px;
-      accent-color: var(--gold);
-      cursor: pointer;
     }
 
     .pixel-widget {
@@ -474,83 +381,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.65);
     }
     .pickup-banner.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    .game-controls-row {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 0 4px;
-    }
-
-    .hint-keys {
-      font-size: 12px;
-      color: #a9bfb6;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .dpad {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-    }
-    .dpad button {
-      width: 30px;
-      height: 26px;
-      border: 1px solid rgba(245, 201, 107, 0.35);
-      background: #212a27;
-      color: var(--gold);
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-    .dpad button:active { background: var(--gold); color: #121715; }
-
-    /* Khung nhận mã giảm giá thu gọn nằm ở dưới */
-    .collected-box {
-      background: rgba(10, 2, 4, 0.62);
-      border: 1px dashed var(--border);
-      border-radius: 10px;
-      padding: 8px 12px;
-    }
-
-    .collected-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12px;
-      font-weight: 700;
-      color: #ffe8b3;
-      margin-bottom: 6px;
-    }
-
-    .collected-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
-      max-height: 62px;
-      overflow-y: auto;
-    }
-
-    .voucher-pill {
-      border: 1px solid rgba(245, 201, 107, 0.5);
-      background: rgba(245, 201, 107, 0.12);
-      color: var(--gold);
-      font-size: 11px;
-      font-weight: 800;
-      padding: 3px 8px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: all 0.18s;
-    }
-    .voucher-pill:hover { background: var(--gold); color: #2b0509; }
-    .voucher-pill.used { background: var(--jade); border-color: #7dff9b; color: #fff; }
 
     /* ================= MARKETPLACE ================= */
     .marketplace {
@@ -1112,20 +942,17 @@
       </svg>
     </div>
 
-    <div class="float-card fc-1"><span>👺</span><small>Yêu Quái</small></div>
-    <div class="float-card fc-2"><span>⚔️</span><small>Sử Thi</small></div>
+    <div class="float-card fc-1"><span>🏛️</span><small>Hào Khí</small></div>
+    <div class="float-card fc-2"><span>🎁</span><small>Gift Ivory</small></div>
     <div class="float-card fc-3"><span>🎴</span><small>Tết Chạm</small></div>
     <div class="float-card fc-4"><span>🐉</span><small>Mô Hình</small></div>
 
     <div class="hero-center">
       <h1 class="hero-title serif">LẠC XUÂN THƯƠNG XÁ</h1>
       <div class="hero-subbrand">Di Sản Dân Gian &amp; Tinh Hoa Ngày Tết</div>
-      <p class="hero-desc">
-        Khám phá thế giới Card Game Yêu Quái, Sử Thi Hùng Ca, Board Game Tết Chạm đa thế hệ, mô hình sưu tầm, nghệ thuật giấy bồi và trà mứt thượng hạng.
-      </p>
 
       <div class="hero-search-bar">
-        <input type="text" id="hero-search" placeholder="Tìm Yêu Quái, Sơn Tinh, Tết Chạm, Trà Shan..." />
+        <input type="text" id="hero-search" placeholder="Tìm Tết Chạm, Hào Khí Sử Việt, Sơn Tinh, Trà Shan..." />
         <a href="#san-pham" class="btn-gold">Khám phá ngay</a>
       </div>
 
@@ -1137,59 +964,19 @@
     </div>
   </section>
 
-  <!-- KHU RỪNG PIXEL NGANG RỘNG VÔ HẠN: SĂN 20 MÃ + 6 VẬT PHẨM THẦN THOẠI -->
+  <!-- KHU RỪNG PIXEL NGANG RỘNG VÔ HẠN (CHỈ GIỮ TÊN TRÒ CHƠI) -->
   <section class="game-showcase" id="mini-game">
     <div class="game-panel">
-      <!-- Thanh tiêu đề & điều khiển nhạc / tự chơi -->
       <div class="game-header-bar">
         <div class="game-title-group">
           <h3 class="serif">Rừng Đêm Vô Hạn — Săn Mã &amp; Bảo Vật Thần Thoại</h3>
-          <div class="coords-pill" id="coords-pill">Tọa độ: (1, 1) • Map vô hạn</div>
-          <div class="aura-pill" id="aura-pill" title="Vật phẩm thần thoại chỉ tạo hiệu ứng đẹp cho nhân vật, không nhận mã giảm giá">✨ Hào quang: Chưa có</div>
-        </div>
-
-        <div class="game-toolbar">
-          <div class="game-stat">🎫 <span id="game-score">0</span> / 20 mã</div>
-          <button class="g-pill-btn" id="autoplay-btn" title="Để Rồng Lạc Xuân tự động dạo rừng săn mã & bảo vật">🤖 Tự chơi: Tắt</button>
-          <button class="g-pill-btn" id="sound-btn" title="Bật / Tắt nhạc nền & hiệu ứng">🎵 Nhạc: Bật</button>
-          <label class="vol-control" title="Chỉnh âm lượng nhạc & hiệu ứng">
-            <span>🔊</span>
-            <input type="range" id="vol-slider" min="0" max="100" value="45" />
-          </label>
-          <button class="g-pill-btn" id="center-btn" title="Về lửa trại (0,0)">🏕️ Về trại</button>
         </div>
       </div>
 
-      <!-- Khung Canvas ngang rộng -->
       <div class="pixel-widget" id="pixel-widget" tabindex="0">
         <div class="canvas-frame">
           <canvas id="pixel-canvas" width="384" height="168"></canvas>
           <div class="pickup-banner" id="pickup-banner"></div>
-        </div>
-
-        <div class="game-controls-row">
-          <div class="hint-keys">
-            <span>⌨️ <b>WASD / Mũi tên</b> di chuyển</span>
-            <span>🖱️ <b>Bấm lên bản đồ</b> để đi tới</span>
-            <span>🏹 <b>Bảo vật thần thoại</b> (Ngựa Sắt, Nỏ Thần, Voi Trưng Trắc...) chỉ tạo hiệu ứng đẹp, không tăng mã</span>
-          </div>
-          <div class="dpad">
-            <button data-dir="left" title="Trái">◀</button>
-            <button data-dir="up" title="Lên">▲</button>
-            <button data-dir="down" title="Xuống">▼</button>
-            <button data-dir="right" title="Phải">▶</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Phần nhận mã giảm giá thu gọn ở dưới -->
-      <div class="collected-box">
-        <div class="collected-head">
-          <span>🎒 Túi mã giảm giá đã săn (bấm vào mã để áp dụng vào giỏ hàng):</span>
-          <span id="collected-counter">0 / 20</span>
-        </div>
-        <div class="collected-list" id="collected-list">
-          <span style="font-size:12px; color:var(--muted);">Di chuyển hoặc bật "Tự chơi" để săn mã giảm giá phát sáng theo hướng mũi tên vàng...</span>
         </div>
       </div>
     </div>
@@ -1257,7 +1044,7 @@
         </div>
       </div>
     </div>
-    <div class="copy">© 2026 Lạc Xuân Thương Xá. Mô phỏng giao diện thương mại điện tử bản sắc Á Đông.</div>
+    <div class="copy">Bài tập Thương mại Điện tử Nhóm 7</div>
   </footer>
 
   <!-- MODAL CHI TIẾT SẢN PHẨM & LUẬT CHƠI -->
@@ -1299,103 +1086,25 @@
 
   <script>
     // =====================================================
-    // 1. HÌNH ẢNH MINH HỌA SVG CHUẨN THEO BỘ SƯU TẬP TÀI LIỆU PDF
+    // 1. HÌNH ẢNH MINH HỌA SVG
     // =====================================================
     function getProductSVG(p) {
       switch (p.artType) {
-        // Trang 1 PDF: Bảng thẻ bài 3x3 nền đỏ sẫm (Ma Rơi, Ma Vú Dài, Quỷ Nhập Tràng, Cổ Trùng, Linh Miêu...)
-        case "yeuquai":
-          return `<svg viewBox="0 0 160 160">
-            <rect width="160" height="160" rx="12" fill="#2c0708"/>
-            <g stroke="#d89b28" stroke-width="1.4">
-              <rect x="14" y="12" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="61" y="12" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="108" y="12" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="14" y="59" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="61" y="59" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="108" y="59" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="14" y="106" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="61" y="106" width="38" height="42" rx="4" fill="#170607"/>
-              <rect x="108" y="106" width="38" height="42" rx="4" fill="#170607"/>
-            </g>
-            <!-- Ma Rơi xanh lam -->
-            <ellipse cx="33" cy="27" rx="9" ry="7" fill="#1aa38b"/><circle cx="30" cy="26" r="1.5" fill="#fff"/><circle cx="36" cy="26" r="1.5" fill="#fff"/>
-            <!-- Ma Vú Dài vàng -->
-            <circle cx="80" cy="25" r="7" fill="#d8a258"/><path d="M73 25 Q80 14 87 25" fill="#1a1210"/>
-            <!-- Quỷ Nhập Tràng -->
-            <circle cx="127" cy="26" r="6" fill="#c98574"/><path d="M120 35 L134 35 L131 44 L123 44 Z" fill="#8b261d"/>
-            <!-- Cổ Trùng -->
-            <path d="M23 76 Q33 65 43 76" stroke="#ff5252" stroke-width="3" fill="none"/><circle cx="33" cy="80" r="6" fill="#9c2323"/>
-            <!-- Thần Trùng quạ đỏ -->
-            <circle cx="80" cy="77" r="9" fill="#121212"/><circle cx="77" cy="75" r="2" fill="#ff3b30"/>
-            <!-- Linh Miêu -->
-            <ellipse cx="127" cy="80" rx="10" ry="6" fill="#2c2c34"/><circle cx="131" cy="74" r="4" fill="#2c2c34"/><circle cx="132" cy="73" r="1" fill="#ffd56b"/>
-            <!-- Ma Đói -->
-            <circle cx="33" cy="121" r="6" fill="#d9c6b0"/><rect x="30" y="127" width="6" height="11" fill="#a89078"/>
-            <!-- Ma Lon -->
-            <rect x="73" cy="120" y="119" width="14" height="16" rx="2" fill="#8c5830"/>
-            <!-- Ma Mặt Mâm -->
-            <circle cx="127" cy="126" r="9" fill="#f0c896"/><circle cx="124" cy="124" r="1.8" fill="#a81522"/><circle cx="130" cy="124" r="1.8" fill="#a81522"/>
-            <!-- Ngọc số xanh lá ở các lá -->
-            <g fill="#2eb872">
-              <circle cx="48" cy="49" r="3"/><circle cx="95" cy="49" r="3"/><circle cx="142" cy="49" r="3"/>
-              <circle cx="48" cy="96" r="3"/><circle cx="95" cy="96" r="3"/><circle cx="142" cy="96" r="3"/>
-              <circle cx="48" cy="143" r="3"/><circle cx="95" cy="143" r="3"/><circle cx="142" cy="143" r="3"/>
-            </g>
-          </svg>`;
-
-        // Trang 2 PDF: Bộ 3 lá bài Sử Thi (Huyền Trân Công Chúa, Súng Thần Công [4], Mỵ Châu)
-        case "suthi":
-          return `<svg viewBox="0 0 160 160">
-            <rect width="160" height="160" rx="12" fill="#e8c87a"/>
-            <!-- Lá giữa Súng Thần Công -->
-            <g transform="rotate(-11 84 82)">
-              <rect x="52" y="28" width="64" height="94" rx="6" fill="#2d171c" stroke="#f5c96b" stroke-width="2"/>
-              <rect x="57" y="33" width="54" height="44" fill="#d94e28"/>
-              <path d="M68 62 L98 46" stroke="#ffd56b" stroke-width="6" stroke-linecap="round"/>
-              <rect x="57" y="81" width="54" height="34" fill="#f2e6d0"/>
-              <text x="64" y="105" font-size="18" font-weight="900" fill="#2d171c">[4]</text>
-            </g>
-            <!-- Lá phải Mỵ Châu -->
-            <g transform="rotate(14 110 92)">
-              <rect x="78" y="42" width="62" height="92" rx="6" fill="#3a1619" stroke="#f5c96b" stroke-width="2"/>
-              <rect x="83" y="47" width="52" height="52" fill="#5e2a3b"/>
-              <circle cx="109" cy="65" r="8" fill="#ffe0bd"/>
-              <path d="M97 96 Q109 72 121 96" fill="#f7f2ea"/>
-              <rect x="83" y="102" width="52" height="26" fill="#efe2cc"/>
-              <text x="109" y="113" text-anchor="middle" font-size="7" font-weight="800" fill="#5a151b">MỴ CHÂU</text>
-            </g>
-            <!-- Lá trái Huyền Trân Công Chúa -->
-            <g transform="rotate(-13 54 66)">
-              <rect x="22" y="18" width="64" height="94" rx="6" fill="#491318" stroke="#f5c96b" stroke-width="2"/>
-              <rect x="27" y="23" width="54" height="54" fill="#b34d2d"/>
-              <path d="M62 32 Q74 28 72 44" stroke="#ffd56b" stroke-width="4" fill="none"/>
-              <circle cx="48" cy="40" r="8" fill="#ffe0bd"/>
-              <path d="M36 74 Q48 48 60 74" fill="#d42231"/>
-              <rect x="27" y="80" width="54" height="27" fill="#efe2cc"/>
-              <text x="54" y="89" text-anchor="middle" font-size="5.5" font-weight="800" fill="#5a151b">HUYỀN TRÂN</text>
-            </g>
-          </svg>`;
-
-        // Trang 3 PDF: Hộp Board Game Tết Chạm đỏ trên bàn gỗ + 2 lá bài Bộ Mứt Tết & Tết Chạm
         case "tetcham":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#9e6d43"/>
             <rect x="0" y="96" width="160" height="64" fill="#845731"/>
-            <!-- Hộp Tết Chạm đỏ -->
             <rect x="24" y="18" width="112" height="72" rx="6" fill="#a81522" stroke="#f5c96b" stroke-width="2"/>
             <rect x="24" y="18" width="22" height="72" rx="3" fill="#7d0f19"/>
             <text x="72" y="42" text-anchor="middle" font-size="14" font-weight="900" fill="#ffd56b">Tết</text>
             <text x="74" y="57" text-anchor="middle" font-size="13" font-weight="900" fill="#fff2dc">CHẠM</text>
             <rect x="53" y="72" width="44" height="10" rx="3" fill="#f2dec0"/>
-            <!-- Gia đình minh họa trên hộp -->
             <circle cx="107" cy="46" r="6" fill="#ffe0bd"/><circle cx="121" cy="48" r="6" fill="#ffe0bd"/>
             <circle cx="114" cy="60" r="5" fill="#ffe0bd"/><circle cx="126" cy="62" r="5" fill="#ffe0bd"/>
-            <!-- Hai thẻ bài đặt trước hộp -->
             <g transform="rotate(-10 56 122)">
               <rect x="36" y="98" width="38" height="50" rx="4" fill="#f7ebd2" stroke="#d42231" stroke-width="1.5"/>
               <rect x="41" y="103" width="28" height="18" rx="2" fill="#e6b85c"/>
-              <text x="55" y="131" text-anchor="middle" font-size="6" font-weight="900" fill="#7d0f19">BỘ MỨT TẾT</text>
+              <text x="55" y="131" text-anchor="middle" font-size="5.5" font-weight="900" fill="#7d0f19">BỘ MỨT TẾT</text>
             </g>
             <g transform="rotate(8 106 122)">
               <rect x="86" y="98" width="38" height="50" rx="4" fill="#c9222f" stroke="#ffd56b" stroke-width="1.5"/>
@@ -1404,34 +1113,66 @@
             </g>
           </svg>`;
 
-        // Combo 3 hộp game
-        case "combo":
+        case "haokhi":
           return `<svg viewBox="0 0 160 160">
-            <rect width="160" height="160" rx="12" fill="#2e070c"/>
-            <rect x="18" y="34" width="52" height="72" rx="6" transform="rotate(-8 44 70)" fill="#5c0d14" stroke="#f5c96b" stroke-width="2"/>
-            <rect x="90" y="34" width="52" height="72" rx="6" transform="rotate(8 116 70)" fill="#7d111b" stroke="#f5c96b" stroke-width="2"/>
-            <rect x="44" y="48" width="72" height="78" rx="8" fill="#b81d29" stroke="#ffd56b" stroke-width="2.5"/>
-            <rect x="74" y="48" width="12" height="78" fill="#ffd56b"/>
-            <path d="M80 48 C60 28, 52 44, 76 48 C100 28, 108 44, 84 48" fill="none" stroke="#ffd56b" stroke-width="4"/>
-            <text x="80" y="96" text-anchor="middle" font-size="11" font-weight="900" fill="#fff">COMBO 3</text>
+            <rect width="160" height="160" rx="12" fill="#23120b"/>
+            <g transform="rotate(-14 80 80)">
+              <rect x="16" y="34" width="128" height="90" rx="6" fill="#c79e65" stroke="#5d2b16" stroke-width="2.5"/>
+              <rect x="22" y="40" width="116" height="78" rx="4" fill="#d8b47b" stroke="#7c3c1d" stroke-width="1.2"/>
+              <rect x="22" y="40" width="22" height="78" fill="#8f291c"/>
+              <path d="M84 96 L84 68 L98 62 L114 62 L128 68 L128 96 Z" fill="#8d5c32" stroke="#4a2412" stroke-width="1.2"/>
+              <path d="M90 62 L106 50 L122 62 Z" fill="#7c2919" stroke="#4a2412" stroke-width="1.2"/>
+              <rect x="100" y="76" width="12" height="20" rx="6" fill="#4a2412"/>
+              <text x="68" y="68" text-anchor="middle" font-size="11" font-weight="900" fill="#6b1a14">HÀO KHÍ</text>
+              <text x="68" y="83" text-anchor="middle" font-size="12" font-weight="900" fill="#6b1a14">SỬ VIỆT</text>
+              <line x1="48" y1="90" x2="88" y2="90" stroke="#7c3c1d" stroke-width="1.5"/>
+              <text x="68" y="102" text-anchor="middle" font-size="6.5" font-weight="800" fill="#4a2412">BOARD GAME</text>
+            </g>
           </svg>`;
 
-        // Trang 4 PDF: Mô hình Sơn Tinh & Thủy Tinh (Thủy Tinh da xanh cầm đinh ba + Sơn Tinh áo choàng đỏ cầm rìu đen + cua biển & núi)
+        case "combo_tetviet":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#3a1610"/>
+            <rect x="6" y="10" width="72" height="140" rx="8" fill="#8f5d38"/>
+            <rect x="12" y="34" width="60" height="44" rx="4" fill="#a81522" stroke="#ffd56b" stroke-width="1.5"/>
+            <text x="42" y="54" text-anchor="middle" font-size="9" font-weight="900" fill="#ffd56b">Tết</text>
+            <text x="42" y="66" text-anchor="middle" font-size="9" font-weight="900" fill="#fff">CHẠM</text>
+            <rect x="18" y="88" width="22" height="30" rx="3" fill="#f7ebd2" stroke="#d42231" stroke-width="1"/>
+            <rect x="44" y="88" width="22" height="30" rx="3" fill="#c9222f" stroke="#ffd56b" stroke-width="1"/>
+            <rect x="82" y="10" width="72" height="140" rx="8" fill="#2b170e"/>
+            <g transform="rotate(-12 118 80)">
+              <rect x="86" y="50" width="64" height="54" rx="4" fill="#d8b47b" stroke="#6b1a14" stroke-width="1.8"/>
+              <text x="118" y="72" text-anchor="middle" font-size="7.5" font-weight="900" fill="#6b1a14">HÀO KHÍ</text>
+              <text x="118" y="83" text-anchor="middle" font-size="8" font-weight="900" fill="#6b1a14">SỬ VIỆT</text>
+              <text x="118" y="95" text-anchor="middle" font-size="5" font-weight="800" fill="#4a2412">BOARD GAME</text>
+            </g>
+            <rect x="52" y="128" width="56" height="16" rx="8" fill="#ffd56b"/>
+            <text x="80" y="139" text-anchor="middle" font-size="8" font-weight="900" fill="#49060c">COMBO 2 BỘ</text>
+          </svg>`;
+
+        case "gift_ivory":
+          return `<svg viewBox="0 0 160 160">
+            <rect width="160" height="160" rx="12" fill="#450808"/>
+            <rect x="14" y="22" width="132" height="116" rx="8" fill="#3b0505" stroke="#d8a45c" stroke-width="2"/>
+            <rect x="20" y="28" width="120" height="104" rx="5" fill="none" stroke="#d8a45c" stroke-width="0.8" stroke-dasharray="4 3"/>
+            <text x="80" y="56" text-anchor="middle" font-size="8" font-weight="800" letter-spacing="2" fill="#f5c96b">GIFT EDITION</text>
+            <text x="80" y="86" text-anchor="middle" font-size="16" font-weight="900" fill="#e6be83">IVORY 350gsm</text>
+            <line x1="44" y1="98" x2="116" y2="98" stroke="#d8a45c" stroke-width="1"/>
+            <text x="80" y="114" text-anchor="middle" font-size="7.5" font-weight="700" fill="#d9b282">BẢN CAO CẤP &amp; DOANH NGHIỆP</text>
+          </svg>`;
+
         case "mohinh":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#cbe5ef"/>
-            <!-- Nền biển & sấm sét -->
             <rect x="16" y="14" width="128" height="106" rx="4" fill="#2c6f8a"/>
             <path d="M16 90 Q52 40 88 92 L88 120 L16 120 Z" fill="#52b89a"/>
             <path d="M88 120 L118 32 L144 120 Z" fill="#174454"/>
-            <!-- Thủy Tinh (trái) -->
             <line x1="36" y1="22" x2="36" y2="115" stroke="#8de0ff" stroke-width="3.5"/>
             <path d="M29 22 L29 33 L43 33 L43 22" fill="none" stroke="#8de0ff" stroke-width="2.5"/>
             <rect x="46" y="54" width="22" height="36" rx="6" fill="#74c8e8"/>
             <circle cx="57" cy="42" r="9" fill="#74c8e8"/>
             <path d="M48 68 L66 68 L64 96 L50 96 Z" fill="#175a94"/>
             <rect x="47" y="65" width="20" height="4" fill="#ff7043"/>
-            <!-- Sơn Tinh (phải) -->
             <path d="M90 54 L122 54 L126 105 L88 105 Z" fill="#c92222"/>
             <rect x="94" y="54" width="22" height="36" rx="6" fill="#f3b692"/>
             <circle cx="105" cy="41" r="9" fill="#f3b692"/>
@@ -1439,7 +1180,6 @@
             <path d="M95 72 L115 72 L111 94 L99 94 Z" fill="#169888"/>
             <line x1="78" y1="30" x2="90" y2="70" stroke="#222" stroke-width="3"/>
             <path d="M72 30 Q82 22 86 38 Z" fill="#1b1b1b"/>
-            <!-- Đế cua & núi phía trước -->
             <path d="M18 134 Q36 96 62 134 Z" fill="#7b3fa0" stroke="#f06292" stroke-width="2"/>
             <circle cx="40" cy="123" r="6" fill="#ff7043"/>
             <path d="M62 134 Q78 104 94 134 Z" fill="#794524" stroke="#ffb74d" stroke-width="2"/>
@@ -1447,88 +1187,66 @@
             <rect x="12" y="132" width="136" height="12" rx="3" fill="#68b0c4"/>
           </svg>`;
 
-        // Trang 5 PDF: Bộ mô hình chibi dân gian nhiều nhân vật + lá cờ đỏ
         case "botuyeuquai":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#f7f2ea"/>
-            <!-- Cờ đỏ phía sau -->
             <line x1="94" y1="18" x2="94" y2="110" stroke="#7d4a2d" stroke-width="3.5"/>
             <polygon points="94,20 120,42 114,82 82,78" fill="#c92b24" stroke="#ffd56b" stroke-width="1.5"/>
             <line x1="95" y1="38" x2="108" y2="40" stroke="#2b0509" stroke-width="2.5"/>
             <line x1="93" y1="50" x2="106" y2="52" stroke="#2b0509" stroke-width="2.5"/>
-            <!-- Nhân vật 1 (gà/áo nâu) -->
             <circle cx="30" cy="88" r="10" fill="#ffd54f"/>
             <path d="M24 79 Q30 70 36 79" fill="#e53935"/>
             <path d="M19 96 Q30 92 41 96 L43 120 L17 120 Z" fill="#7b4a33"/>
-            <!-- Nhân vật 2 (heo cầm đinh ba) -->
             <line x1="46" y1="68" x2="54" y2="118" stroke="#5d4037" stroke-width="2.5"/>
             <path d="M39 68 L53 68 M41 68 L41 74 M46 68 L46 74 M51 68 L51 74" stroke="#5d4037" stroke-width="2"/>
             <circle cx="65" cy="86" r="10" fill="#8d5a46"/>
             <rect x="54" y="95" width="22" height="22" rx="6" fill="#26a69a"/>
-            <!-- Nhân vật 3 (ếch xanh đội vương miện) -->
             <circle cx="96" cy="92" r="9" fill="#4db6ac"/>
             <polygon points="89,84 96,74 103,84" fill="#ff5252"/>
             <rect x="88" y="100" width="16" height="18" rx="5" fill="#fdd835"/>
-            <!-- Nhân vật 4 (khỉ áo nâu râu dài) -->
             <path d="M126 52 Q120 34 114 48 M132 52 Q138 34 144 48" stroke="#ffd54f" stroke-width="3" fill="none"/>
             <ellipse cx="129" cy="94" rx="18" ry="22" fill="#4e342e"/>
             <circle cx="129" cy="68" r="11" fill="#c62828"/>
             <circle cx="129" cy="68" r="7" fill="#ffe0bd"/>
           </svg>`;
 
-        // Trang 6 PDF: Linh Vật Rồng Vàng Lạc Xuân uốn lượn trên mây
         case "mohinh_rong":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#2d070c"/>
-            <!-- Mây vàng bên dưới -->
             <path d="M24 128 Q45 112 72 122 Q100 110 136 124 Q142 138 118 142 L38 142 Q18 138 24 128 Z" fill="#d99b1e" stroke="#ffe082" stroke-width="1.5"/>
-            <!-- Thân rồng vàng uốn lượn -->
             <path d="M40 58 Q56 96 80 78 Q104 60 118 88 Q128 104 134 54" fill="none" stroke="#e5a922" stroke-width="18" stroke-linecap="round"/>
             <path d="M40 58 Q56 96 80 78 Q104 60 118 88 Q128 104 134 54" fill="none" stroke="#ffd54f" stroke-width="11" stroke-linecap="round" stroke-dasharray="6 5"/>
-            <!-- Đầu rồng & chân ngọc -->
             <circle cx="42" cy="48" r="14" fill="#e5a922" stroke="#ffe082" stroke-width="1.5"/>
             <path d="M28 45 L18 42 L26 52 Z" fill="#ffd54f"/>
             <circle cx="38" cy="44" r="2.5" fill="#49090f"/>
             <circle cx="26" cy="72" r="7" fill="#ffe082"/>
-            <!-- Đuôi quạt -->
             <path d="M132 52 L148 34 L144 58 Z" fill="#ffd54f"/>
           </svg>`;
 
-        // Trang 7 PDF: Đầu Lân giấy bồi rực rỡ lông vàng
         case "giayboi":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#3a1c15"/>
-            <!-- Lông viền vàng rực -->
             <circle cx="80" cy="82" r="56" fill="#ffeb3b" stroke="#ff9800" stroke-width="3" stroke-dasharray="7 4"/>
-            <!-- Đầu lân họa tiết đỏ đen xanh -->
             <ellipse cx="80" cy="80" rx="44" ry="46" fill="#f7f2ea" stroke="#d42231" stroke-width="4"/>
             <path d="M42 62 Q80 34 118 62" fill="#d42231"/>
             <path d="M52 54 Q80 42 108 54" fill="#169888"/>
-            <!-- Sừng lân cam vàng -->
             <path d="M74 44 L80 22 L86 44 Z" fill="#ff6d00" stroke="#ffd54f" stroke-width="2"/>
-            <!-- Mắt to đen trắng -->
             <ellipse cx="60" cy="82" rx="13" ry="11" fill="#fff" stroke="#111" stroke-width="3"/>
             <circle cx="62" cy="82" r="6" fill="#111"/>
             <ellipse cx="100" cy="82" rx="13" ry="11" fill="#fff" stroke="#111" stroke-width="3"/>
             <circle cx="98" cy="82" r="6" fill="#111"/>
-            <!-- Mũi & miệng -->
             <circle cx="80" cy="96" r="10" fill="#ff6d00" stroke="#ffd54f" stroke-width="2"/>
             <path d="M52 108 Q80 126 108 108" fill="none" stroke="#ffeb3b" stroke-width="8" stroke-linecap="round"/>
           </svg>`;
 
-        // Trang 8 PDF: Tượng Chú Tễu bụng tròn cười tươi cầm 2 quạt nan
         case "chuteu":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#4f291c"/>
-            <!-- Quạt nan 2 bên -->
             <circle cx="34" cy="112" r="18" fill="#f3c58e" stroke="#c67c43" stroke-width="2"/>
             <circle cx="126" cy="112" r="18" fill="#f3c58e" stroke="#c67c43" stroke-width="2"/>
-            <!-- Thân áo cam & bụng tròn -->
             <path d="M54 66 L106 66 L114 134 L46 134 Z" fill="#e67e22" stroke="#f5c96b" stroke-width="1.5"/>
             <ellipse cx="80" cy="96" rx="17" ry="20" fill="#f7cbb2"/>
-            <!-- Dải lụa xanh buộc bụng -->
             <path d="M62 114 Q80 108 98 114 M74 114 L68 130 M86 114 L92 130" stroke="#169888" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <!-- Đầu Chú Tễu cười -->
             <circle cx="80" cy="46" r="20" fill="#f7cbb2"/>
             <path d="M60 40 Q80 18 102 42" fill="#d42231"/>
             <path d="M98 38 L112 58 L98 62 Z" fill="#66bb6a"/>
@@ -1536,58 +1254,46 @@
             <path d="M71 53 Q80 61 89 53 Z" fill="#fff" stroke="#a81522" stroke-width="1.5"/>
           </svg>`;
 
-        // Trang 9 PDF: Dàn Lồng Đèn đỏ họa tiết vàng có tua rua đỏ
         case "denlong":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#2d090e"/>
-            <!-- Đèn trái nhỏ -->
             <line x1="36" y1="10" x2="36" y2="28" stroke="#ccc" stroke-width="1.5"/>
             <polygon points="36,28 52,44 45,68 27,68 20,44" fill="#e53935" stroke="#ffd54f" stroke-width="1.2"/>
             <line x1="36" y1="68" x2="36" y2="92" stroke="#ff5252" stroke-width="3"/>
-            <!-- Đèn giữa lớn -->
             <line x1="80" y1="12" x2="80" y2="34" stroke="#ccc" stroke-width="1.5"/>
             <polygon points="80,34 104,58 93,96 67,96 56,58" fill="#d32f2f" stroke="#ffd54f" stroke-width="1.8"/>
             <circle cx="80" cy="64" r="9" fill="none" stroke="#ffd54f" stroke-width="1.5"/>
             <line x1="80" y1="96" x2="80" y2="128" stroke="#ff5252" stroke-width="4"/>
-            <!-- Đèn phải -->
             <line x1="124" y1="8" x2="124" y2="38" stroke="#ccc" stroke-width="1.5"/>
             <polygon points="124,38 144,58 134,88 114,88 104,58" fill="#c62828" stroke="#ffd54f" stroke-width="1.5"/>
             <line x1="124" y1="88" x2="124" y2="118" stroke="#ff5252" stroke-width="3.5"/>
-            <!-- Đèn dưới nhỏ -->
             <polygon points="56,82 72,98 66,120 46,120 40,98" fill="#ef5350" stroke="#ffd54f" stroke-width="1.5"/>
             <line x1="56" y1="120" x2="56" y2="144" stroke="#ff5252" stroke-width="3"/>
           </svg>`;
 
-        // Trang 10 PDF: Hộp gỗ + lon thiếc trắng khóa đồng Trà Shan Tuyết & đĩa lá trà vàng
         case "tra_shan":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#121010"/>
-            <!-- Hộp gỗ sau -->
             <rect x="24" y="22" width="90" height="84" fill="#8b5a2b" stroke="#c48f5a" stroke-width="4"/>
             <rect x="33" y="34" width="34" height="62" rx="4" fill="#eceae4" stroke="#d4af37" stroke-width="1"/>
             <rect x="71" y="34" width="34" height="62" rx="4" fill="#eceae4" stroke="#d4af37" stroke-width="1"/>
-            <!-- Lon thiếc trước mặt -->
             <rect x="86" y="48" width="52" height="84" rx="6" fill="#f2efe9" stroke="#c98c24" stroke-width="1.8"/>
             <rect x="106" y="52" width="12" height="9" rx="2" fill="#d4af37"/>
             <rect x="94" y="70" width="36" height="36" fill="none" stroke="#c98c24" stroke-width="1.2"/>
             <path d="M98 98 Q112 78 126 98" fill="none" stroke="#9e7b2f" stroke-width="1.5"/>
-            <!-- Đĩa đồng đựng lá trà khô -->
             <ellipse cx="52" cy="116" rx="34" ry="14" fill="#d4af37" stroke="#ffe082" stroke-width="1.5"/>
             <path d="M30 115 Q52 96 74 115 Q52 124 30 115 Z" fill="#3a332a"/>
           </svg>`;
 
-        // Trang 11 PDF: Hũ trà trắng Hatvala nhãn hoa sen hồng "Trà Sen Tây Hồ"
         case "tra_sen":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#2d4c22"/>
-            <!-- Lon cao trái -->
             <rect x="24" y="24" width="50" height="114" rx="8" fill="#eef0ea" stroke="#cfd4ca" stroke-width="1.5"/>
             <rect x="24" y="24" width="50" height="14" rx="5" fill="#dfe2db"/>
             <rect x="28" y="48" width="42" height="58" rx="6" fill="#7cb342" stroke="#ec407a" stroke-width="2"/>
             <rect x="31" y="64" width="36" height="26" rx="4" fill="#c62828"/>
             <ellipse cx="49" cy="76" rx="14" ry="8" fill="#f48fb1"/>
             <text x="49" y="100" text-anchor="middle" font-size="6" font-weight="800" fill="#fff">Trà Sen Tây Hồ</text>
-            <!-- Hũ thấp phải -->
             <rect x="86" y="54" width="56" height="78" rx="8" fill="#eef0ea" stroke="#cfd4ca" stroke-width="1.5"/>
             <rect x="84" y="50" width="60" height="14" rx="5" fill="#d8dcd3"/>
             <rect x="91" y="72" width="46" height="44" rx="6" fill="#7cb342" stroke="#ec407a" stroke-width="2"/>
@@ -1595,37 +1301,28 @@
             <text x="114" y="110" text-anchor="middle" font-size="6" font-weight="800" fill="#fff">Lotus Tea</text>
           </svg>`;
 
-        // Trang 12 PDF: Ly thủy tinh trà hoa cúc vàng, hũ mật ong, hoa cúc trắng
         case "tra_cuc":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#f5a623"/>
-            <!-- Hũ mật ong -->
             <rect x="22" y="68" width="32" height="40" rx="6" fill="#d86812" stroke="#ffe0b2" stroke-width="1.5"/>
             <rect x="25" y="62" width="26" height="7" rx="2" fill="#f5e6cc"/>
-            <!-- Đá trắng & ly trà -->
             <rect x="82" y="102" width="56" height="14" rx="2" fill="#f0ece4"/>
             <rect x="92" y="42" width="38" height="60" rx="4" fill="#e67e00" stroke="#fff3e0" stroke-width="2"/>
             <path d="M130 52 C142 52, 142 88, 130 88" fill="none" stroke="#fff3e0" stroke-width="3"/>
             <rect x="94" y="42" width="34" height="10" fill="#ffca28" opacity="0.7"/>
-            <!-- Đế đá dưới + bông cúc trắng -->
             <rect x="44" y="114" width="98" height="16" rx="2" fill="#d7ccc8"/>
             <circle cx="62" cy="112" r="7" fill="#fff"/><circle cx="62" cy="112" r="3" fill="#fbc02d"/>
             <circle cx="76" cy="110" r="6" fill="#fff"/><circle cx="76" cy="110" r="2.5" fill="#fbc02d"/>
           </svg>`;
 
-        // Trang 13 PDF: Khay mứt đỏ tròn nhiều ngăn + ấm trà men rạn & hoa mai vàng
         case "mut_ngusac":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#7c3e18"/>
-            <!-- Ấm trà góc trên trái -->
             <circle cx="44" cy="40" r="20" fill="#e0ddd5" stroke="#5d4037" stroke-width="1.5"/>
             <circle cx="44" cy="24" r="6" fill="#d7d2c8"/>
-            <!-- Hoa mai vàng -->
             <circle cx="132" cy="30" r="8" fill="#ffd54f"/><circle cx="118" cy="38" r="7" fill="#ffd54f"/>
-            <!-- Khay mứt đỏ lớn -->
             <ellipse cx="94" cy="94" rx="56" ry="44" fill="#9c161f" stroke="#d4af37" stroke-width="2.5"/>
             <ellipse cx="94" cy="86" rx="52" ry="38" fill="#f2e6d0"/>
-            <!-- Các ngăn mứt đủ màu -->
             <ellipse cx="94" cy="60" rx="18" ry="9" fill="#ffe082"/>
             <ellipse cx="62" cy="76" rx="14" ry="11" fill="#e6b89c"/>
             <ellipse cx="126" cy="76" rx="14" ry="11" fill="#8d3b24"/>
@@ -1635,41 +1332,33 @@
             <circle cx="94" cy="84" r="4" fill="#ffd54f"/>
           </svg>`;
 
-        // Trang 14 PDF: Hũ mứt gừng Huế nắp vàng nhãn đỏ + lát gừng tươi & viên mứt cam
         case "mut_gung":
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#5a3b2e"/>
-            <!-- Hũ thủy tinh mứt gừng -->
             <rect x="34" y="34" width="66" height="78" rx="10" fill="#e0a96d" stroke="#fff3e0" stroke-width="2"/>
             <rect x="36" y="24" width="62" height="14" rx="4" fill="#d4af37"/>
             <rect x="52" y="24" width="30" height="72" fill="#c62828"/>
             <text x="67" y="76" text-anchor="middle" font-size="8" font-weight="900" fill="#ffd54f">HUẾ</text>
-            <!-- Đĩa gỗ & viên mứt gừng cam -->
             <polygon points="56,112 146,104 138,142 46,142" fill="#8d5524" stroke="#c68642" stroke-width="2"/>
             <rect x="78" y="114" width="14" height="12" rx="3" fill="#ff8f00"/>
             <rect x="96" y="118" width="15" height="12" rx="3" fill="#ffa000"/>
             <rect x="114" y="112" width="14" height="12" rx="3" fill="#ff6f00"/>
-            <!-- 2 lát gừng tươi -->
             <ellipse cx="38" cy="122" rx="14" ry="18" fill="#f9e08c" stroke="#c59b48" stroke-width="2"/>
             <ellipse cx="52" cy="126" rx="12" ry="16" fill="#f9e08c" stroke="#c59b48" stroke-width="2"/>
           </svg>`;
 
-        // Trang 15 PDF: Hũ thủy tinh VIMUT Mứt Hạt Sen xanh lá dứa + chén gỗ đầy hạt sen xanh
         case "mut_dua":
         default:
           return `<svg viewBox="0 0 160 160">
             <rect width="160" height="160" rx="12" fill="#a81522"/>
-            <!-- Hũ lớn trái -->
             <rect x="18" y="20" width="56" height="94" rx="8" fill="#8da85a" stroke="#fff3e0" stroke-width="1.5"/>
             <rect x="20" y="14" width="52" height="10" rx="3" fill="#dcdcdc"/>
             <rect x="24" y="42" width="44" height="54" rx="4" fill="#e8ebdf" stroke="#2e4d23" stroke-width="1.5"/>
             <text x="46" y="55" text-anchor="middle" font-size="7" font-weight="900" fill="#2e4d23">MỨT HẠT SEN</text>
             <ellipse cx="46" cy="70" rx="12" ry="7" fill="#689f38"/>
-            <!-- Hũ vừa phải -->
             <rect x="86" y="46" width="48" height="68" rx="7" fill="#8da85a" stroke="#fff3e0" stroke-width="1.5"/>
             <rect x="88" y="40" width="44" height="9" rx="3" fill="#d4af37"/>
             <rect x="92" y="64" width="36" height="40" rx="4" fill="#e8ebdf"/>
-            <!-- Đĩa gỗ & đống hạt sen xanh lá dứa -->
             <ellipse cx="86" cy="134" rx="42" ry="12" fill="#b57c44" stroke="#805024" stroke-width="2"/>
             <g fill="#9ccc65" stroke="#558b2f" stroke-width="1">
               <circle cx="68" cy="124" r="7"/><circle cx="82" cy="122" r="8"/>
@@ -1682,55 +1371,23 @@
     }
 
     // =====================================================
-    // 2. DỮ LIỆU 16 SẢN PHẨM ĐÃ ĐỐI CHIẾU TÀI LIỆU
+    // 2. DỮ LIỆU 16 SẢN PHẨM
     // =====================================================
     const PRODUCTS = [
       {
         id: 1,
-        name: "Card Game: Yêu Quái Dân Gian",
+        name: "Tết Chạm – Bộ bài gắn kết gia đình",
         cat: "Card & Board Game",
-        price: 269000,
-        oldPrice: 320000,
-        badge: "Mới",
-        artType: "yeuquai",
-        desc: "Chiến thuật thẻ bài Ma Rơi, Ma Vú Dài, Quỷ Nhập Tràng, Cổ Trùng, Linh Miêu đậm chất huyền bí.",
-        specs: ["60 lá bài cán mờ chống nước", "2 – 5 người chơi • 25 phút/ván", "Kèm sách giải mã truyền thuyết dân gian"],
-        rulesTitle: "📜 Luật chơi chi tiết: Yêu Quái Dân Gian",
-        rules: [
-          "<b>Bước 1 — Chia bài & Trấn yểm:</b> Mỗi người nhận 5 lá bài và 3 Lá Bùa Hộ Mệnh úp trước mặt.",
-          "<b>Bước 2 — Triệu hồi Yêu Quái:</b> Đến lượt, bạn đánh ra 1 lá Yêu Quái (Ma Rơi, Quỷ Nhập Tràng, Linh Miêu...) vào bàn.",
-          "<b>Bước 3 — Khắc chế Ngũ Hành:</b> Dùng lá Pháp Bảo / Bùa Trấn để phá hủy Yêu Quái đối thủ hoặc cướp điểm Linh Hồn.",
-          "<b>Bước 4 — Điều kiện thắng:</b> Người đầu tiên thu phục đủ <b>15 điểm Yêu Khí</b> hoặc làm cạn Bùa Hộ Mệnh của tất cả đối thủ sẽ chiến thắng."
-        ]
-      },
-      {
-        id: 2,
-        name: "Card Game: Sử Thi Hùng Ca",
-        cat: "Card & Board Game",
-        price: 289000,
-        oldPrice: 340000,
-        badge: "Bán chạy",
-        artType: "suthi",
-        desc: "Quy tụ các nhân vật lịch sử & thần thoại: Huyền Trân Công Chúa, Mỵ Châu, Súng Thần Công.",
-        specs: ["64 lá bài ép kim ánh vàng", "2 – 4 người chơi • 30 phút/ván", "Thẻ Thánh Tướng & Cổ Vật cỡ lớn"],
-        rulesTitle: "📜 Luật chơi chi tiết: Sử Thi Hùng Ca",
-        rules: [
-          "<b>Bước 1 — Chọn Thần Chủ:</b> Mỗi người chọn 1 danh tướng / công chúa sử thi làm chỉ huy.",
-          "<b>Bước 2 — Tích tụ Linh Khí:</b> Đầu mỗi lượt rút 2 lá, tích điểm để triệu hồi quân lính và cổ vật (Súng Thần Công, Nỏ Thần...).",
-          "<b>Bước 3 — Giao tranh Linh Sơn:</b> Kích hoạt tuyệt chiêu riêng của từng thẻ để đảo ngược cục diện.",
-          "<b>Bước 4 — Giành chiến thắng:</b> Chiếm giữ đủ <b>3 Đỉnh Linh Sơn</b> trên bàn đấu để xưng vương."
-        ]
-      },
-      {
-        id: 3,
-        name: "Board Game: Tết Chạm (Bản Gia Đình)",
-        cat: "Card & Board Game",
-        price: 295000,
-        oldPrice: 350000,
+        price: 249000,
+        oldPrice: null,
         badge: "Hot",
         artType: "tetcham",
-        desc: "Board game kết nối đa thế hệ cho ông bà, cha mẹ và con cháu cùng chơi ngày Tết.",
-        specs: ["80 thẻ Tết Chạm chữ to dễ đọc", "2 – 8 người chơi (mọi lứa tuổi)", "Kèm hộp đỏ & tờ hướng dẫn chơi chi tiết"],
+        desc: "Bộ bài gắn kết đa thế hệ ngày Tết. Dành cho gia đình trẻ và người mua về quê ăn Tết.",
+        specs: [
+          "Giá tròn tương ứng: 250.000₫",
+          "Đối tượng mục tiêu: Gia đình trẻ, người mua về quê ăn Tết",
+          "Chất liệu bài cao cấp, chữ to dễ đọc cho mọi thế hệ"
+        ],
         rulesTitle: "📜 Luật chơi chi tiết: Tết Chạm (Đa Thế Hệ)",
         rules: [
           "<b>Bước 1 — Vào mâm Tết:</b> Đặt bộ bài ở giữa, cả gia đình từ ông bà đến các cháu cùng ngồi quây quần.",
@@ -1740,20 +1397,67 @@
         ]
       },
       {
-        id: 4,
-        name: "Combo Trọn Bộ 3 Game Lạc Xuân",
+        id: 2,
+        name: "Hào Khí Sử Việt – Bộ bài lịch sử Việt Nam",
         cat: "Card & Board Game",
-        price: 760000,
-        oldPrice: 990000,
-        badge: "Tiết kiệm",
-        artType: "combo",
-        desc: "Gồm đủ Yêu Quái Dân Gian, Sử Thi Hùng Ca và Board Game Tết Chạm bản gia đình.",
-        specs: ["Đủ 3 hộp game nguyên seal", "Tặng kèm 10 bao lì xì gấm Lạc Xuân", "Hộp quà đỏ quai xách sang trọng"],
-        rulesTitle: "📜 Hướng dẫn trọn bộ Combo",
+        price: 229000,
+        oldPrice: null,
+        badge: "Bán chạy",
+        artType: "haokhi",
+        desc: "Bộ bài lịch sử Việt Nam hào hùng. Dành cho học sinh, sinh viên và người trẻ yêu sử Việt.",
+        specs: [
+          "Giá tròn tương ứng: 230.000₫",
+          "Đối tượng mục tiêu: Học sinh, sinh viên, người trẻ yêu sử Việt",
+          "2 – 5 người chơi • Tái hiện các triều đại & danh nhân lịch sử"
+        ],
+        rulesTitle: "📜 Luật chơi chi tiết: Hào Khí Sử Việt",
         rules: [
-          "<b>Phòng khách gia đình:</b> Chơi <i>Tết Chạm</i> cùng ông bà, bố mẹ và trẻ nhỏ vào sáng Mùng 1.",
-          "<b>Nhóm bạn thân:</b> Đấu trí kịch tính với <i>Yêu Quái Dân Gian</i> và <i>Sử Thi Hùng Ca</i>.",
-          "<b>Tặng kèm:</b> 01 túi vải đựng bài và bộ lì xì giới hạn Lạc Xuân."
+          "<b>Bước 1 — Chia quân & Chọn Triều Đại:</b> Mỗi người chơi nhận bộ thẻ nhân vật và thẻ sự kiện lịch sử.",
+          "<b>Bước 2 — Triệu hồi Danh Tướng:</b> Đánh ra các thẻ tướng lĩnh, trận địa để mở rộng vùng ảnh hưởng.",
+          "<b>Bước 3 — Kích hoạt Sự Kiện Lịch Sử:</b> Kết hợp đúng mốc thời gian để nhân đôi sức mạnh và ghi điểm Hào Khí.",
+          "<b>Bước 4 — Giành chiến thắng:</b> Người chơi đạt đủ mốc điểm Hào Khí trước tiên sẽ chiến thắng ván đấu."
+        ]
+      },
+      {
+        id: 3,
+        name: "Combo “Tết Việt – Gắn kết và Tự hào” (2 bộ)",
+        cat: "Card & Board Game",
+        price: 429000,
+        oldPrice: 478000,
+        badge: "Tiết kiệm",
+        artType: "combo_tetviet",
+        desc: "Trọn bộ Tết Chạm & Hào Khí Sử Việt. Phù hợp cho người mua quà biếu Tết trọn vẹn ý nghĩa.",
+        specs: [
+          "Giá tròn tương ứng: 430.000₫",
+          "Đối tượng mục tiêu: Người mua quà biếu Tết trọn vẹn ý nghĩa",
+          "Gồm 01 bộ Tết Chạm + 01 bộ Hào Khí Sử Việt nguyên seal"
+        ],
+        rulesTitle: "📜 Hướng dẫn trọn bộ Combo Tết Việt",
+        rules: [
+          "<b>Gắn kết gia đình:</b> Mở hộp <i>Tết Chạm</i> chơi cùng ông bà, bố mẹ và trẻ nhỏ vào dịp sum vầy.",
+          "<b>Tự hào sử Việt:</b> Trải nghiệm các trận chiến đấu trí kịch tính với <i>Hào Khí Sử Việt</i> cùng anh em, bạn bè.",
+          "<b>Quà biếu trọn vẹn:</b> Đóng gói chỉnh chu, thích hợp làm quà Tết sang trọng và giàu giá trị văn hóa."
+        ]
+      },
+      {
+        id: 4,
+        name: "Gift Edition (Bản cao cấp Ivory 350gsm)",
+        cat: "Card & Board Game",
+        price: 499000,
+        oldPrice: null,
+        badge: "Cao cấp",
+        artType: "gift_ivory",
+        desc: "Phiên bản giấy Ivory 350gsm sang trọng dành cho khách mua quà cao cấp & Doanh nghiệp (B2B).",
+        specs: [
+          "Giá tròn tương ứng: 500.000₫",
+          "Đối tượng mục tiêu: Khách mua quà cao cấp & Doanh nghiệp (B2B)",
+          "Thẻ bài định lượng Ivory 350gsm dày dặn, hộp cứng ép kim"
+        ],
+        rulesTitle: "📜 Quy cách phiên bản Gift Edition Ivory 350gsm",
+        rules: [
+          "<b>Chất liệu thượng hạng:</b> Toàn bộ lá bài in trên giấy <b>Ivory 350gsm</b> cán mờ chống trầy, cầm chắc tay.",
+          "<b>Hoàn thiện cao cấp:</b> Hộp cứng phủ đỏ ánh kim sang trọng, nâng tầm giá trị quà tặng đối tác.",
+          "<b>Hỗ trợ B2B:</b> Thích hợp đặt làm quà tri ân khách hàng VIP và nhân sự doanh nghiệp dịp Tết."
         ]
       },
       {
@@ -1769,7 +1473,7 @@
         rulesTitle: "📜 Thông tin & Cách trưng bày Mô Hình",
         rules: [
           "<b>Chế tác:</b> Sơn phủ thủ công sắc nét, phông nền sóng biển & sấm chớp lắp ghép tiện lợi.",
-          "<b>Trưng bày:</b> Đặt tại bàn làm việc, tủ kính hoặc kết hợp làm quân tướng khi chơi Card Game Sử Thi.",
+          "<b>Trưng bày:</b> Đặt tại bàn làm việc, tủ kính hoặc kết hợp làm quân tướng khi chơi Board Game.",
           "<b>Bảo quản:</b> Lau bụi bằng cọ mềm, tránh phơi nắng trực tiếp trên 50°C."
         ]
       },
@@ -1786,7 +1490,7 @@
         rulesTitle: "📜 Quy cách & Cách dùng Bộ Tứ Mô Hình",
         rules: [
           "<b>Trang trí:</b> Đặt trên bàn học, góc PC hoặc kệ sách tạo điểm nhấn văn hóa dân gian.",
-          "<b>Mở rộng Game:</b> Dùng làm quân đại diện (token) cho người chơi trong bộ <i>Card Game Yêu Quái</i>."
+          "<b>Mở rộng Game:</b> Dùng làm quân đại diện (token) cho người chơi khi chơi Board Game."
         ]
       },
       {
@@ -1951,10 +1655,10 @@
 
     // 20 mã giảm giá săn trên bản đồ vô hạn
     const VOUCHER_TEMPLATES = [
-      { code: "YEUQUAI15", productId: 1, percent: 15, label: "Card Yêu Quái -15%", color: "#ff5c5c" },
-      { code: "SUTHI15", productId: 2, percent: 15, label: "Card Sử Thi -15%", color: "#7ce8ff" },
-      { code: "TETCHAM20", productId: 3, percent: 20, label: "Tết Chạm -20%", color: "#ffd56b" },
-      { code: "COMBO12", productId: 4, percent: 12, label: "Combo 3 Game -12%", color: "#ff9f68" },
+      { code: "TETCHAM15", productId: 1, percent: 15, label: "Tết Chạm -15%", color: "#ff5c5c" },
+      { code: "HAOKHI15", productId: 2, percent: 15, label: "Hào Khí Sử Việt -15%", color: "#7ce8ff" },
+      { code: "TETVIET20", productId: 3, percent: 20, label: "Combo Tết Việt -20%", color: "#ffd56b" },
+      { code: "IVORY12", productId: 4, percent: 12, label: "Gift Edition -12%", color: "#ff9f68" },
       { code: "MOHINH15", cat: "Mô Hình", percent: 15, label: "Nhóm Mô Hình -15%", color: "#c4b5fd" },
       { code: "GIAYBOI15", cat: "Trang Trí & Giấy Bồi", percent: 15, label: "Giấy Bồi -15%", color: "#ff85a2" },
       { code: "TRASHAN18", productId: 11, percent: 18, label: "Trà Shan Tuyết -18%", color: "#7dff9b" },
@@ -2141,9 +1845,12 @@
     }
 
     function renderCollectedVouchers() {
-      collectedCounterEl.textContent = `${unlockedVouchers.length} / ${MAX_VOUCHERS}`;
+      if (collectedCounterEl) {
+        collectedCounterEl.textContent = `${unlockedVouchers.length} / ${MAX_VOUCHERS}`;
+      }
+      if (!collectedListEl) return;
       if (unlockedVouchers.length === 0) {
-        collectedListEl.innerHTML = `<span style="font-size:12px; color:var(--muted);">Di chuyển hoặc bật "Tự chơi" để săn mã giảm giá phát sáng theo hướng mũi tên vàng...</span>`;
+        collectedListEl.innerHTML = `<span style="font-size:12px; color:var(--muted);">Di chuyển để săn mã giảm giá phát sáng...</span>`;
         return;
       }
       collectedListEl.innerHTML = unlockedVouchers.map(v => `
@@ -2374,15 +2081,15 @@
     renderCart();
 
     // =====================================================
-    // 4. GAME PIXEL MAP NGANG VÔ HẠN + NHẠC NGŨ CUNG + TỰ CHƠI + 6 BẢO VẬT THẦN THOẠI
+    // 4. GAME PIXEL MAP NGANG VÔ HẠN + NHẠC NGŨ CUNG + 6 BẢO VẬT THẦN THOẠI
     // =====================================================
     const canvas = document.getElementById("pixel-canvas");
     const ctx = canvas.getContext("2d");
     ctx.imageSmoothingEnabled = false;
-    const VIEW_W = canvas.width;   // 384
-    const VIEW_H = canvas.height;  // 168
-    const HALF_W = VIEW_W / 2;     // 192
-    const HALF_H = VIEW_H / 2;     // 84
+    const VIEW_W = canvas.width;
+    const VIEW_H = canvas.height;
+    const HALF_W = VIEW_W / 2;
+    const HALF_H = VIEW_H / 2;
 
     const pixelWidget = document.getElementById("pixel-widget");
     const gameScoreEl = document.getElementById("game-score");
@@ -2393,16 +2100,15 @@
     const soundBtn = document.getElementById("sound-btn");
     const autoPlayBtn = document.getElementById("autoplay-btn");
 
-    // --- BỘ TỔNG HỢP NHẠC NỀN NGŨ CUNG Á ĐÔNG & ÂM LƯỢNG ---
+    // --- BỘ TỔNG HỢP NHẠC NỀN NGŨ CUNG Á ĐÔNG ---
     let audioCtx = null;
     let masterGain = null;
     let soundOn = true;
-    let volumeLevel = 0.45; // 0..1
+    let volumeLevel = 0.45;
     let musicStarted = false;
     let musicStep = 0;
     let musicTimer = null;
 
-    // Giai điệu ngũ cung xuân rộn ràng (Hz): C, D, E, G, A
     const MELODY_SEQ = [
       523.25, 659.25, 783.99, 659.25, 880.00, 783.99, 659.25, 587.33,
       523.25, 587.33, 659.25, 783.99, 659.25, 0,      587.33, 523.25,
@@ -2476,22 +2182,26 @@
       playTone(1046.5, 0.26, "sine", 0.30, 0.22);
     }
 
-    volSlider.addEventListener("input", (e) => {
-      volumeLevel = Number(e.target.value) / 100;
-      initAudio();
-      if (volumeLevel > 0 && !soundOn) {
-        soundOn = true;
-        soundBtn.textContent = "🎵 Nhạc: Bật";
-      }
-      updateMasterVolume();
-    });
+    if (volSlider) {
+      volSlider.addEventListener("input", (e) => {
+        volumeLevel = Number(e.target.value) / 100;
+        initAudio();
+        if (volumeLevel > 0 && !soundOn) {
+          soundOn = true;
+          if (soundBtn) soundBtn.textContent = "🎵 Nhạc: Bật";
+        }
+        updateMasterVolume();
+      });
+    }
 
-    soundBtn.addEventListener("click", () => {
-      initAudio();
-      soundOn = !soundOn;
-      soundBtn.textContent = soundOn ? "🎵 Nhạc: Bật" : "🔇 Nhạc: Tắt";
-      updateMasterVolume();
-    });
+    if (soundBtn) {
+      soundBtn.addEventListener("click", () => {
+        initAudio();
+        soundOn = !soundOn;
+        soundBtn.textContent = soundOn ? "🎵 Nhạc: Bật" : "🔇 Nhạc: Tắt";
+        updateMasterVolume();
+      });
+    }
 
     // --- NHÂN VẬT RỒNG LẠC XUÂN & HÀO QUANG THẦN THOẠI ---
     const DRAGON_HALF = [
@@ -2501,9 +2211,10 @@
       "0011111", "0001110", "0010101", "0010000"
     ];
 
-    const collectedMythics = new Set(); // lưu id vật phẩm thần thoại đã ăn để bật hiệu ứng đẹp
+    const collectedMythics = new Set();
 
     function updateAuraUI() {
+      if (!auraPillEl) return;
       if (collectedMythics.size === 0) {
         auraPillEl.textContent = "✨ Hào quang: Chưa có";
         return;
@@ -2513,7 +2224,6 @@
     }
 
     function drawDragonPixel(sx, sy, bobY, time) {
-      // Hào quang xoay quanh nhân vật khi đã ăn vật phẩm thần thoại
       if (collectedMythics.size > 0) {
         const count = collectedMythics.size;
         const radius = 12 + Math.sin(time / 250) * 1.5;
@@ -2529,7 +2239,6 @@
           ctx.fillRect(ox, oy, 1, 1);
           idx++;
         });
-        // Vòng sáng chân nếu có Gươm Thần hoặc Bánh Chưng
         if (collectedMythics.has("guomthan") || collectedMythics.has("banhchung")) {
           ctx.fillStyle = collectedMythics.has("guomthan") ? "rgba(124,232,255,0.22)" : "rgba(105,255,156,0.22)";
           ctx.fillRect(Math.round(sx - 8), Math.round(sy + 6), 16, 4);
@@ -2625,7 +2334,6 @@
       ctx.fillStyle = "#141c19";
       ctx.fillRect(0, 0, VIEW_W, VIEW_H);
 
-      // Lưới cỏ mờ tạo chiều sâu di chuyển
       const gStartX = Math.floor(camX / 16) * 16;
       const gStartY = Math.floor(camY / 16) * 16;
       for (let wy = gStartY; wy < camY + VIEW_H + 16; wy += 16) {
@@ -2635,7 +2343,6 @@
             ctx.fillStyle = "#243625";
             ctx.fillRect(Math.round(wx - camX), Math.round(wy - camY), 1, 2);
           } else if (h < 0.04) {
-            // Đom đóm rừng đêm nhấp nháy
             if (Math.floor(time / 350 + h * 100) % 2 === 0) {
               ctx.fillStyle = "#d9ff7a";
               ctx.fillRect(Math.round(wx - camX + Math.sin(time / 400) * 3), Math.round(wy - camY), 1, 1);
@@ -2667,21 +2374,17 @@
           } else if (r1 < 0.39) {
             drawBambooClump(sx, sy, time);
           } else if (r1 < 0.46) {
-            // Nấm đỏ
             ctx.fillStyle = "#e6dcd0"; ctx.fillRect(sx + 1, sy + 2, 2, 2);
             ctx.fillStyle = "#d94326"; ctx.fillRect(sx, sy, 4, 2);
             ctx.fillStyle = "#fff"; ctx.fillRect(sx + 1, sy, 1, 1);
           } else if (r1 < 0.53) {
-            // Đá rêu
             ctx.fillStyle = "#45535c"; ctx.fillRect(sx, sy, 5, 3);
             ctx.fillStyle = "#5c6d78"; ctx.fillRect(sx + 1, sy - 1, 3, 2);
           } else if (r1 < 0.58) {
-            // Đèn đá Á Đông phát sáng
             ctx.fillStyle = "#5d686e"; ctx.fillRect(sx, sy, 4, 6);
             ctx.fillStyle = Math.floor(time / 280) % 2 === 0 ? "#ffd56b" : "#ff9d00";
             ctx.fillRect(sx + 1, sy + 1, 2, 2);
           } else if (r1 < 0.62) {
-            // Hồ sen nhỏ phát sáng nhẹ
             ctx.fillStyle = "#164d57";
             ctx.fillRect(sx - 4, sy - 2, 10, 5);
             ctx.fillStyle = "#2d8a68";
@@ -2689,7 +2392,6 @@
             ctx.fillStyle = "#ff85a2";
             ctx.fillRect(sx + 2, sy - 1, 2, 2);
           } else if (r1 < 0.65) {
-            // Tinh linh rừng đêm
             ctx.fillStyle = Math.floor(time / 360) % 2 === 0 ? "#9ea7ff" : "#5e68b8";
             ctx.fillRect(sx, sy, 3, 1); ctx.fillRect(sx + 1, sy - 1, 1, 3);
           }
@@ -2697,7 +2399,7 @@
       }
     }
 
-    // --- VẬT PHẨM MÃ GIẢM GIÁ (TỐI ĐA 20) & VẬT PHẨM THẦN THOẠI (CHỈ LÀM ĐẸP) ---
+    // --- VẬT PHẨM MÃ GIẢM GIÁ & VẬT PHẨM THẦN THOẠI ---
     const player = { x: 12, y: 12, speed: 68, walkTime: 0, moving: false };
     let moveTarget = null;
     const keys = {};
@@ -2716,6 +2418,7 @@
     let screenFlash = 0;
 
     function showPickupBanner(text) {
+      if (!pickupBannerEl) return;
       pickupBannerEl.textContent = text;
       pickupBannerEl.classList.add("show");
       clearTimeout(bannerTimer);
@@ -2763,19 +2466,17 @@
     ensureWorldVouchers();
     ensureWorldRelics();
 
-    // Vẽ từng vật phẩm thần thoại bằng pixel art đặc trưng
     function drawRelicSprite(sx, sy, relic, time) {
       const bob = Math.sin(time / 200 + sx) * 1.6;
       const ry = Math.round(sy + bob);
 
-      // Hào quang nền xoay
       const pulse = 6 + Math.sin(time / 180) * 1.5;
       ctx.fillStyle = "rgba(255, 255, 255, 0.14)";
       ctx.fillRect(Math.round(sx - pulse), Math.round(ry - 1), Math.round(pulse * 2), 2);
       ctx.fillRect(Math.round(sx - 1), Math.round(ry - pulse), 2, Math.round(pulse * 2));
 
       switch (relic.id) {
-        case "nguasat": // Ngựa Sắt Thánh Gióng
+        case "nguasat":
           ctx.fillStyle = "#9aa5b1";
           ctx.fillRect(sx - 4, ry - 1, 8, 4);
           ctx.fillRect(sx + 2, ry - 5, 3, 5);
@@ -2784,28 +2485,28 @@
           ctx.fillRect(sx - 3, ry + 3, 2, 3);
           ctx.fillRect(sx + 2, ry + 3, 2, 3);
           break;
-        case "nothan": // Nỏ Thần An Dương Vương
+        case "nothan":
           ctx.fillStyle = "#ffd56b";
           ctx.fillRect(sx - 5, ry - 2, 10, 2);
           ctx.fillRect(sx - 1, ry - 5, 2, 10);
           ctx.fillStyle = "#7ce8ff";
           ctx.fillRect(sx - 1, ry - 6, 2, 2);
           break;
-        case "voitrung": // Voi Chiến Trưng Trắc
+        case "voitrung":
           ctx.fillStyle = "#cfd8dc";
           ctx.fillRect(sx - 5, ry - 2, 9, 5);
           ctx.fillRect(sx + 4, ry, 2, 4);
           ctx.fillStyle = "#ff4081";
           ctx.fillRect(sx - 3, ry - 4, 5, 3);
           break;
-        case "banhchung": // Bánh Chưng Lang Liêu
+        case "banhchung":
           ctx.fillStyle = "#43a047";
           ctx.fillRect(sx - 4, ry - 4, 8, 8);
           ctx.fillStyle = "#fff59d";
           ctx.fillRect(sx - 1, ry - 4, 2, 8);
           ctx.fillRect(sx - 4, ry - 1, 8, 2);
           break;
-        case "caytre": // Cây Tre Trăm Đốt
+        case "caytre":
           ctx.fillStyle = "#8bc34a";
           ctx.fillRect(sx - 1, ry - 6, 2, 12);
           ctx.fillStyle = "#dce775";
@@ -2814,7 +2515,7 @@
           ctx.fillStyle = "#4caf50";
           ctx.fillRect(sx + 1, ry - 5, 3, 2);
           break;
-        case "guomthan": // Gươm Thần Thuận Thiên
+        case "guomthan":
         default:
           ctx.fillStyle = "#7ce8ff";
           ctx.fillRect(sx - 1, ry - 6, 2, 9);
@@ -2828,7 +2529,6 @@
     function drawVouchersAndRelics(camX, camY, time) {
       const bob = Math.sin(time / 210) * 1.6;
 
-      // 1. Vẽ 6 loại Vật phẩm thần thoại (chỉ làm đẹp)
       worldRelics.forEach(relic => {
         if (Math.hypot(relic.wx - player.x, relic.wy - player.y) > 360) {
           const ang = Math.random() * Math.PI * 2;
@@ -2841,7 +2541,6 @@
         if (sx >= 6 && sx <= VIEW_W - 6 && sy >= 6 && sy <= VIEW_H - 6) {
           drawRelicSprite(sx, sy, relic, time);
         } else {
-          // Chấm bạc/xanh nhỏ chỉ hướng bảo vật thần thoại
           const ax = Math.max(5, Math.min(VIEW_W - 5, sx));
           const ay = Math.max(5, Math.min(VIEW_H - 5, sy));
           if (Math.floor(time / 320) % 2 === 0) {
@@ -2851,7 +2550,6 @@
         }
       });
 
-      // 2. Vẽ các Vật phẩm Mã Giảm Giá với nhiều hiệu ứng hào quang rực rỡ
       worldVouchers.forEach(item => {
         if (Math.hypot(item.wx - player.x, item.wy - player.y) > 340) {
           const ang = Math.random() * Math.PI * 2;
@@ -2864,7 +2562,6 @@
         const sy = Math.round(item.wy - camY);
 
         if (sx >= 8 && sx <= VIEW_W - 8 && sy >= 8 && sy <= VIEW_H - 8) {
-          // Tia sáng quay quanh hộp mã giảm giá
           for (let k = 0; k < 4; k++) {
             const a = time / 320 + (Math.PI / 2) * k;
             const ox = Math.round(sx + Math.cos(a) * 8);
@@ -2872,23 +2569,19 @@
             ctx.fillStyle = k % 2 === 0 ? "#ffd56b" : "#ffffff";
             ctx.fillRect(ox, oy, 1, 1);
           }
-          // Vòng sáng nền nhấp nháy
           if (Math.floor(time / 180) % 2 === 0) {
             ctx.fillStyle = "rgba(255, 213, 107, 0.24)";
             ctx.fillRect(sx - 6, Math.round(sy - 6 + bob), 12, 12);
           }
-          // Hộp mã giảm giá chính
           ctx.fillStyle = item.color;
           ctx.fillRect(sx - 4, Math.round(sy - 4 + bob), 8, 8);
           ctx.fillStyle = "#fff";
           ctx.fillRect(sx - 1, Math.round(sy - 4 + bob), 2, 8);
           ctx.fillRect(sx - 4, Math.round(sy - 1 + bob), 8, 2);
-          // Nhãn % nhỏ bay phía trên
           ctx.font = "bold 6px monospace";
           ctx.fillStyle = "#ffd56b";
           ctx.fillText(`-${item.percent}%`, sx - 8, Math.round(sy - 7 + bob));
         } else {
-          // Mũi tên radar vàng chỉ hướng mã giảm giá ở viền khung
           const ax = Math.max(6, Math.min(VIEW_W - 6, sx));
           const ay = Math.max(6, Math.min(VIEW_H - 6, sy));
           if (Math.floor(time / 220) % 2 === 0) {
@@ -2920,16 +2613,13 @@
 
     function spawnMythicEffect(relic) {
       screenFlash = 0.28;
-      // Nổ hiệu ứng đặc biệt tùy theo từng bảo vật thần thoại
       if (relic.id === "nothan") {
-        // Bắn 8 mũi tên ánh sáng vàng tỏa ra
         for (let i = 0; i < 16; i++) {
           const ang = (Math.PI * 2 * i) / 16;
           sparkles.push({ wx: relic.wx, wy: relic.wy, vx: Math.cos(ang) * 78, vy: Math.sin(ang) * 78, life: 0.75, maxLife: 0.75, color: "#ffd56b", size: 2 });
         }
         shockwaves.push({ wx: relic.wx, wy: relic.wy, r: 3, maxR: 38, color: "#ffd56b" });
       } else if (relic.id === "guomthan") {
-        // Cột sáng gươm thần rực rỡ
         for (let i = 0; i < 24; i++) {
           sparkles.push({ wx: relic.wx + (Math.random() - 0.5) * 10, wy: relic.wy, vx: (Math.random() - 0.5) * 12, vy: -30 - Math.random() * 55, life: 0.8, maxLife: 0.8, color: i % 2 === 0 ? "#7ce8ff" : "#ffffff", size: 2 });
         }
@@ -2946,7 +2636,6 @@
       });
     }
 
-    // --- VÒNG LẶP GAME CHÍNH ---
     let lastTime = performance.now();
     let trailTimer = 0;
 
@@ -2966,7 +2655,6 @@
         const len = Math.hypot(dx, dy);
         dx /= len; dy /= len;
       } else if (autoPlay) {
-        // AI Tự chơi: Ưu tiên vật phẩm thần thoại rất gần, hoặc tìm mã giảm giá gần nhất
         let bestTarget = null;
         let bestDist = Infinity;
 
@@ -3011,9 +2699,10 @@
         player.walkTime += dt;
         player.x += dx * player.speed * dt;
         player.y += dy * player.speed * dt;
-        coordsPillEl.textContent = `Tọa độ: (${Math.round(player.x / 10)}, ${Math.round(player.y / 10)}) • Map vô hạn`;
+        if (coordsPillEl) {
+          coordsPillEl.textContent = `Tọa độ: (${Math.round(player.x / 10)}, ${Math.round(player.y / 10)}) • Map vô hạn`;
+        }
 
-        // Rải hạt hiệu ứng bước chân nếu đã ăn vật phẩm thần thoại
         trailTimer += dt;
         if (collectedMythics.size > 0 && trailTimer > 0.08) {
           trailTimer = 0;
@@ -3032,7 +2721,6 @@
         }
       }
 
-      // Kiểm tra nhặt Mã Giảm Giá
       for (let i = worldVouchers.length - 1; i >= 0; i--) {
         const item = worldVouchers[i];
         if (Math.hypot(player.x - item.wx, player.y - item.wy) < 12) {
@@ -3054,7 +2742,7 @@
             renderProducts();
           }
 
-          gameScoreEl.textContent = unlockedVouchers.length;
+          if (gameScoreEl) gameScoreEl.textContent = unlockedVouchers.length;
           if (unlockedVouchers.length >= MAX_VOUCHERS) {
             showPickupBanner("🎉 Đã săn đủ tối đa 20/20 mã giảm giá!");
             showToast("🏆 Tuyệt vời! Bạn đã sưu tầm đủ 20/20 mã giảm giá Lạc Xuân!");
@@ -3066,7 +2754,6 @@
         }
       }
 
-      // Kiểm tra nhặt Vật Phẩm Thần Thoại (chỉ tạo hiệu ứng đẹp, KHÔNG nhận mã)
       for (let i = worldRelics.length - 1; i >= 0; i--) {
         const relic = worldRelics[i];
         if (Math.hypot(player.x - relic.wx, player.y - relic.wy) < 12) {
@@ -3080,7 +2767,6 @@
         }
       }
 
-      // Camera bám nhân vật ở tâm (HALF_W, HALF_H)
       const camX = player.x - HALF_W;
       const camY = player.y - HALF_H;
 
@@ -3090,7 +2776,6 @@
       const bobY = player.moving ? Math.sin(player.walkTime * 16) * 1.4 : Math.sin(now / 450) * 0.5;
       drawDragonPixel(HALF_W, HALF_H, bobY, now);
 
-      // Vẽ sóng xung kích mở rộng
       for (let i = shockwaves.length - 1; i >= 0; i--) {
         const sw = shockwaves[i];
         sw.r += 48 * dt;
@@ -3100,7 +2785,6 @@
         ctx.strokeRect(Math.round(sw.wx - camX - sw.r), Math.round(sw.wy - camY - sw.r * 0.7), Math.round(sw.r * 2), Math.round(sw.r * 1.4));
       }
 
-      // Vẽ pháo hoa pixel
       for (let i = sparkles.length - 1; i >= 0; i--) {
         const s = sparkles[i];
         s.wx += s.vx * dt;
@@ -3111,7 +2795,6 @@
         ctx.fillRect(Math.round(s.wx - camX), Math.round(s.wy - camY), s.size, s.size);
       }
 
-      // Vẽ chữ bay trực tiếp trên bản đồ
       ctx.font = "bold 7px monospace";
       for (let i = floatingTexts.length - 1; i >= 0; i--) {
         const ft = floatingTexts[i];
@@ -3126,7 +2809,6 @@
         ctx.fillText(ft.text, tx, ty);
       }
 
-      // Hiệu ứng chớp sáng nhẹ khi nhặt vật phẩm
       if (screenFlash > 0) {
         ctx.fillStyle = `rgba(255, 224, 130, ${screenFlash})`;
         ctx.fillRect(0, 0, VIEW_W, VIEW_H);
@@ -3139,15 +2821,19 @@
 
     function setAutoPlay(state) {
       autoPlay = state;
-      autoPlayBtn.classList.toggle("active", autoPlay);
-      autoPlayBtn.textContent = autoPlay ? "🤖 Tự chơi: Bật" : "🤖 Tự chơi: Tắt";
+      if (autoPlayBtn) {
+        autoPlayBtn.classList.toggle("active", autoPlay);
+        autoPlayBtn.textContent = autoPlay ? "🤖 Tự chơi: Bật" : "🤖 Tự chơi: Tắt";
+      }
       if (autoPlay) initAudio();
     }
 
-    autoPlayBtn.addEventListener("click", () => {
-      setAutoPlay(!autoPlay);
-      showToast(autoPlay ? "🤖 Rồng Lạc Xuân đang tự động khám phá rừng đêm!" : "Đã tắt chế độ tự chơi.");
-    });
+    if (autoPlayBtn) {
+      autoPlayBtn.addEventListener("click", () => {
+        setAutoPlay(!autoPlay);
+        showToast(autoPlay ? "🤖 Rồng Lạc Xuân đang tự động khám phá rừng đêm!" : "Đã tắt chế độ tự chơi.");
+      });
+    }
 
     window.addEventListener("keydown", (e) => {
       if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.code)) {
@@ -3185,14 +2871,17 @@
       btn.addEventListener("pointercancel", release);
     });
 
-    document.getElementById("center-btn").addEventListener("click", () => {
-      initAudio();
-      player.x = 12;
-      player.y = 12;
-      moveTarget = null;
-      coordsPillEl.textContent = "Tọa độ: (1, 1) • Lửa trại khởi đầu";
-      playTone(520, 0.09, "triangle", 0.25);
-    });
+    const centerBtn = document.getElementById("center-btn");
+    if (centerBtn) {
+      centerBtn.addEventListener("click", () => {
+        initAudio();
+        player.x = 12;
+        player.y = 12;
+        moveTarget = null;
+        if (coordsPillEl) coordsPillEl.textContent = "Tọa độ: (1, 1) • Lửa trại khởi đầu";
+        playTone(520, 0.09, "triangle", 0.25);
+      });
+    }
   </script>
 </body>
 </html>

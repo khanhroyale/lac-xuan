@@ -382,6 +382,73 @@
     }
     .pickup-banner.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
+    /* ===== NÚT PHÓNG TO / TOÀN MÀN HÌNH CHO GAME ===== */
+    .game-fs-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 6;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 12px;
+      border-radius: 999px;
+      border: 1.5px solid var(--gold);
+      background: rgba(18, 4, 6, 0.82);
+      color: var(--gold);
+      font: 800 12.5px/1 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.55);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .game-fs-btn:hover { background: rgba(60, 12, 18, 0.92); }
+
+    .fs-rotate-hint { display: none; }
+
+    .pixel-widget.is-fs {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: #000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+    }
+    .pixel-widget.is-fs .canvas-frame {
+      width: min(100vw, calc(100vh * 384 / 168));
+      width: min(100vw, calc(100dvh * 384 / 168));
+      aspect-ratio: 384 / 168;
+      max-height: none;
+      border-radius: 0;
+      border: 0;
+      touch-action: none;
+    }
+    .pixel-widget.is-fs .game-fs-btn {
+      top: max(10px, env(safe-area-inset-top));
+      right: max(10px, env(safe-area-inset-right));
+    }
+    @media (orientation: portrait) {
+      .pixel-widget.is-fs .fs-rotate-hint {
+        display: block;
+        color: var(--gold);
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center;
+        padding: 0 16px;
+        opacity: 0.9;
+      }
+    }
+    body.game-fs-lock { overflow: hidden; }
+
     /* ================= MARKETPLACE ================= */
     .marketplace {
       max-width: 1220px;
@@ -977,7 +1044,9 @@
         <div class="canvas-frame">
           <canvas id="pixel-canvas" width="384" height="168"></canvas>
           <div class="pickup-banner" id="pickup-banner"></div>
+          <button type="button" class="game-fs-btn" id="game-fs-btn" aria-label="Phóng to game">⛶ Phóng to</button>
         </div>
+        <div class="fs-rotate-hint">📱 Xoay ngang điện thoại để chơi rộng hơn</div>
       </div>
     </div>
   </section>
@@ -2882,6 +2951,75 @@
         playTone(520, 0.09, "triangle", 0.25);
       });
     }
+
+    // --- NÚT PHÓNG TO GAME (TOÀN MÀN HÌNH, HỖ TRỢ CẢ ĐIỆN THOẠI) ---
+    (function setupGameFullscreen() {
+      const fsBtn = document.getElementById("game-fs-btn");
+      if (!fsBtn || !pixelWidget) return;
+
+      const nativeEl = () => document.fullscreenElement || document.webkitFullscreenElement || null;
+      let isFs = false;
+
+      function applyFsState(on) {
+        isFs = on;
+        pixelWidget.classList.toggle("is-fs", on);
+        document.body.classList.toggle("game-fs-lock", on);
+        fsBtn.textContent = on ? "✕ Thu nhỏ" : "⛶ Phóng to";
+        fsBtn.setAttribute("aria-label", on ? "Thu nhỏ game" : "Phóng to game");
+      }
+
+      function enterFs() {
+        applyFsState(true);
+        const req = pixelWidget.requestFullscreen || pixelWidget.webkitRequestFullscreen;
+        if (req) {
+          try {
+            const p = req.call(pixelWidget);
+            if (p && typeof p.then === "function") {
+              p.then(() => {
+                try {
+                  if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock("landscape").catch(() => {});
+                  }
+                } catch (err) {}
+              }).catch(() => {});
+            }
+          } catch (err) {}
+        }
+        pixelWidget.focus();
+      }
+
+      function exitFs() {
+        applyFsState(false);
+        if (nativeEl()) {
+          const ex = document.exitFullscreen || document.webkitExitFullscreen;
+          try {
+            const p = ex && ex.call(document);
+            if (p && typeof p.catch === "function") p.catch(() => {});
+          } catch (err) {}
+        }
+        try {
+          if (screen.orientation && screen.orientation.unlock) screen.orientation.unlock();
+        } catch (err) {}
+      }
+
+      fsBtn.addEventListener("pointerdown", (e) => e.stopPropagation());
+      fsBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        initAudio();
+        if (isFs) exitFs(); else enterFs();
+      });
+
+      const onNativeChange = () => {
+        if (!nativeEl() && isFs) applyFsState(false);
+      };
+      document.addEventListener("fullscreenchange", onNativeChange);
+      document.addEventListener("webkitfullscreenchange", onNativeChange);
+
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isFs && !nativeEl()) exitFs();
+      });
+    })();
   </script>
 </body>
 </html>
